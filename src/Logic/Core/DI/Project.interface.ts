@@ -10,15 +10,17 @@ export namespace ProjectInterface {
 		Links: InfrastructureLinks;
 	};
 
-	//type TDI<M> = Record<keyof M, M[keyof M]>
 	type TDI<M> = <T extends keyof M>(key: T) => M[T];
 
 	export type TServices = TDI<TModuleService>;
 	export type TInfrastructure = TDI<TModuleInf>;
 
-	export type TDIModules = {
-		services: TServices;
-		infrastructure: TInfrastructure;
+
+	type InvokeOf<T> = T extends { invoke: infer I } ? I : never;
+
+	export type ActType<T> = {
+		[K in keyof T]: InvokeOf<T[K]>;
 	};
+
 }
 

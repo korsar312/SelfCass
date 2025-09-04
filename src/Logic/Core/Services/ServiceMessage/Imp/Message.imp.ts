@@ -14,6 +14,7 @@ class MessageImp extends ServiceBase<MessageInterface.Store> implements MessageI
 
 		if (arrReplace?.length) text = getText(text, arrReplace);
 
+		this.API.Links.request();
 		return text;
 	}
 }

@@ -5,6 +5,7 @@ export interface IServiceProps {
 	infrastructure: ProjectInterface.TInfrastructure;
 }
 
+
 class ServiceBase<S extends object> {
 	private readonly _infrastructure: ProjectInterface.TInfrastructure;
 	private _store: S;
@@ -22,7 +23,7 @@ class ServiceBase<S extends object> {
 	set store(newStore: S) {
 		if (JSON.stringify(this._store) !== JSON.stringify(newStore)) {
 			runInAction(() => {
-				this._store = newStore; // экшн
+				this._store = newStore; // экшен
 			});
 		}
 	}
@@ -31,9 +32,10 @@ class ServiceBase<S extends object> {
 		return this._store;
 	}
 
-	get API(): ProjectInterface.TInfrastructure {
-		return this._infrastructure;
-	}
+	public API = new Proxy({} as ProjectInterface.ActType<ProjectInterface.TModuleInf>, {
+		get: (_, prop: keyof ProjectInterface.TModuleInf) => this._infrastructure(prop).invoke
+	});
+
 }
 
 export default ServiceBase;

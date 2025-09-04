@@ -1,12 +1,10 @@
 import { throwFn } from "../Utils";
 
 class ServiceProxy<T extends object> {
-	protected readonly imp: T;
 	public readonly invoke: T;
 
 	constructor(implement: T) {
-		this.imp = implement;
-		this.invoke = this.createInvoker(this.imp);
+		this.invoke = this.createInvoker(implement);
 	}
 
 	private createInvoker<T extends object>(target: T): T {
@@ -22,4 +20,9 @@ class ServiceProxy<T extends object> {
 	}
 }
 
+
 export default ServiceProxy;
+
+
+
+
