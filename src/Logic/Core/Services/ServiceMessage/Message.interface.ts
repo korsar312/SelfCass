@@ -4,7 +4,6 @@ export namespace MessageInterface {
 	}
 
 	export interface Store {
-
 	}
 
 	export type EWord = keyof typeof Word;

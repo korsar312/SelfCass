@@ -1,5 +1,4 @@
-import type { MessageInterface } from "./Message.interface.ts";
+import type { MessageInterface as Interface } from "./Message.interface.ts";
 import Service from "../Service.ts";
 
-export class ServiceMessage extends Service<MessageInterface.IAdapter> {
-}
+export class ServiceMessage extends Service<Interface.IAdapter> {}

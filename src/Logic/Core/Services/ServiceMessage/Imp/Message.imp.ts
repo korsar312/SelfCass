@@ -1,20 +1,19 @@
-import Dictionary from "./Dictionary";
-import type { MessageInterface } from "../Message.interface.ts";
+import { type MessageInterface as Interface } from "../Message.interface.ts";
 import ServiceBase, { type IServiceProps } from "../../Service.base.ts";
 
-class MessageImp extends ServiceBase<MessageInterface.Store> implements MessageInterface.IAdapter {
-	private readonly dictionary = Dictionary;
+class MessageImp extends ServiceBase<Interface.Store> implements Interface.IAdapter {
+	private readonly dictionary: Interface.TDictionary;
 
-	constructor(props: IServiceProps) {
+	constructor(props: IServiceProps, dictionary: Interface.TDictionary) {
 		super(props, {});
+		this.dictionary = dictionary;
 	}
 
-	public getWord(word: MessageInterface.EWord, lang: MessageInterface.ELang, arrReplace?: string[]) {
+	public getWord(word: Interface.EWord, lang: Interface.ELang, arrReplace?: string[]) {
 		let text = this.dictionary[word][lang];
 
 		if (arrReplace?.length) text = getText(text, arrReplace);
 
-		this.API.Links.request();
 		return text;
 	}
 }

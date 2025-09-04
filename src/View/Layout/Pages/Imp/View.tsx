@@ -7,9 +7,7 @@ const View: NFC<typeof Model> = (props) => {
 
 	const asd = Act.Message.getWord("DAY_US_USDT", "RU", ["рас", "два", "три"]);
 
-	return <div>
-		{asd}
-	</div>;
+	return <div>{asd}</div>;
 };
 
 export default View;

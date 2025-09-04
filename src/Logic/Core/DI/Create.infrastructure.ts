@@ -11,5 +11,5 @@ const Infrastructure = new DI<ProjectInterface.TModuleInf>();
 Infrastructure.use("Links", links);
 
 
-export default Infrastructure;
+export default Infrastructure.get;
 
