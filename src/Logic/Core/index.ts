@@ -1,34 +1,16 @@
-import LinksImp from "./Infrastructure/InfrastructureLinks/Imp/Links.imp.ts";
-import { InfrastructureLinks } from "./Infrastructure/InfrastructureLinks";
-import DI from "./DI/DI.ts";
 import type { ProjectInterface } from "./DI/Project.interface.ts";
-import MessageImp from "./Services/ServiceMessage/Imp/Message.imp.ts";
-import { ServiceMessage } from "./Services/ServiceMessage";
+import service from "./DI/Create.services.ts";
+
+type InvokeOf<T> = T extends { invoke: infer I } ? I : never;
+
+type ActType = {
+	[K in keyof ProjectInterface.TModuleService]: InvokeOf<ProjectInterface.TModuleService[K]>;
+};
 
 
-/**
- * Интеграция АПИ
- */
-const linksImps = new LinksImp();
-const links = new InfrastructureLinks(linksImps);
-
-const Infrastructure = new DI<ProjectInterface.TModuleInf>();
-
-Infrastructure.use("Links", links);
-const API = Infrastructure.get;
+export const Act: ActType = new Proxy({} as ActType, {
+	get: (_, prop: keyof ProjectInterface.TModuleService) => service(prop).invoke
+});
 
 
-/**
- * Интеграция модулей
- */
-const messageImp = new MessageImp({ infrastructure: API });
-const message = new ServiceMessage(messageImp);
 
-const service = new DI<ProjectInterface.TModuleService>();
-
-service.use("Message", message);
-const modeles = service.get;
-
-export const Act = modeles;
-
-//("Message").invoke.getWord("DAY_US_USDT", "RU");

@@ -6,9 +6,8 @@ import type { ProjectInterface } from "./Project.interface.ts";
 const linksImps = new LinksImp();
 const links = new InfrastructureLinks(linksImps);
 
-
 const Infrastructure = new DI<ProjectInterface.TModuleInf>();
 
 Infrastructure.use("Links", links);
 
-export default Infrastructure;
+export default Infrastructure.get;

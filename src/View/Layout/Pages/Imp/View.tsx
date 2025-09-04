@@ -5,7 +5,7 @@ import { Act } from "../../../../Logic/Core";
 const View: NFC<typeof Model> = (props) => {
 	const {} = props;
 
-	const asd = Act("Message").invoke.getWord("DAY_US_USDT", "RU", ["рас", "два", "три"]);
+	const asd = Act.Message.getWord("DAY_US_USDT", "RU", ["рас", "два", "три"]);
 
 	return <div>
 		{asd}
