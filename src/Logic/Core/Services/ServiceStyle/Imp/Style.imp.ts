@@ -53,8 +53,10 @@ class StyleImp extends ServiceBase<Interface.Store> implements Interface.IAdapte
 
 	//==============================================================================================
 
-	getColor(theme: Interface.ETheme, color?: Interface.TColorChoice, opacity: number = 1): string {
+	getColor(color?: Interface.TColorChoice, opacity: number = 1): string {
 		if (color === undefined) return "null";
+
+		const theme = this.getCurrentTheme(this.store);
 		const hex = this.getHexColor(this.store, theme, color);
 
 		return this.hex2rgba(hex, opacity);

@@ -12,6 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@material-icons/svg": "^1.0.33",
     "material-icons": "^1.13.14",
     "mobx": "^6.13.7",
     "mobx-react": "^9.2.0",
@@ -32,6 +33,7 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2",
-    "vite-plugin-checker": "^0.10.3"
+    "vite-plugin-checker": "^0.10.3",
+    "vite-plugin-svgr": "^4.5.0"
   }
 }

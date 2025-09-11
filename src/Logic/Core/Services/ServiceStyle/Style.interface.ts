@@ -2,7 +2,7 @@ import type { CSSObject } from "@emotion/react";
 
 export namespace StyleInterface {
 	export interface IAdapter {
-		getColor(theme: ETheme, color?: TColorChoice, opacity?: number): string;
+		getColor(color?: TColorChoice, opacity?: number): string;
 		getFont(font: EFont): CSSObject;
 		getTheme(): ETheme;
 	}

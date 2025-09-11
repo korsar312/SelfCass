@@ -7,8 +7,8 @@ export const Path: RouterInterface.TPath = {
 	MENU: "menu",
 };
 
-const ChoiceMenu = lazy(() => import("./../../../View/Page/ChoiceMenu"));
-const Menu = lazy(() => import("./../../../View/Page/Menu"));
+const ChoiceMenu = lazy(() => import("./../../../View/Page/PageChoiceMenu"));
+const Menu = lazy(() => import("./../../../View/Page/PageMenu"));
 
 export const Routes: RouterInterface.TRouter = createBrowserRouter([
 	{

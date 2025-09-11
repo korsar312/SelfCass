@@ -3,12 +3,14 @@ import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 
 const View: NFC<typeof Model> = (props) => {
-	const { handleSubmit, children } = props;
+	const { children, refDialog, close, isShow } = props;
+
+	[close, isShow];
 
 	return (
-		<form css={Style.wrapper} onSubmit={handleSubmit}>
+		<dialog ref={refDialog} css={Style.wrapper}>
 			{children}
-		</form>
+		</dialog>
 	);
 };
 
