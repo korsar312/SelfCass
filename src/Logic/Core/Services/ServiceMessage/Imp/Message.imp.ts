@@ -4,10 +4,14 @@ import ServiceBase, { type IServiceProps } from "../../Service.base.ts";
 class MessageImp extends ServiceBase<Interface.Store> implements Interface.IAdapter {
 	private readonly dictionary: Interface.TDictionary;
 
+	//==============================================================================================
+
 	constructor(props: IServiceProps, dictionary: Interface.TDictionary) {
 		super(props, {});
 		this.dictionary = dictionary;
 	}
+
+	//==============================================================================================
 
 	public getWord(word: Interface.EWord, lang: Interface.ELang, arrReplace?: string[]) {
 		let text = this.dictionary[word][lang];
