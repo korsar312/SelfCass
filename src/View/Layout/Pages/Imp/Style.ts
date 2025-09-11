@@ -1,4 +1,4 @@
-import Styles from "../../../../../Styles/Styles.ts";
+import Styles from "../../../../Styles/Styles.ts";
 
 class Style extends Styles {
 	public wrapper = {};

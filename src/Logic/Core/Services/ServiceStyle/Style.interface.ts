@@ -4,6 +4,7 @@ export namespace StyleInterface {
 	export interface IAdapter {
 		getColor(theme: ETheme, color?: TColorChoice, opacity?: number): string;
 		getFont(font: EFont): CSSObject;
+		getTheme(): ETheme;
 	}
 
 	export interface Store {
@@ -13,6 +14,7 @@ export namespace StyleInterface {
 			fontList: TFontList;
 			weightList: TWeightList;
 		};
+		theme: ETheme;
 	}
 
 	export type EFont = keyof typeof FontToken;

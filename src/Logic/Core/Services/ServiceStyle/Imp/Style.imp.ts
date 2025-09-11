@@ -34,10 +34,21 @@ class StyleImp extends ServiceBase<Interface.Store> implements Interface.IAdapte
 		return { ...this.store, font };
 	}
 
+	private getCurrentTheme(store: Interface.Store): Interface.ETheme {
+		return store.theme;
+	}
+
 	//==============================================================================================
 
-	constructor(props: IServiceProps, colors: Interface.TColor, fontList: Interface.TFontList, weightList: Interface.TWeightList) {
-		super(props, { color: colors, font: {}, fontProp: { fontList, weightList } });
+	constructor(props: IServiceProps, color: Interface.TColor, fontList: Interface.TFontList, weightList: Interface.TWeightList) {
+		const store: Interface.Store = {
+			color,
+			font: {},
+			fontProp: { fontList, weightList },
+			theme: "LIGHT",
+		};
+
+		super(props, store);
 	}
 
 	//==============================================================================================
@@ -57,6 +68,10 @@ class StyleImp extends ServiceBase<Interface.Store> implements Interface.IAdapte
 		this.store = this.saveNewFontObj(font, newFont);
 
 		return newFont;
+	}
+
+	getTheme(): Interface.ETheme {
+		return this.getCurrentTheme(this.store);
 	}
 }
 

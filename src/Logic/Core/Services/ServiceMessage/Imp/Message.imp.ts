@@ -2,19 +2,18 @@ import { type MessageInterface as Interface } from "../Message.interface.ts";
 import ServiceBase, { type IServiceProps } from "../../Service.base.ts";
 
 class MessageImp extends ServiceBase<Interface.Store> implements Interface.IAdapter {
-	private readonly dictionary: Interface.TDictionary;
-
 	//==============================================================================================
 
 	constructor(props: IServiceProps, dictionary: Interface.TDictionary) {
-		super(props, {});
-		this.dictionary = dictionary;
+		const store: Interface.Store = { dictionary };
+
+		super(props, store);
 	}
 
 	//==============================================================================================
 
 	public getWord(word: Interface.EWord, lang: Interface.ELang, arrReplace?: string[]) {
-		let text = this.dictionary[word][lang];
+		let text = this.store.dictionary[word][lang];
 
 		if (arrReplace?.length) text = getText(text, arrReplace);
 

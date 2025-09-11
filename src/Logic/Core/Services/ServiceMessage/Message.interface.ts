@@ -4,6 +4,7 @@ export namespace MessageInterface {
 	}
 
 	export interface Store {
+		dictionary: TDictionary;
 	}
 
 	export type EWord = keyof typeof Word;
@@ -13,12 +14,10 @@ export namespace MessageInterface {
 	type TMapWord = Record<ELang, string>;
 }
 
-
 const Word = {
-	DAY_US_USDT: "DAY_US_USDT"
+	DAY_US_USDT: "DAY_US_USDT",
 } as const;
 
 const Lang = {
-	RU: "RU"
+	RU: "RU",
 } as const;
-
