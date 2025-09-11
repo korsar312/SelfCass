@@ -1,6 +1,6 @@
-import type { IComponent } from "../index";
+import type { TComponent } from "../index";
 
-function Model(props: IComponent) {
+function Model(props: TComponent) {
 	const {} = props;
 
 	return {};
