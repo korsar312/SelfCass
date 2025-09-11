@@ -1,4 +1,4 @@
-import type { StyleInterface } from "../Core/Services/ServiceStyle/Style.interface.ts";
+import type { StyleInterface } from "../../Core/Services/ServiceStyle/Style.interface.ts";
 
 export const Fonts: StyleInterface.TFontList = {
 	H3: "M_12",

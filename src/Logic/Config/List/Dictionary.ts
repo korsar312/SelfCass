@@ -1,4 +1,4 @@
-import type { MessageInterface } from "../Core/Services/ServiceMessage/Message.interface.ts";
+import type { MessageInterface } from "../../Core/Services/ServiceMessage/Message.interface.ts";
 
 const Dictionary: MessageInterface.TDictionary = {
 	DAY_US_USDT: {

@@ -1,14 +1,15 @@
 import type Model from "./Model.ts";
 import type { NFC } from "./../../../../Logic/Libs/Util/TypesUtils";
 import { Act } from "../../../../Logic/Core";
-import { RouterProvider } from "react-router/dom";
 
 const View: NFC<typeof Model> = (props) => {
 	const {} = props;
 
-	const router = Act.Router.getRoute();
+	function as() {
+		Act.Router.goTo("HOME");
+	}
 
-	return <RouterProvider router={router} />;
+	return <div onClick={as}>321</div>;
 };
 
 export default View;

@@ -17,14 +17,14 @@ export namespace StyleInterface {
 		theme: ETheme;
 	}
 
-	export type EFont = keyof typeof FontToken;
+	export type EFont = keyof typeof Font;
 
-	export type EWeight = keyof typeof WeightToken;
-	export type TWeightList = Record<StyleInterface.EWeight, number>;
+	export type EWeight = keyof typeof Weight;
+	export type TWeightList = Record<EWeight, number>;
 
 	export type TFont = Record<EFont, CSSObject>;
 	export type TFontToken = `${EWeight}_${number}`;
-	export type TFontList = Record<StyleInterface.EFont, StyleInterface.TFontToken>;
+	export type TFontList = Record<EFont, TFontToken>;
 
 	export type EColor = keyof typeof Color;
 	export type ETheme = keyof typeof Theme;
@@ -37,13 +37,13 @@ export namespace StyleInterface {
 	export type TColorChoice = EColor | undefined;
 }
 
-const FontToken = {
+const Font = {
 	H3: "H3",
 	H2: "H2",
 	Subtitle: "Subtitle",
 } as const;
 
-const WeightToken = {
+const Weight = {
 	B: "B",
 	S: "S",
 	M: "M",

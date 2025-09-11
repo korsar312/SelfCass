@@ -1,6 +1,7 @@
 import { InfrastructureLinks } from "../Infrastructure/InfrastructureLinks";
 import { ServiceMessage } from "../Services/ServiceMessage";
 import { ServiceStyle } from "../Services/ServiceStyle";
+import { ServiceRouter } from "../Services/ServiceRouter";
 
 export namespace ProjectInterface {
 	export type TModuleInf = {
@@ -10,6 +11,7 @@ export namespace ProjectInterface {
 	export type TModuleService = {
 		Message: ServiceMessage;
 		Style: ServiceStyle;
+		Router: ServiceRouter;
 	};
 
 	type TDI<M> = <T extends keyof M>(key: T) => M[T];
