@@ -1,6 +1,6 @@
 import type { LinksInterface } from "../../Core/Infrastructure/InfrastructureLinks/Links.interface.ts";
 
-export const Links: LinksInterface.ELinksList = {
+export const Links: LinksInterface.TLinksList = {
 	GET_PAYMENT_QR: "",
 	GET_PAYMENT_STATUS: "",
 	CANCEL_PAYMENT: "",
