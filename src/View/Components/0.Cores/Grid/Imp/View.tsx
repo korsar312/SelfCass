@@ -3,9 +3,11 @@ import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 
 const View: NFC<typeof Model> = (props) => {
-	const {} = props;
+	const { children, xs, sm, md, item } = props;
 
-	return <div css={Style.wrapper}></div>;
+	const css = item ? Style.itemGrid({ xs, sm, md }) : Style.containerGrid();
+
+	return <div css={css}>{children}</div>;
 };
 
 export default View;

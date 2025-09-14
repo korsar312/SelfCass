@@ -3,7 +3,7 @@ import type { TComponent } from "../index";
 function Model(props: TComponent) {
 	const {} = props;
 
-	return {};
+	return { ...props };
 }
 
 export default Model;

@@ -6,11 +6,15 @@ import vitePluginSvgr from "vite-plugin-svgr";
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [
-		react({}),
+		react({
+			jsxImportSource: "@emotion/react",
+			plugins: [["@swc/plugin-emotion", { sourceMap: true, autoLabel: "dev-only", labelFormat: "[local]" }]],
+		}),
 		checker({
 			overlay: { initialIsOpen: true },
 			typescript: { buildMode: true },
 		}),
+
 		vitePluginSvgr(),
 	],
 });
