@@ -2,7 +2,7 @@ import type Model from "./Model.ts";
 import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 import type { ReactElement } from "react";
-import { type TMoleculeFormSchemaField, type TMoleculeFormSchemaRow } from "../index.tsx";
+import type { TMoleculeFormSchemaField, TMoleculeFormSchemaRow } from "../index.tsx";
 import Form from "../../../0.Cores/Form";
 import Text from "../../../0.Cores/Text";
 import Paper from "../../../0.Cores/Paper";

@@ -1,4 +1,5 @@
-import { type LinksInterface as Interface } from "../Links.interface";
+import type { LinksInterface as Interface } from "../Links.interface";
+import type { SettingInterface } from "../../../Services/ServiceSetting/Setting.interface.ts";
 
 class LinksImp implements Interface.IAdapter {
 	private readonly links: Interface.TLinksList;
@@ -43,7 +44,8 @@ class LinksImp implements Interface.IAdapter {
 		return this.request<string>({ link: "LOGOFF", method: "GET" }, "ссылка");
 	}
 	public GET_BUSINESS_INFO() {
-		return this.request<string>({ link: "GET_BUSINESS_INFO", method: "GET" }, "ссылка");
+		const res: SettingInterface.TBusinessInfo = { logoPath: "/logo.png", name: "Попарим" };
+		return this.request<SettingInterface.TBusinessInfo>({ link: "GET_BUSINESS_INFO", method: "GET" }, res);
 	}
 	public SEND_ORDER() {
 		return this.request<string>({ link: "SEND_ORDER", method: "GET" }, "ссылка");

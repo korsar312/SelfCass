@@ -1,4 +1,4 @@
-import { type StyleInterface as Interface } from "../Style.interface.ts";
+import type { StyleInterface as Interface } from "../Style.interface.ts";
 import ServiceBase, { type IServiceProps } from "../../Service.base.ts";
 import type { CSSObject } from "@emotion/react";
 

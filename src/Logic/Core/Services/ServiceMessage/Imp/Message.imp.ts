@@ -1,4 +1,4 @@
-import { type MessageInterface as Interface } from "../Message.interface.ts";
+import type { MessageInterface as Interface } from "../Message.interface.ts";
 import ServiceBase, { type IServiceProps } from "../../Service.base.ts";
 
 class MessageImp extends ServiceBase<Interface.Store> implements Interface.IAdapter {

@@ -1,6 +1,6 @@
-import { type RouterInterface as Interface } from "../Router.interface.ts";
+import type { RouterInterface as Interface } from "../Router.interface.ts";
 import ServiceBase, { type IServiceProps } from "../../Service.base.ts";
-import { type NavigateOptions } from "react-router";
+import type { NavigateOptions } from "react-router";
 
 class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapter {
 	private go(navFn: Interface.TRouterFn, path: Interface.TPath, page: Interface.EPath, options?: NavigateOptions) {

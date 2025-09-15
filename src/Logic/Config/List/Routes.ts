@@ -1,4 +1,4 @@
-import { type RouterInterface } from "../../Core/Services/ServiceRouter/Router.interface.ts";
+import type { RouterInterface } from "../../Core/Services/ServiceRouter/Router.interface.ts";
 import { createBrowserRouter } from "react-router";
 import { lazy } from "react";
 
