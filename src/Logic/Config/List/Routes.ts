@@ -2,21 +2,37 @@ import type { RouterInterface } from "../../Core/Services/ServiceRouter/Router.i
 import { createBrowserRouter } from "react-router";
 import { lazy } from "react";
 
+const cassPath = "admin/";
+const admPath = "cass/";
+
 export const Path: RouterInterface.TPath = {
-	HOME: "/",
-	MENU: "menu",
+	ADM_LOGIN: `${admPath}login`,
+	CASS_LOGIN: `${cassPath}login`,
+	CASS_CHOICE_MENU: `${cassPath}menu`,
+	CASS_MENU: `${cassPath}`,
 };
 
-const ChoiceMenu = lazy(() => import("./../../../View/Page/PageChoiceMenu"));
-const Menu = lazy(() => import("./../../../View/Page/PageMenu"));
+const AdmLogin = lazy(() => import("./../../../View/Page/Adm/AdmLogin"));
+
+const CassLogin = lazy(() => import("./../../../View/Page/Cass/CassLogin"));
+const CassChoiceMenu = lazy(() => import("./../../../View/Page/Cass/CassChoiceMenu"));
+const CassMenu = lazy(() => import("./../../../View/Page/Cass/CassMenu"));
 
 export const Routes: RouterInterface.TRouter = createBrowserRouter([
 	{
-		path: Path.HOME,
-		Component: ChoiceMenu,
+		path: Path.ADM_LOGIN,
+		Component: AdmLogin,
 	},
 	{
-		path: Path.MENU,
-		Component: Menu,
+		path: Path.CASS_LOGIN,
+		Component: CassLogin,
+	},
+	{
+		path: Path.CASS_CHOICE_MENU,
+		Component: CassChoiceMenu,
+	},
+	{
+		path: Path.CASS_MENU,
+		Component: CassMenu,
 	},
 ]);

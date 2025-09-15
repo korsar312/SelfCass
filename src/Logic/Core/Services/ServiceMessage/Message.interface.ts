@@ -13,7 +13,6 @@ export namespace MessageInterface {
 	export type ECase = keyof typeof Case;
 
 	type TMapWord = Record<ELang, string>;
-
 	export type TDictionary = Record<EWord, TMapWord>;
 	export type EWordAll = EWord | string | undefined;
 

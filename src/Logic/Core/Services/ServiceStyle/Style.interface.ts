@@ -22,8 +22,8 @@ export namespace StyleInterface {
 	export type EWeight = keyof typeof Weight;
 	export type TWeightList = Record<EWeight, number>;
 
-	export type TFont = Record<EFont, CSSObject>;
-	export type TFontToken = `${EWeight}_${number}`;
+	type TFont = Record<EFont, CSSObject>;
+	type TFontToken = `${EWeight}_${number}`;
 	export type TFontList = Record<EFont, TFontToken>;
 
 	export type EColor = keyof typeof Color;

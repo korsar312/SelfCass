@@ -1,13 +1,13 @@
 import type Model from "./Model.ts";
-import type { NFC } from "./../../../../Logic/Libs/Util/TypesUtils";
-import { Act } from "../../../../Logic/Core";
-import Grid from "../../../Components/0.Cores/Grid";
+import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
+import { Act } from "../../../../../Logic/Core";
+import Grid from "../../../../Components/0.Cores/Grid";
 
 const View: NFC<typeof Model> = (props) => {
 	const {} = props;
 
 	function as() {
-		Act.Router.goTo("MENU");
+		Act.Router.goTo("CASS_LOGIN");
 	}
 
 	return (
