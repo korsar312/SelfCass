@@ -21,8 +21,8 @@ class LinksImp implements Interface.IAdapter {
 	public GET_PAYMENT_QR() {
 		return this.request<string>({ link: "GET_PAYMENT_QR", method: "GET" }, "ссылка");
 	}
-	public GET_PAYMENT_STATUS() {
-		return this.request<string>({ link: "GET_PAYMENT_STATUS", method: "GET" }, "ссылка");
+	public GET_PAYMENT_STATUS(id: string) {
+		return this.request<boolean>({ link: "GET_PAYMENT_STATUS", method: "GET", param: { id: id } }, true);
 	}
 	public CANCEL_PAYMENT() {
 		return this.request<string>({ link: "CANCEL_PAYMENT", method: "GET" }, "ссылка");

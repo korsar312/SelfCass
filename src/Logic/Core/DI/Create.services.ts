@@ -11,20 +11,46 @@ import { Fonts, Weights } from "../../Config/List/Fonts.ts";
 import RouterImp from "../Services/ServiceRouter/Imp/Router.imp.ts";
 import { ServiceRouter } from "../Services/ServiceRouter";
 import { Path, Routes } from "../../Config/List/Routes.ts";
+import BasketImp from "../Services/ServiceBasket/Imp/Basket.imp.ts";
+import { ServiceBasket } from "../Services/ServiceBasket";
+import SettingImp from "../Services/ServiceSetting/Imp/Setting.imp.ts";
+import PaymentImp from "../Services/ServicePayment/Imp/Payment.imp.ts";
+import { ServicePayment } from "../Services/ServicePayment";
+import { ServiceOrder } from "../Services/ServiceOrder";
+import OrderImp from "../Services/ServiceOrder/Imp/Order.imp.ts";
+import type { IServiceProps } from "../Services/Service.base.ts";
 
-const messageImp = new MessageImp({ infrastructure: Infrastructure }, Dictionary);
+const inf: IServiceProps = { infrastructure: Infrastructure };
+
+const messageImp = new MessageImp(inf, Dictionary);
 const message = new ServiceMessage(messageImp);
 
-const styleImp = new StyleImp({ infrastructure: Infrastructure }, Colors, Fonts, Weights);
+const styleImp = new StyleImp(inf, Colors, Fonts, Weights);
 const style = new ServiceStyle(styleImp);
 
-const routerImp = new RouterImp({ infrastructure: Infrastructure }, Routes, Path);
+const routerImp = new RouterImp(inf, Routes, Path);
 const router = new ServiceRouter(routerImp);
+
+const basketImp = new BasketImp(inf);
+const basket = new ServiceBasket(basketImp);
+
+const settingImp = new SettingImp(inf);
+const setting = new ServiceBasket(settingImp);
+
+const paymentImp = new PaymentImp(inf);
+const payment = new ServicePayment(paymentImp);
+
+const orderImp = new OrderImp(inf);
+const order = new ServiceOrder(orderImp);
 
 const service = new DI<ProjectInterface.TModuleService>();
 
 service.use("Message", message);
 service.use("Style", style);
 service.use("Router", router);
+service.use("Basket", basket);
+service.use("Setting", setting);
+service.use("Payment", payment);
+service.use("Order", order);
 
 export default service.get;

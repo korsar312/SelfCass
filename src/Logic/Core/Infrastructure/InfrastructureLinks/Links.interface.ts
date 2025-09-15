@@ -4,11 +4,12 @@ export namespace LinksInterface {
 	export type EMethod = keyof typeof Method;
 	export type EName = keyof typeof Names;
 	export type TLinksList = Record<EName, string>;
-	type AdapterShape = { [K in EName]: () => Promise<any> };
+	type AdapterShape = { [K in EName]: (...arg: any) => Promise<any> };
 
 	export type ERequestParam = {
 		link: EName;
 		method: EMethod;
+		param?: Record<string, any>;
 	};
 }
 
