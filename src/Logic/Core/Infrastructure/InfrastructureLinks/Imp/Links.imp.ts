@@ -23,7 +23,7 @@ class LinksImp implements Interface.IAdapter {
 		return this.request<string>({ link: "GET_PAYMENT_QR", method: "GET" }, "ссылка");
 	}
 	public GET_PAYMENT_STATUS(id: string) {
-		return this.request<boolean>({ link: "GET_PAYMENT_STATUS", method: "GET", param: { id: id } }, true);
+		return this.request<boolean>({ link: "GET_PAYMENT_STATUS", method: "GET", param: { id } }, true);
 	}
 	public CANCEL_PAYMENT() {
 		return this.request<string>({ link: "CANCEL_PAYMENT", method: "GET" }, "ссылка");
@@ -37,8 +37,9 @@ class LinksImp implements Interface.IAdapter {
 	public CALL_WAITER() {
 		return this.request<string>({ link: "CALL_WAITER", method: "GET" }, "ссылка");
 	}
-	public LOGIN() {
-		return this.request<string>({ link: "LOGIN", method: "GET" }, "ссылка");
+	public LOGIN(login: string, password: string) {
+		const res: SettingInterface.TLoginInfo = { id: "fgh", token: "zxc" };
+		return this.request<SettingInterface.TLoginInfo>({ link: "LOGIN", method: "GET", param: { login, password } }, res);
 	}
 	public LOGOFF() {
 		return this.request<string>({ link: "LOGOFF", method: "GET" }, "ссылка");

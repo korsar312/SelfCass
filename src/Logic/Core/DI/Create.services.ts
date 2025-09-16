@@ -19,6 +19,7 @@ import { ServicePayment } from "../Services/ServicePayment";
 import { ServiceOrder } from "../Services/ServiceOrder";
 import OrderImp from "../Services/ServiceOrder/Imp/Order.imp.ts";
 import type { IServiceProps } from "../Services/Service.base.ts";
+import { ServiceSetting } from "../Services/ServiceSetting";
 
 const inf: IServiceProps = { infrastructure: Infrastructure };
 
@@ -35,7 +36,7 @@ const basketImp = new BasketImp(inf);
 const basket = new ServiceBasket(basketImp);
 
 const settingImp = new SettingImp(inf);
-const setting = new ServiceBasket(settingImp);
+const setting = new ServiceSetting(settingImp);
 
 const paymentImp = new PaymentImp(inf);
 const payment = new ServicePayment(paymentImp);

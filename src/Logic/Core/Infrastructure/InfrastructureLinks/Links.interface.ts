@@ -1,10 +1,22 @@
+import type { SettingInterface } from "../../Services/ServiceSetting/Setting.interface.ts";
+
 export namespace LinksInterface {
-	export interface IAdapter extends AdapterShape {}
+	export interface IAdapter {
+		GET_PAYMENT_QR(): Promise<string>;
+		GET_PAYMENT_STATUS(id: string): Promise<boolean>;
+		CANCEL_PAYMENT(): Promise<string>;
+		SPLIT_BILL(): Promise<string>;
+		GET_MENU(): Promise<string>;
+		CALL_WAITER(): Promise<string>;
+		LOGIN(login: string, password: string): Promise<SettingInterface.TLoginInfo>;
+		LOGOFF(): Promise<string>;
+		GET_BUSINESS_INFO(id: string): Promise<SettingInterface.TBusinessInfo>;
+		SEND_ORDER(): Promise<string>;
+	}
 
 	export type EMethod = keyof typeof Method;
 	export type EName = keyof typeof Names;
 	export type TLinksList = Record<EName, string>;
-	type AdapterShape = { [K in EName]: (...arg: any) => Promise<any> };
 
 	export type ERequestParam = {
 		link: EName;
