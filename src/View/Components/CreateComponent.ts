@@ -85,19 +85,7 @@ function getArchiveTree(finalName: string): Array<{ relPath: string; content: st
 	return [
 		{
 			relPath: `${finalName}/index.tsx`,
-			content: `
-import Model from "./Imp/Model.ts";
-import View from "./Imp/View.tsx";
-
-export interface IComponent {}
-
-const Index = (props: IComponent) => {
-  const model = Model(props);
-  return <View {...model} />;
-};
-
-export default Index;
-`,
+			content: TemplateIndex(),
 		},
 		{
 			relPath: `${finalName}/Imp/Model.ts`,
@@ -118,6 +106,22 @@ main().catch((e) => {
 	console.error("Неожиданная ошибка:", e?.message ?? e);
 	process.exit(1);
 });
+
+function TemplateIndex() {
+	return `
+import Model from "./Imp/Model.ts";
+import View from "./Imp/View.tsx";
+
+export interface IComponent {}
+
+const Index = (props: IComponent) => {
+  const model = Model(props);
+  return <View {...model} />;
+};
+
+export default Index;
+`;
+}
 
 function TemplateModel() {
 	return `
