@@ -14,7 +14,7 @@ const Index: FC<IComponent> = (props) => {
 		color: "MEDIUM",
 		isFullWidth: true,
 		type: "submit",
-		textVars: { groupStyle: { flex: 1 }, value: [{ text, font: "Subtitle" }] },
+		textVars: { groupStyle: { flex: 1 }, value: [{ text, font: "LabelMain" }] },
 		extStyles: {
 			padding: 12,
 			borderRadius: 12,

@@ -32,7 +32,7 @@ const Index: FC<IComponent> = (props) => {
 						options: {
 							text: title,
 							color: "PRIME",
-							font: "H2",
+							font: "BodyMain",
 						},
 					},
 				},

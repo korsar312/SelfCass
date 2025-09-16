@@ -2,11 +2,7 @@ import Styles from "../../../../../Styles/Styles.ts";
 import type { CSSObject } from "@emotion/react";
 
 class Style extends Styles {
-	public form: CSSObject = {};
-
-	public bottom: CSSObject = {
-		marginTop: this.size(4),
-	};
+	public wrapper: CSSObject = {};
 }
 
 export default new Style();

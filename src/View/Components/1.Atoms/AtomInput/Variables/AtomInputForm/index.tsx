@@ -16,7 +16,7 @@ const Index: FC<IComponent> = (props) => {
 	};
 
 	function textProp(el: TAtomInputText): TAtomInputText {
-		return el && { ...el, font: el.font || "Subtitle" };
+		return el && { ...el, font: el.font || "BodyMain" };
 	}
 
 	return <Component {...propsComponent} />;

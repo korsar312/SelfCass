@@ -13,7 +13,7 @@ class Style extends Styles {
 
 	public text(textProp: TAtomInputText): CSSObject {
 		return {
-			...this.getFont(textProp.font || "Subtitle"),
+			...this.getFont(textProp.font || "BodyMain"),
 			color: this.getColor(textProp.color),
 		};
 	}

@@ -31,6 +31,12 @@ const Dictionary: MessageInterface.TDictionary = {
 	PASSWORD: {
 		RU: "Пароль",
 	},
+	CASS: {
+		RU: "Касса",
+	},
+	ENTER: {
+		RU: "Войти",
+	},
 };
 
 export default Dictionary;

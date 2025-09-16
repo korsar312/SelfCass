@@ -12,7 +12,7 @@ class Style extends Styles {
 
 	public param(pos?: TTextPos, font?: StyleInterface.EFont, color?: StyleInterface.TColorChoice, opacity?: number) {
 		return {
-			...this.getFont(font || "Subtitle"),
+			...this.getFont(font || "BodyMain"),
 			color: this.getColor(color, opacity),
 			textAlign: pos,
 		};

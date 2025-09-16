@@ -11,7 +11,7 @@ function Model(props: IComponent) {
 	const text = Act.Message.getWord(initText.text);
 
 	function changeText(text: TAtomInputText): TAtomInputText {
-		return { ...text, text: value, color: text.color || "PRIME" };
+		return { ...text, text: value, color: text.color || "SECOND" };
 	}
 
 	function handleChange(e: ChangeEvent<HTMLInputElement>) {

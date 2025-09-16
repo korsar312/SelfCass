@@ -17,9 +17,10 @@ const Index: FC<IComponent> = (props) => {
 	}
 
 	const propsComponent: ISubstances = {
-		title: "DAY_US_USDT",
-		labelLog: "DAY_US_USDT",
-		labelPas: "DAY_US_USDT",
+		title: "CASS",
+		labelLog: "LOGIN",
+		labelPas: "PASSWORD",
+		btnText: "ENTER",
 		submit: login,
 	};
 

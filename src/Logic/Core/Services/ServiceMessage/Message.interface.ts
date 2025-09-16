@@ -34,6 +34,8 @@ const Word = {
 	CALL_WAITER: "CALL_WAITER",
 	LOGIN: "LOGIN",
 	PASSWORD: "PASSWORD",
+	CASS: "CASS",
+	ENTER: "ENTER",
 } as const;
 
 const Lang = {

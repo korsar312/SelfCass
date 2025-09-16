@@ -38,9 +38,22 @@ export namespace StyleInterface {
 }
 
 const Font = {
-	H3: "H3",
-	H2: "H2",
-	Subtitle: "Subtitle",
+	PageTitle: "PageTitle",
+	SectionTitle: "SectionTitle",
+	BlockTitle: "BlockTitle",
+	SectionDesc: "SectionDesc",
+	BlockLead: "BlockLead",
+	BlockHeading: "BlockHeading",
+	ElementHeading: "ElementHeading",
+	BodyMain: "BodyMain",
+	BodySecondary: "BodySecondary",
+	BodySmall: "BodySmall",
+	BodyDense: "BodyDense",
+	LabelLarge: "LabelLarge",
+	LabelMain: "LabelMain",
+	LabelMedium: "LabelMedium",
+	LabelSmall: "LabelSmall",
+	Hint: "Hint",
 } as const;
 
 const Weight = {
