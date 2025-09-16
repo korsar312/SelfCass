@@ -1,8 +1,8 @@
 import Styles from "../../../../../Styles/Styles.ts";
 import type { CSSObject } from "@emotion/react";
-import type { TGridBPCont, TGridBPList } from "../index.tsx";
+import type { TGridBPCont, TGridBPItem, TGridBPList } from "../index.tsx";
 
-const BP = { xs: 0, sm: 600, md: 900 };
+const BP: Record<TGridBPItem, number> = { xs: 0, sm: 600, md: 900, xl: 1200, lg: 1536 };
 
 class Style extends Styles {
 	public containerGrid(): CSSObject {
@@ -14,10 +14,14 @@ class Style extends Styles {
 	}
 
 	public itemGrid(bps: TGridBPList): CSSObject {
-		const css: CSSObject = { ...this.spanCss(bps.xs ?? "auto") };
+		const { xs, ...rest } = bps;
 
-		if (bps.sm !== undefined) css[`@media (min-width:${BP.sm}px)`] = this.spanCss(bps.sm);
-		if (bps.md !== undefined) css[`@media (min-width:${BP.md}px)`] = this.spanCss(bps.md);
+		const css: CSSObject = { ...this.spanCss(xs ?? "auto") };
+
+		Object.entries(rest).forEach(([key, val]) => (css[`@media (min-width:${BP[key as TGridBPItem]}px)`] = this.spanCss(val)));
+
+		css[`@media (min-width:${BP.sm}px)`] = this.spanCss(bps.sm);
+		css[`@media (min-width:${BP.md}px)`] = this.spanCss(bps.md);
 
 		return css;
 	}

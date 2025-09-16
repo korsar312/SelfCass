@@ -17,6 +17,10 @@ export class Styles {
 	protected getFont(font: StyleInterface.EFont) {
 		return Act.Style.getFont(font);
 	}
+
+	protected size(num: number) {
+		return num ** 2;
+	}
 }
 
 export default Styles;

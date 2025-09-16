@@ -18,7 +18,7 @@ type TItem = {
 	item: true;
 } & TGridBPList;
 
-export type TGridBPItem = "xs" | "sm" | "md";
+export type TGridBPItem = "xs" | "sm" | "md" | "xl" | "lg";
 export type TGridBPCont = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "auto" | false;
 export type TGridBPList = Record<TGridBPItem, TGridBPCont>;
 

@@ -1,30 +1,23 @@
 import type Model from "./Model.ts";
+import Style from "./Style.ts";
 import type { NFC } from "./../../../../Logic/Libs/Util/TypesUtils";
-import { Act } from "../../../../Logic/Core";
 import Grid from "../../../Components/0.Cores/Grid";
+import AtomButtonForm from "../../../Components/1.Atoms/AtomButton/Variables/AtomButtonForm";
 
 const View: NFC<typeof Model> = (props) => {
-	const {} = props;
-
-	function as() {
-		Act.Router.goTo("CASS_LOGIN");
-	}
+	const { btnList } = props;
 
 	return (
-		<div onClick={as}>
-			<Grid container>
-				<Grid item md={1} sm={2} xs={3}>
-					<div css={{ background: "red", height: 266 }}>123</div>
-				</Grid>
+		<div css={Style.wrapper}>
+			{btnList.map((el) => (
+				<Grid container>
+					<Grid item xs={2} sm={2} md={3} xl={3} lg={3} />
 
-				<Grid item md={1} sm={2} xs={3}>
-					<div css={{ background: "red", height: 266 }}>123</div>
+					<Grid item xs={8} sm={8} md={6} xl={6} lg={6}>
+						<AtomButtonForm text={el.name} click={el.click} />
+					</Grid>
 				</Grid>
-
-				<Grid item md={1} sm={2} xs={3}>
-					<div css={{ background: "red", height: 266 }}>123</div>
-				</Grid>
-			</Grid>
+			))}
 		</div>
 	);
 };

@@ -13,6 +13,7 @@ export namespace MessageInterface {
 	export type ECase = keyof typeof Case;
 
 	type TMapWord = Record<ELang, string>;
+
 	export type TDictionary = Record<EWord, TMapWord>;
 	export type EWordAll = EWord | string | undefined;
 
@@ -24,6 +25,15 @@ export namespace MessageInterface {
 
 const Word = {
 	DAY_US_USDT: "DAY_US_USDT",
+	LOGIN_TO_ADMIN_MENU: "LOGIN_TO_ADMIN_MENU",
+	LOGIN_TO_CASH_DESK: "LOGIN_TO_CASH_DESK",
+	MENU: "MENU",
+	PAYMENT: "PAYMENT",
+	CART: "CART",
+	GAMES: "GAMES",
+	CALL_WAITER: "CALL_WAITER",
+	LOGIN: "LOGIN",
+	PASSWORD: "PASSWORD",
 } as const;
 
 const Lang = {

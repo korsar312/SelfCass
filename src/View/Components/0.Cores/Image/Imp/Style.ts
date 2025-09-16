@@ -8,7 +8,7 @@ class Style extends Styles {
 		transition: this.variables.fastTransition,
 	};
 
-	public size(size: TImagesSize = 20): CSSObject {
+	public scale(size: TImagesSize = 20): CSSObject {
 		return {
 			width: size,
 			height: size,

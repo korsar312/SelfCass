@@ -14,7 +14,7 @@ const View: NFC<typeof Model> = (props) => {
 		return <img css={style} draggable={false} onError={handleErrorImage} src={img} />;
 	}
 
-	return imageComponent([Style.wrapper, Style.size(size), Style.color(color), ...Util.getArray(extStyle)]);
+	return imageComponent([Style.wrapper, Style.scale(size), Style.color(color), ...Util.getArray(extStyle)]);
 };
 
 export default View;

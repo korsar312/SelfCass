@@ -1,6 +1,6 @@
 import type { RouterInterface } from "../../Core/Services/ServiceRouter/Router.interface.ts";
-import { createBrowserRouter, Navigate } from "react-router";
-import { createElement, lazy } from "react";
+import { createBrowserRouter, redirect } from "react-router";
+import { lazy } from "react";
 
 const cassPath = "cass/";
 const admPath = "admin/";
@@ -24,8 +24,6 @@ const CassLogin = lazy(() => import("./../../../View/Page/Cass/CassLogin"));
 const CassChoiceMenu = lazy(() => import("./../../../View/Page/Cass/CassChoiceMenu"));
 const CassMenu = lazy(() => import("./../../../View/Page/Cass/CassMenu"));
 
-const Redirect = createElement(Navigate, { to: Path.HOME, replace: true });
-
 const Route: RouterInterface.TRouterList = [
 	{
 		path: Path.ADM_LOGIN,
@@ -41,7 +39,7 @@ const Route: RouterInterface.TRouterList = [
 	},
 	{
 		path: Path.OTHER,
-		element: Redirect,
+		loader: () => redirect(Path.HOME),
 	},
 ];
 
@@ -56,10 +54,6 @@ const RouteCass: RouterInterface.TRouterList = [
 	{
 		path: Path.CASS_MENU,
 		Component: CassMenu,
-	},
-	{
-		path: Path.HOME,
-		Component: PageChoice,
 	},
 ];
 
