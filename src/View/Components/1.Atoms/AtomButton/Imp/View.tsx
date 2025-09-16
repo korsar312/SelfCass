@@ -4,6 +4,7 @@ import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 import type { TAtomButtonIcon } from "../index.tsx";
 import Images from "../../../0.Cores/Image/";
 import Text from "../../../0.Cores/Text";
+import Ripple from "../../../0.Cores/Ripple";
 
 const View: NFC<typeof Model> = (props) => {
 	const { textChanged, color, extStyles, rightIcon, leftIcon, isFullWidth, handleClick, type, isDisable } = props;
@@ -31,6 +32,8 @@ const View: NFC<typeof Model> = (props) => {
 			)}
 
 			{rightIcon && iconRender(rightIcon)}
+
+			<Ripple />
 		</button>
 	);
 };

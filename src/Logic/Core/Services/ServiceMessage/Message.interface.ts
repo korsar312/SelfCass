@@ -36,6 +36,7 @@ const Word = {
 	PASSWORD: "PASSWORD",
 	CASS: "CASS",
 	ENTER: "ENTER",
+	ADMINISTRATION: "ADMINISTRATION",
 } as const;
 
 const Lang = {

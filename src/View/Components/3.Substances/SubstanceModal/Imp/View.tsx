@@ -2,7 +2,7 @@ import type Model from "./Model.ts";
 import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 import AtomModal from "../../../1.Atoms/AtomModal";
-import MoleculeFormSchemaAdd from "../../../2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaAdd";
+import MoleculeFormSchemaLogin from "../../../2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaLogin";
 
 const View: NFC<typeof Model> = (props) => {
 	const { isShow, form, type } = props;
@@ -11,8 +11,8 @@ const View: NFC<typeof Model> = (props) => {
 
 	function getComponent() {
 		switch (type) {
-			case "ADD":
-				return MoleculeFormSchemaAdd;
+			case "LOGIN":
+				return MoleculeFormSchemaLogin;
 			default:
 				throw new Error("");
 		}

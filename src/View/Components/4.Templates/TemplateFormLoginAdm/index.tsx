@@ -10,14 +10,16 @@ export interface IComponent {
 }
 
 const Index: FC<IComponent> = (props) => {
-	const {} = props;
+	const { onAction } = props;
 
-	function login({ login, password }: TMoleculeFormSchemaLoginForm) {
-		Act.Setting.Login(login, password);
+	async function login({ login, password }: TMoleculeFormSchemaLoginForm) {
+		const log = Act.Setting.Login(login, password);
+
+		onAction(Boolean(log));
 	}
 
 	const propsComponent: ISubstances = {
-		title: "CASS",
+		title: "ADMINISTRATION",
 		labelLog: "LOGIN",
 		labelPas: "PASSWORD",
 		btnText: "ENTER",

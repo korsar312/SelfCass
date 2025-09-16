@@ -6,12 +6,12 @@ import type { TMoleculeFormSchemaField, TMoleculeFormSchemaRow } from "../index.
 import Form from "../../../0.Cores/Form";
 import Text from "../../../0.Cores/Text";
 import Paper from "../../../0.Cores/Paper";
-import AtomButtonForm from "../../../1.Atoms/AtomButton/Variables/AtomButtonForm";
 import type { TDeepCSSObject } from "../../../../ViewUtils.tsx";
 import AtomInputForm from "../../../1.Atoms/AtomInput/Variables/AtomInputForm";
+import AtomButtonForm from "../../../1.Atoms/AtomButton/Variables/AtomButtonForm";
 
 const View: NFC<typeof Model> = (props) => {
-	const { schema, extStyle, color, form, buttonList } = props;
+	const { schema, extStyle, color, form } = props;
 
 	function typeChoice(field: TMoleculeFormSchemaRow, id: number): ReactElement {
 		const { value: element, extStyle } = field;
@@ -26,6 +26,8 @@ const View: NFC<typeof Model> = (props) => {
 				return <Text {...field.options} />;
 			case "input":
 				return <AtomInputForm {...field.options} />;
+			case "btn":
+				return <AtomButtonForm {...field.options} />;
 		}
 	}
 
@@ -41,12 +43,6 @@ const View: NFC<typeof Model> = (props) => {
 		<Form {...form}>
 			<Paper extStyle={[Style.form, extStyle]} color={color}>
 				{typeChoice(schema, 1)}
-			</Paper>
-
-			<Paper extStyle={Style.bottom} color={"PRIME"}>
-				{buttonList.map((el) => (
-					<AtomButtonForm key={el.text} {...el} />
-				))}
 			</Paper>
 		</Form>
 	);

@@ -6,6 +6,7 @@ class Style extends Styles {
 	public wrapper(isFullWidth?: boolean): CSSObject {
 		return {
 			...this.mixins.flexCenter,
+			position: "relative",
 			justifyContent: "space-between",
 			transition: this.variables.fastTransition,
 			width: isFullWidth ? "100%" : "auto",

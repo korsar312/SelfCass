@@ -10,7 +10,6 @@ import type { StyleInterface } from "../../../../Logic/Core/Services/ServiceStyl
 export interface IComponent {
 	form: Pick<IForm, "onSubmit">;
 	schema: TMoleculeFormSchemaRow;
-	buttonList: IButton[];
 	extStyle?: TDeepCSSObject;
 	color?: StyleInterface.TColorChoice;
 }
@@ -23,7 +22,7 @@ export type TMoleculeFormSchemaRow = {
 export type TMoleculeFormSchemaField = {
 	label?: string;
 	required?: boolean;
-} & (TInputField | TTextField);
+} & (TInputField | TTextField | TBtnField);
 
 type TTextField = {
 	type: "text";
@@ -33,6 +32,11 @@ type TTextField = {
 type TInputField = {
 	type: "input";
 	options: IInput;
+};
+
+type TBtnField = {
+	type: "btn";
+	options: IButton;
 };
 
 const Index = (props: IComponent) => {

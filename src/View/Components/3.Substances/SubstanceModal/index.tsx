@@ -1,14 +1,14 @@
 import Model from "./Imp/Model.ts";
 import View from "./Imp/View.tsx";
-import type { IComponent as IFormAdd } from "../../2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaAdd";
+import type { IComponent as IFormLogin } from "../../2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaLogin";
 
 export type IComponent = {
 	isShow: boolean;
 } & TConcat;
 
-export type TSubstanceModalType = "ADD";
+export type TSubstanceModalType = "LOGIN";
 
-type TAdd = TForm<"ADD", IFormAdd>;
+type TAdd = TForm<"LOGIN", IFormLogin>;
 type TConcat = TAdd;
 
 type TForm<T extends TSubstanceModalType, F> = {

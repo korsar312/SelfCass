@@ -1,4 +1,4 @@
-import Component, { type IComponent as IParent } from "../../index";
+import Component, { type IComponent as IParent, type TMoleculeFormSchemaRow } from "../../index";
 import Styles from "./Style.ts";
 import type { FC } from "react";
 import type { MessageInterface } from "../../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
@@ -26,26 +26,36 @@ const Index: FC<IComponent> = (props) => {
 	const logParam: IInput = { initText: textEl, name: "login" };
 	const passParam: IInput = { initText: textEl, name: "password" };
 
-	const propsComponent: IParent = {
-		...props,
-		schema: {
+	const titleField: TMoleculeFormSchemaRow = {
+		extStyle: Styles.content,
+		value: {
+			type: "text",
+			options: {
+				text: title,
+				color: "SECOND",
+				font: "BlockHeading",
+			},
+		},
+	};
+
+	const btnField: TMoleculeFormSchemaRow = {
+		value: {
+			type: "btn",
+			options: {
+				text: btnText,
+			},
+		},
+	};
+
+	function inputField(label: MessageInterface.EWord, inputParam: IInput): TMoleculeFormSchemaRow {
+		return {
+			extStyle: Styles.content,
 			value: [
 				{
-					extStyle: Styles.wrapper,
 					value: {
 						type: "text",
 						options: {
-							text: title,
-							color: "SECOND",
-							font: "BlockHeading",
-						},
-					},
-				},
-				{
-					value: {
-						type: "text",
-						options: {
-							text: labelLog,
+							text: label,
 							font: "LabelMedium",
 						},
 					},
@@ -53,28 +63,19 @@ const Index: FC<IComponent> = (props) => {
 				{
 					value: {
 						type: "input",
-						options: logParam,
-					},
-				},
-				{
-					value: {
-						type: "text",
-						options: {
-							text: labelPas,
-							font: "LabelMedium",
-						},
-					},
-				},
-				{
-					value: {
-						type: "input",
-						options: passParam,
+						options: inputParam,
 					},
 				},
 			],
+		};
+	}
+
+	const propsComponent: IParent = {
+		schema: {
+			extStyle: Styles.wrapper,
+			value: [titleField, inputField(labelLog, logParam), inputField(labelPas, passParam), btnField],
 		},
 		form: { onSubmit: submit },
-		buttonList: [{ text: btnText }],
 	};
 
 	return <Component {...propsComponent} />;

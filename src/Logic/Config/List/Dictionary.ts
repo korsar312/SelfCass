@@ -37,6 +37,9 @@ const Dictionary: MessageInterface.TDictionary = {
 	ENTER: {
 		RU: "Войти",
 	},
+	ADMINISTRATION: {
+		RU: "Администрирование",
+	},
 };
 
 export default Dictionary;
