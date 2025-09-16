@@ -1,12 +1,12 @@
 import Styles from "../../../../../Styles/Styles.ts";
-import { css, keyframes } from "@emotion/react";
+import { css, type CSSObject, keyframes } from "@emotion/react";
 
 class Style extends Styles {
 	private rippleKF = keyframes`
   		to { transform: scale(1); opacity: 0; }
 	`;
 
-	public wrapper = css`
+	public wrapper: CSSObject = css`
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -17,7 +17,7 @@ class Style extends Styles {
 		border-radius: inherit;
 	`;
 
-	public rippleStyle = css`
+	public rippleStyle: CSSObject = css`
 		position: absolute;
 		background: ${this.getColor("SECOND", 0.2)};
 		border-radius: 50%;

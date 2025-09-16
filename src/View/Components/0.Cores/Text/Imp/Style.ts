@@ -10,7 +10,7 @@ class Style extends Styles {
 		whiteSpace: "pre-line",
 	};
 
-	public param(pos?: TTextPos, font?: StyleInterface.EFont, color?: StyleInterface.TColorChoice, opacity?: number) {
+	public param(pos?: TTextPos, font?: StyleInterface.EFont, color?: StyleInterface.TColorChoice, opacity?: number): CSSObject {
 		return {
 			...this.getFont(font || "BodyMain"),
 			color: this.getColor(color, opacity),

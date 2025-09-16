@@ -1,5 +1,5 @@
 import Styles from "../../../../../Styles/Styles.ts";
-import type { CSSObject } from "@emotion/react";
+import { css, type CSSObject } from "@emotion/react";
 import type { StyleInterface } from "../../../../../Logic/Core/Services/ServiceStyle/Style.interface.ts";
 
 class Style extends Styles {
@@ -29,9 +29,9 @@ class Style extends Styles {
 	};
 
 	public color(color: StyleInterface.TColorChoice): CSSObject {
-		return {
-			background: this.getColor(color),
-		};
+		return css`
+			background: ${this.getColor(color)};
+		`;
 	}
 }
 

@@ -140,10 +140,10 @@ export default Model;
 function TemplateStyle() {
 	return `
 import Styles from "../../../../../Styles/Styles.ts";
-import type { CSSObject } from "@emotion/react";
+import { css, type CSSObject } from "@emotion/react";
 
 class Style extends Styles {
-  public wrapper:CSSObject = {};
+  public form: CSSObject = css\`\`;
 }
 
 export default new Style();

@@ -1,12 +1,8 @@
 import Styles from "../../../../../Styles/Styles.ts";
-import type { CSSObject } from "@emotion/react";
+import { css, type CSSObject } from "@emotion/react";
 
 class Style extends Styles {
-	public form: CSSObject = {};
-
-	public bottom: CSSObject = {
-		marginTop: this.size(4),
-	};
+	public form: CSSObject = css``;
 }
 
 export default new Style();

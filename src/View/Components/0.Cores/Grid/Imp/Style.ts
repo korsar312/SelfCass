@@ -1,17 +1,15 @@
 import Styles from "../../../../../Styles/Styles.ts";
-import type { CSSObject } from "@emotion/react";
+import { css, type CSSObject } from "@emotion/react";
 import type { TGridBPCont, TGridBPItem, TGridBPList } from "../index.tsx";
 
 const BP: Record<TGridBPItem, number> = { xs: 0, sm: 600, md: 900, xl: 1200, lg: 1536 };
 
 class Style extends Styles {
-	public containerGrid(): CSSObject {
-		return {
-			display: "grid",
-			gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
-			boxSizing: "border-box",
-		};
-	}
+	public containerGrid: CSSObject = css`
+		display: grid;
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+		box-sizing: border-box;
+	`;
 
 	public itemGrid(bps: TGridBPList): CSSObject {
 		const { xs, ...rest } = bps;
@@ -27,10 +25,20 @@ class Style extends Styles {
 	}
 
 	private spanCss(val: TGridBPCont): CSSObject {
-		if (val === false) return { display: "none" };
-		if (val === "auto") return { gridColumn: "auto" };
+		if (val === false) {
+			return css`
+				display: none;
+			`;
+		}
+		if (val === "auto") {
+			return css`
+				grid-column: auto;
+			`;
+		}
 
-		return { gridColumn: `span ${val} / span ${val}` };
+		return css`
+			grid-column: span ${val} / span ${val};
+		`;
 	}
 }
 
