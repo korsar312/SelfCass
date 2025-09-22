@@ -19,7 +19,7 @@ export class Styles {
 	}
 
 	protected size(num: number) {
-		return num ** 2;
+		return `${num ** 2}px`;
 	}
 }
 

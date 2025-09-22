@@ -1,4 +1,5 @@
 import type Model from "./Model.ts";
+import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 import Grid from "../../../../Components/0.Cores/Grid";
 import TemplateFormLoginAdm from "../../../../Components/4.Templates/TemplateFormLoginAdm";
@@ -7,7 +8,7 @@ const View: NFC<typeof Model> = (props) => {
 	const {} = props;
 
 	return (
-		<div>
+		<div css={Style.wrapper}>
 			<Grid container>
 				<Grid item xs={3} sm={3} md={3} xl={3} lg={3} />
 

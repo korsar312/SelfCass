@@ -7,6 +7,7 @@ export const Links: LinksInterface.TLinksList = {
 	SPLIT_BILL: "",
 	GET_MENU: "",
 	CALL_WAITER: "",
+	QR_ENTER: "",
 	LOGIN: "",
 	LOGOFF: "",
 	GET_BUSINESS_INFO: "",

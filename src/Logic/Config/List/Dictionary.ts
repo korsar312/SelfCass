@@ -40,6 +40,12 @@ const Dictionary: MessageInterface.TDictionary = {
 	ADMINISTRATION: {
 		RU: "Администрирование",
 	},
+	TABLE_NUMBER: {
+		RU: "Номер столика",
+	},
+	TOKEN: {
+		RU: "Токен",
+	},
 };
 
 export default Dictionary;

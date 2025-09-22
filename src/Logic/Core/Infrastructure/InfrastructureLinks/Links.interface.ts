@@ -9,6 +9,7 @@ export namespace LinksInterface {
 		GET_MENU(): Promise<string>;
 		CALL_WAITER(): Promise<string>;
 		LOGIN(login: string, password: string): Promise<SettingInterface.TLoginInfo>;
+		QR_ENTER(token: string): Promise<SettingInterface.TLoginInfo>;
 		LOGOFF(): Promise<string>;
 		GET_BUSINESS_INFO(id: string): Promise<SettingInterface.TBusinessInfo>;
 		SEND_ORDER(): Promise<string>;
@@ -45,6 +46,7 @@ const Service = {
 } as const;
 
 const Setting = {
+	QR_ENTER: "QR_ENTER",
 	LOGIN: "LOGIN",
 	LOGOFF: "LOGOFF",
 	GET_BUSINESS_INFO: "GET_BUSINESS_INFO",

@@ -21,7 +21,7 @@ const CATALOGS: Record<DirKey, string> = {
 
 function withPrefix(dirKey: DirKey, baseName: string): string {
 	if (dirKey === 0) return baseName;
-	if (dirKey === 1) return `Atoms${baseName}`;
+	if (dirKey === 1) return `Atom${baseName}`;
 	if (dirKey === 2) return `Molecule${baseName}`;
 	return `Substance${baseName}`;
 }
@@ -108,8 +108,7 @@ main().catch((e) => {
 });
 
 function TemplateIndex() {
-	return `
-import Model from "./Imp/Model.ts";
+	return `import Model from "./Imp/Model.ts";
 import View from "./Imp/View.tsx";
 
 export interface IComponent {}
@@ -124,8 +123,7 @@ export default Index;
 }
 
 function TemplateModel() {
-	return `
-import type { IComponent } from "../index";
+	return `import type { IComponent } from "../index";
 
 function Model(props: IComponent) {
   const {} = props;
@@ -138,12 +136,11 @@ export default Model;
 }
 
 function TemplateStyle() {
-	return `
-import Styles from "../../../../../Styles/Styles.ts";
+	return `import Styles from "../../../../../Styles/Styles.ts";
 import { css, type CSSObject } from "@emotion/react";
 
 class Style extends Styles {
-  public form: CSSObject = css\`\`;
+  public wrapper: CSSObject = css\`\`;
 }
 
 export default new Style();
@@ -151,8 +148,7 @@ export default new Style();
 }
 
 function TemplateView() {
-	return `
-import type Model from "./Model.ts";
+	return `import type Model from "./Model.ts";
 import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 

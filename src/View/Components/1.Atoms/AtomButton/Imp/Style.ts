@@ -4,29 +4,29 @@ import type { StyleInterface } from "../../../../../Logic/Core/Services/ServiceS
 
 class Style extends Styles {
 	public wrapper(isFullWidth?: boolean): CSSObject {
-		return {
-			...this.mixins.flexCenter,
-			position: "relative",
-			justifyContent: "space-between",
-			transition: this.variables.fastTransition,
-			width: isFullWidth ? "100%" : "auto",
-			gap: 4,
-			cursor: "pointer",
+		return css`
+			${this.mixins.flexCenter};
+			position: relative;
+			justify-content: space-between;
+			transition: ${this.variables.fastTransition};
+			width: ${isFullWidth ? "100%" : "auto"};
+			gap: 4px;
+			cursor: pointer;
 
-			"&:hover": {
-				opacity: 0.8,
-			},
+			&:hover {
+				opacity: 0.8;
+			}
 
-			"&[disabled]": {
-				opacity: 0.3,
-			},
-		};
+			&[disabled] {
+				opacity: 0.3;
+			}
+		`;
 	}
 
-	public icon: CSSObject = {
-		...this.mixins.flexCenter,
-		gap: 4,
-	};
+	public icon: CSSObject = css`
+		${this.mixins.flexCenter};
+		gap: 4px;
+	`;
 
 	public color(color: StyleInterface.TColorChoice): CSSObject {
 		return css`

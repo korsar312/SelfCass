@@ -1,6 +1,7 @@
 export namespace SettingInterface {
 	export interface IAdapter {
-		Login(login: string, password: string): Promise<TLoginInfo | false>;
+		LoginQr(token: string): Promise<TLoginInfo | false>;
+		LoginAdmin(login: string, password: string): Promise<TLoginInfo | false>;
 	}
 
 	export interface Store {

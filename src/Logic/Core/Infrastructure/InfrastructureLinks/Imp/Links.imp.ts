@@ -37,6 +37,10 @@ class LinksImp implements Interface.IAdapter {
 	public CALL_WAITER() {
 		return this.request<string>({ link: "CALL_WAITER", method: "GET" }, "ссылка");
 	}
+	public QR_ENTER(token: string) {
+		const res: SettingInterface.TLoginInfo = { id: "fgh", token: "zxc" };
+		return this.request<SettingInterface.TLoginInfo>({ link: "LOGIN", method: "GET", param: { token } }, res);
+	}
 	public LOGIN(login: string, password: string) {
 		const res: SettingInterface.TLoginInfo = { id: "fgh", token: "zxc" };
 		return this.request<SettingInterface.TLoginInfo>({ link: "LOGIN", method: "GET", param: { login, password } }, res);

@@ -37,6 +37,8 @@ const Word = {
 	CASS: "CASS",
 	ENTER: "ENTER",
 	ADMINISTRATION: "ADMINISTRATION",
+	TABLE_NUMBER: "Номер столика",
+	TOKEN: "Токен",
 } as const;
 
 const Lang = {

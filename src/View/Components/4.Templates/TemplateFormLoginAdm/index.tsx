@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import Substance, {
-	type IComponent as ISubstances,
+	type IComponent as IProp,
 	type TMoleculeFormSchemaLoginForm,
 } from "../../../Components/2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaLogin";
 import { Act } from "../../../../Logic/Core";
@@ -13,12 +13,12 @@ const Index: FC<IComponent> = (props) => {
 	const { onAction } = props;
 
 	async function login({ login, password }: TMoleculeFormSchemaLoginForm) {
-		const log = Act.Setting.Login(login, password);
+		const log = Act.Setting.LoginAdmin(login, password);
 
 		onAction(Boolean(log));
 	}
 
-	const propsComponent: ISubstances = {
+	const propsComponent: IProp = {
 		title: "ADMINISTRATION",
 		labelLog: "LOGIN",
 		labelPas: "PASSWORD",
