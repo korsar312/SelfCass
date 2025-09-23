@@ -10,7 +10,7 @@ const View: NFC<typeof Model> = (props) => {
 	return (
 		<div css={Style.wrapper}>
 			{btnList.map((el) => (
-				<Grid container>
+				<Grid key={el.name} container>
 					<Grid item xs={2} sm={2} md={3} xl={3} lg={3} />
 
 					<Grid item xs={8} sm={8} md={6} xl={6} lg={6}>

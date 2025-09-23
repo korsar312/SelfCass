@@ -4,20 +4,21 @@ export namespace RouterInterface {
 	export interface IAdapter {
 		goTo(page: EPath, options?: NavigateOptions): void;
 		getRoute(): TRouter;
-		setRouteRole(role: ERouterRole): void;
+		setRouteRole(role: ERole): void;
 	}
 
 	export interface Store {
-		routes: TRouterRole;
-		role: ERouterRole;
+		routes: TRouter;
+		routesRole: TRouterListRole;
+		role: ERole;
 		path: TPath;
 	}
 
 	export type EPath = keyof typeof Router;
-	export type ERouterRole = keyof typeof RouterRole;
+	export type ERole = keyof typeof RouterRole;
 	export type TPath = Record<EPath, string>;
 	export type TRouterList = RouteObject[];
-	export type TRouterRole = Record<ERouterRole, TRouter>;
+	export type TRouterListRole = Partial<Record<EPath, ERole[]>>;
 	export type TRouter = ReturnType<typeof createBrowserRouter>;
 	export type TRouterFn = TRouter["navigate"];
 }

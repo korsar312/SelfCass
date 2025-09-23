@@ -1,4 +1,5 @@
 import type { IComponent } from "../index";
+import { Act } from "../../../../../Logic/Core";
 
 function Model(props: IComponent) {
 	const {} = props;
@@ -6,9 +7,8 @@ function Model(props: IComponent) {
 	function enterCass(isEnter: Boolean) {
 		if (!isEnter) return;
 
-		//Act.Router.setRouteRole("CASS");
-		//console.log(132);
-		//Act.Router.goTo("CASS_CHOICE_MENU");
+		Act.Router.setRouteRole("CASS");
+		Act.Router.goTo("CASS_CHOICE_MENU");
 	}
 
 	return { enterCass };

@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import Background from "./Layout/Background";
 import Pages from "./Layout/Pages";
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById("root") || document.body).render(
 	<StrictMode>
 		<Background />
 		<Pages />

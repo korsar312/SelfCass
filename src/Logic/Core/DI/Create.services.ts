@@ -10,7 +10,7 @@ import { Colors } from "../../Config/List/Colors.ts";
 import { Fonts, Weights } from "../../Config/List/Fonts.ts";
 import RouterImp from "../Services/ServiceRouter/Imp/Router.imp.ts";
 import { ServiceRouter } from "../Services/ServiceRouter";
-import { Path, Routes } from "../../Config/List/Routes.ts";
+import { Path, Routes, RoutesRole } from "../../Config/List/Routes.ts";
 import BasketImp from "../Services/ServiceBasket/Imp/Basket.imp.ts";
 import { ServiceBasket } from "../Services/ServiceBasket";
 import SettingImp from "../Services/ServiceSetting/Imp/Setting.imp.ts";
@@ -29,7 +29,7 @@ const message = new ServiceMessage(messageImp);
 const styleImp = new StyleImp(inf, Colors, Fonts, Weights);
 const style = new ServiceStyle(styleImp);
 
-const routerImp = new RouterImp(inf, Routes, Path);
+const routerImp = new RouterImp(inf, Routes, RoutesRole, Path);
 const router = new ServiceRouter(routerImp);
 
 const basketImp = new BasketImp(inf);

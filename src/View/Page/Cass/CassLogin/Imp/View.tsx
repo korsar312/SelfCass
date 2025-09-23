@@ -13,9 +13,7 @@ const View: NFC<typeof Model> = (props) => {
 				<Grid item xs={3} sm={3} md={3} xl={3} lg={3} />
 
 				<Grid item xs={6} sm={6} md={6} xl={6} lg={6}>
-					<div css={Style.qr}>
-						<TemplateFormLoginCass onAction={enterCass} />
-					</div>
+					<div css={Style.qr}>{<TemplateFormLoginCass onAction={enterCass} />}</div>
 				</Grid>
 			</Grid>
 		</div>
