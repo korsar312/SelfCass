@@ -2,42 +2,45 @@ import type { IComponent } from "../index";
 import { useEffect, useRef } from "react";
 import QRCodeStyling from "qr-code-styling";
 import { useElSize } from "../../../../../Logic/Libs/Hooks/useElSize/useElSize.ts";
+import type { Options } from "qr-code-styling/lib/types";
+import { Act } from "../../../../../Logic/Core";
 
 function Model(props: IComponent) {
-	const { code } = props;
+	const { code, bgColor, qrColor } = props;
 
 	const qrRef = useRef<HTMLDivElement>(null);
 	const qrWrap = useRef<HTMLDivElement>(null);
 
-	const { maxSize } = useElSize(qrWrap);
+	const { minSize } = useElSize(qrWrap);
+	const newSize = minSize - 14;
+
+	const qrProps: Partial<Options> = {
+		width: newSize,
+		height: newSize,
+		type: "canvas",
+		data: code,
+		dotsOptions: {
+			color: Act.Style.getColor(qrColor || "MEDIUM"),
+			type: "rounded",
+		},
+		backgroundOptions: {
+			color: "none",
+		},
+	};
 
 	useEffect(() => {
-		if (!maxSize) return;
-		console.log(234);
+		if (newSize <= 0 || !qrRef.current) return;
 
-		const qrCode = new QRCodeStyling({
-			width: maxSize,
-			height: maxSize,
-			type: "canvas",
-			data: code,
-			dotsOptions: {
-				color: "#4267b2",
-				type: "rounded",
-			},
-			backgroundOptions: {
-				color: "none",
-			},
-		});
-
-		qrRef.current && qrCode.append(qrRef.current);
+		const qrCode = new QRCodeStyling(qrProps);
+		qrCode.append(qrRef.current);
 
 		return () => {
 			const child = qrRef.current?.firstChild;
 			child && qrRef.current?.removeChild(child);
 		};
-	}, [maxSize]);
+	}, [minSize]);
 
-	return { code, qrRef, qrWrap };
+	return { code, qrRef, qrWrap, bgColor };
 }
 
 export default Model;

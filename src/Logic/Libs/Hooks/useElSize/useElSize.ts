@@ -21,6 +21,7 @@ export function useElSize<T extends HTMLElement>(ref: React.RefObject<T | null>,
 			width,
 			height,
 			maxSize: Math.max(width, height),
+			minSize: Math.min(width, height),
 		};
 	}
 

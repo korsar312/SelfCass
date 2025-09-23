@@ -5,18 +5,15 @@ import type { StyleInterface } from "../../../../../Logic/Core/Services/ServiceS
 class Style extends Styles {
 	public wrapper(color?: StyleInterface.TColorChoice): CSSObject {
 		return css`
+			${this.mixins.flexCenter};
 			position: relative;
 			background: ${this.getColor(color)};
-			padding: ${this.size(4)};
-			border-radius: ${this.size(4)};
-			width: 100%;
+			border-radius: ${this.size(3)};
 			height: 100%;
-			background: red;
 		`;
 	}
 
 	public qr: CSSObject = css`
-		${this.mixins.absolute};
 		${this.mixins.flexCenter};
 	`;
 }
