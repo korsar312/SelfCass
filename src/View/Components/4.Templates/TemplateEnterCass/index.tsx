@@ -6,7 +6,7 @@ export interface IComponent {
 	onAction: (isOk: boolean) => void;
 }
 
-const token = "wtyuio";
+const token = "wtasdaasdasdasdasda sdasd asdasdayuio";
 
 const Index: FC<IComponent> = (props) => {
 	const { onAction } = props;

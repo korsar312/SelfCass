@@ -5,7 +5,7 @@ import Grid from "../../../../Components/0.Cores/Grid";
 import TemplateFormLoginCass from "../../../../Components/4.Templates/TemplateEnterCass";
 
 const View: NFC<typeof Model> = (props) => {
-	const {} = props;
+	const { enterCass } = props;
 
 	return (
 		<div css={Style.wrapper}>
@@ -14,7 +14,7 @@ const View: NFC<typeof Model> = (props) => {
 
 				<Grid item xs={6} sm={6} md={6} xl={6} lg={6}>
 					<div css={Style.qr}>
-						<TemplateFormLoginCass onAction={() => ""} />
+						<TemplateFormLoginCass onAction={enterCass} />
 					</div>
 				</Grid>
 			</Grid>

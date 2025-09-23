@@ -46,6 +46,9 @@ const Dictionary: MessageInterface.TDictionary = {
 	TOKEN: {
 		RU: "Токен",
 	},
+	QR_TO_SMALL: {
+		RU: "QR слишком мал",
+	},
 };
 
 export default Dictionary;

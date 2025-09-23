@@ -1,8 +1,7 @@
 import type { IComponent } from "../index";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import QRCodeStyling from "qr-code-styling";
 import { useElSize } from "../../../../../Logic/Libs/Hooks/useElSize/useElSize.ts";
-import type { Options } from "qr-code-styling/lib/types";
 import { Act } from "../../../../../Logic/Core";
 
 function Model(props: IComponent) {
@@ -13,34 +12,55 @@ function Model(props: IComponent) {
 
 	const { minSize } = useElSize(qrWrap);
 	const newSize = minSize - 14;
+	const isTooSmall = newSize <= 35;
 
-	const qrProps: Partial<Options> = {
-		width: newSize,
-		height: newSize,
-		type: "canvas",
-		data: code,
-		dotsOptions: {
-			color: Act.Style.getColor(qrColor || "MEDIUM"),
-			type: "rounded",
-		},
-		backgroundOptions: {
-			color: "none",
-		},
-	};
+	const qrCode = useMemo(() => createQrProps(), [code, minSize]);
 
 	useEffect(() => {
-		if (newSize <= 0 || !qrRef.current) return;
-
-		const qrCode = new QRCodeStyling(qrProps);
-		qrCode.append(qrRef.current);
+		createQrView();
 
 		return () => {
-			const child = qrRef.current?.firstChild;
-			child && qrRef.current?.removeChild(child);
+			removeQrView();
 		};
-	}, [minSize]);
+	}, [minSize, qrColor]);
 
-	return { code, qrRef, qrWrap, bgColor };
+	useEffect(() => {
+		updateQrView();
+	}, [code]);
+
+	function createQrProps() {
+		if (isTooSmall) return null;
+
+		return new QRCodeStyling({
+			width: newSize,
+			height: newSize,
+			type: "canvas",
+			data: code,
+			dotsOptions: {
+				color: Act.Style.getColor(qrColor || "MEDIUM"),
+				type: "rounded",
+			},
+			backgroundOptions: {
+				color: "none",
+			},
+		});
+	}
+
+	function createQrView() {
+		if (newSize < 21 || !qrRef.current) return;
+		qrCode?.append(qrRef.current);
+	}
+
+	function updateQrView() {
+		qrCode?.update({ data: code });
+	}
+
+	function removeQrView() {
+		const child = qrRef.current?.firstChild;
+		child && qrRef.current?.removeChild(child);
+	}
+
+	return { code, qrRef, qrWrap, bgColor, isTooSmall };
 }
 
 export default Model;
