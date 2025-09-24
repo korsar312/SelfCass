@@ -12,7 +12,7 @@ function Model(props: IComponent) {
 	}
 
 	function goBasket() {
-		Act.Router.goTo("CASS_MENU");
+		Act.Router.goTo("CASS_MENU", { openBasket: "1" });
 	}
 
 	function goPay() {

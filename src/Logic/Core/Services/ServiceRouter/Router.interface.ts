@@ -1,8 +1,8 @@
-import { createBrowserRouter, type NavigateOptions, type RouteObject } from "react-router";
+import { createBrowserRouter, type RouteObject } from "react-router";
 
 export namespace RouterInterface {
 	export interface IAdapter {
-		goTo(page: EPath, options?: NavigateOptions): void;
+		goTo(page: EPath, state?: Record<string, string>): void;
 		getRoute(): TRouter;
 		getRole(): ERole;
 		setRouteRole(role: ERole): void;

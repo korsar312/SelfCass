@@ -1,11 +1,19 @@
 import type { RouterInterface as Interface } from "../Router.interface.ts";
 import ServiceBase, { type IServiceProps } from "../../Service.base.ts";
-import { createBrowserRouter, type NavigateOptions } from "react-router";
+import { createBrowserRouter, generatePath } from "react-router";
 
 class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapter {
-	private async go(navFn: Interface.TRouterFn, path: Interface.TPath, page: Interface.EPath, options?: NavigateOptions) {
-		const pathNav = path[page];
-		await navFn(pathNav, options);
+	private async go(
+		navFn: Interface.TRouterFn,
+		path: Interface.TPath,
+		page: Interface.EPath,
+		params?: Record<string, string>,
+		state?: Record<string, unknown>,
+	) {
+		const pattern = path[page];
+		const url = params ? generatePath(pattern, params) : pattern;
+
+		await navFn(generatePath("/" + url, params), { replace: false, state });
 	}
 
 	private setCurrentRole(store: Interface.Store, role: Interface.ERole): Interface.Store {
@@ -53,7 +61,7 @@ class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapt
 
 	//==============================================================================================
 
-	goTo(page: Interface.EPath, options?: NavigateOptions): void {
+	goTo(page: Interface.EPath, param?: Record<string, string>): void {
 		const role = this.getCurrentRole(this.store);
 		const routesRole = this.getCurrentRoutesRole(this.store);
 		const path = this.getCurrentPath(this.store);
@@ -62,7 +70,7 @@ class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapt
 
 		if (!this.isAccessRoute(role, page, routesRole)) return;
 
-		this.go(navFn, path, page, options).then((r) => r);
+		this.go(navFn, path, page, param).then((r) => r);
 	}
 
 	getRoute(): Interface.TRouter {

@@ -19,7 +19,7 @@ export const Path: RouterInterface.TPath = {
 
 	CASS_LOGIN: `${cassPath}login`,
 	CASS_CHOICE_MENU: `${cassPath}choice-field`,
-	CASS_MENU: `${cassPath}menu`,
+	CASS_MENU: `${cassPath}menu/:openBasket?`,
 };
 
 export const RoutesRole: RouterInterface.TRouterListRole = {
