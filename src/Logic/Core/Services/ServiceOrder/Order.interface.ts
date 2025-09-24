@@ -1,5 +1,7 @@
 export namespace OrderInterface {
-	export interface IAdapter {}
+	export interface IAdapter {
+		callWaiter(): Promise<void>;
+	}
 
 	export interface Store {}
 }

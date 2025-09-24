@@ -13,7 +13,7 @@ const Index: FC<IComponent> = (props) => {
 	const { onAction } = props;
 
 	async function login({ login, password }: TMoleculeFormSchemaLoginForm) {
-		const log = Act.Setting.LoginAdmin(login, password);
+		const log = Act.Setting.loginAdmin(login, password);
 
 		onAction(Boolean(log));
 	}

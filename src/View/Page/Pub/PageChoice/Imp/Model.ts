@@ -1,7 +1,7 @@
 import type { IComponent } from "../index";
-import { Act } from "../../../../Logic/Core";
-import type { RouterInterface } from "../../../../Logic/Core/Services/ServiceRouter/Router.interface.ts";
-import type { MessageInterface } from "../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
+import { Act } from "../../../../../Logic/Core";
+import type { RouterInterface } from "../../../../../Logic/Core/Services/ServiceRouter/Router.interface.ts";
+import type { MessageInterface } from "../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
 
 type TBtnList = {
 	click: () => void;

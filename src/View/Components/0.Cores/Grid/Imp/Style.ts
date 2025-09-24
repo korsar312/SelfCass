@@ -5,6 +5,12 @@ import type { TGridBPCont, TGridBPItem, TGridBPList } from "../index.tsx";
 const BP: Record<TGridBPItem, number> = { xs: 0, sm: 600, md: 900, xl: 1200, lg: 1536 };
 
 class Style extends Styles {
+	public wrapper(gap: number = 0): CSSObject {
+		return css`
+			gap: ${this.size(gap)};
+		`;
+	}
+
 	public containerGrid: CSSObject = css`
 		display: grid;
 		grid-template-columns: repeat(12, minmax(0, 1fr));

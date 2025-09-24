@@ -11,6 +11,10 @@ class OrderImp extends ServiceBase<Interface.Store> implements Interface.IAdapte
 	}
 
 	//==============================================================================================
+
+	public callWaiter() {
+		return this.API.Links.CALL_WAITER();
+	}
 }
 
 export default OrderImp;

@@ -203,4 +203,10 @@ template {
     touch-action: manipulation;
 }
 
-
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}

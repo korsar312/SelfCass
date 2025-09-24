@@ -1,8 +1,8 @@
 import type Model from "./Model.ts";
 import Style from "./Style.ts";
-import type { NFC } from "./../../../../Logic/Libs/Util/TypesUtils";
-import Grid from "../../../Components/0.Cores/Grid";
-import AtomButtonForm from "../../../Components/1.Atoms/AtomButton/Variables/AtomButtonForm";
+import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
+import Grid from "../../../../Components/0.Cores/Grid";
+import AtomButtonForm from "../../../../Components/1.Atoms/AtomButton/Variables/AtomButtonForm";
 
 const View: NFC<typeof Model> = (props) => {
 	const { btnList } = props;

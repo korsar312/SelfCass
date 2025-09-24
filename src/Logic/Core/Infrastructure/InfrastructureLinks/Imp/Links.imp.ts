@@ -35,7 +35,7 @@ class LinksImp implements Interface.IAdapter {
 		return this.request<string>({ link: "GET_MENU", method: "GET" }, "ссылка");
 	}
 	public CALL_WAITER() {
-		return this.request<string>({ link: "CALL_WAITER", method: "GET" }, "ссылка");
+		return this.request({ link: "CALL_WAITER", method: "GET" }, void 0);
 	}
 	public QR_ENTER(token: string) {
 		const res: SettingInterface.TLoginInfo = { id: "fgh", token: "zxc" };
@@ -49,7 +49,7 @@ class LinksImp implements Interface.IAdapter {
 		return this.request<string>({ link: "LOGOFF", method: "GET" }, "ссылка");
 	}
 	public GET_BUSINESS_INFO() {
-		const res: SettingInterface.TBusinessInfo = { logoPath: "/logo.png", name: "Попарим" };
+		const res: SettingInterface.TBusinessInfo = { logoPath: "/Test/fav.jpg", name: "Попарим" };
 		return this.request<SettingInterface.TBusinessInfo>({ link: "GET_BUSINESS_INFO", method: "GET" }, res);
 	}
 	public SEND_ORDER() {

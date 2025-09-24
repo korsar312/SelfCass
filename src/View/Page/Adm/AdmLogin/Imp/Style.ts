@@ -8,10 +8,6 @@ class Style extends Styles {
 		height: 100%;
 		width: 100%;
 	`;
-
-	public qr: CSSObject = css`
-		aspect-ratio: 1 / 1; /* автоматически равная высота */
-	`;
 }
 
 export default new Style();

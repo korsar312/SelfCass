@@ -13,7 +13,7 @@ class Style extends Styles {
 			gap: 4px;
 			cursor: pointer;
 
-			&:hover {
+			&:active {
 				opacity: 0.8;
 			}
 

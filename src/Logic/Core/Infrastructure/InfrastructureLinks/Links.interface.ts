@@ -7,11 +7,11 @@ export namespace LinksInterface {
 		CANCEL_PAYMENT(): Promise<string>;
 		SPLIT_BILL(): Promise<string>;
 		GET_MENU(): Promise<string>;
-		CALL_WAITER(): Promise<string>;
+		CALL_WAITER(): Promise<void>;
 		LOGIN(login: string, password: string): Promise<SettingInterface.TLoginInfo>;
 		QR_ENTER(token: string): Promise<SettingInterface.TLoginInfo>;
 		LOGOFF(): Promise<string>;
-		GET_BUSINESS_INFO(id: string): Promise<SettingInterface.TBusinessInfo>;
+		GET_BUSINESS_INFO(): Promise<SettingInterface.TBusinessInfo>;
 		SEND_ORDER(): Promise<string>;
 	}
 

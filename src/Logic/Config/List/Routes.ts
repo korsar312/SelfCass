@@ -2,7 +2,7 @@ import type { RouterInterface } from "../../Core/Services/ServiceRouter/Router.i
 import { redirect } from "react-router";
 import { lazy } from "react";
 
-const PageChoice = lazy(() => import("./../../../View/Page/PageChoice"));
+const PageChoice = lazy(() => import("./../../../View/Page/Pub/PageChoice"));
 const AdmLogin = lazy(() => import("./../../../View/Page/Adm/AdmLogin"));
 const CassLogin = lazy(() => import("./../../../View/Page/Cass/CassLogin"));
 const CassChoiceMenu = lazy(() => import("./../../../View/Page/Cass/CassChoiceMenu"));

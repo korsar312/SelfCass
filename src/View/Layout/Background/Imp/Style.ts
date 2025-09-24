@@ -3,11 +3,9 @@ import { css, type CSSObject } from "@emotion/react";
 
 class Style extends Styles {
 	public wrapper: CSSObject = css`
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
+		${this.mixins.fixed}
+		bottom: -1px;
+		right: -1px;
 	`;
 
 	public img: CSSObject = css`

@@ -4,6 +4,7 @@ export namespace RouterInterface {
 	export interface IAdapter {
 		goTo(page: EPath, options?: NavigateOptions): void;
 		getRoute(): TRouter;
+		getRole(): ERole;
 		setRouteRole(role: ERole): void;
 	}
 

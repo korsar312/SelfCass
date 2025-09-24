@@ -3,6 +3,7 @@ import Variables from "./Variables/Variables";
 import StyleP from "./StyleP/StyleP";
 import type { StyleInterface } from "../Logic/Core/Services/ServiceStyle/Style.interface.ts";
 import { Act } from "../Logic/Core";
+import "./Normalize.css";
 
 export class Styles {
 	public pub = StyleP;

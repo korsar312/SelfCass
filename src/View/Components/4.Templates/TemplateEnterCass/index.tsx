@@ -16,7 +16,7 @@ const Index: FC<IComponent> = (props) => {
 	});
 
 	async function login() {
-		const log = Act.Setting.LoginQr(token);
+		const log = Act.Setting.loginQr(token);
 
 		onAction(Boolean(log));
 	}

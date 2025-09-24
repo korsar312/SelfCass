@@ -12,6 +12,26 @@ class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapt
 		return { ...store, role };
 	}
 
+	private getCurrentRole(store: Interface.Store): Interface.ERole {
+		return store.role;
+	}
+
+	private getCurrentRoutesRole(store: Interface.Store): Interface.TRouterListRole {
+		return store.routesRole;
+	}
+
+	private getCurrentRoutes(store: Interface.Store): Interface.TRouter {
+		return store.routes;
+	}
+
+	private getCurrentPath(store: Interface.Store): Interface.TPath {
+		return store.path;
+	}
+
+	private getNavFn(route: Interface.TRouter): Interface.TRouterFn {
+		return route.navigate;
+	}
+
 	private isAccessRoute(currentRole: Interface.ERole, page: Interface.EPath, routeRole: Interface.TRouterListRole): boolean {
 		if (!routeRole[page]) return true;
 
@@ -34,13 +54,23 @@ class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapt
 	//==============================================================================================
 
 	goTo(page: Interface.EPath, options?: NavigateOptions): void {
-		if (!this.isAccessRoute(this.store.role, page, this.store.routesRole)) return;
+		const role = this.getCurrentRole(this.store);
+		const routesRole = this.getCurrentRoutesRole(this.store);
+		const path = this.getCurrentPath(this.store);
+		const routes = this.getCurrentRoutes(this.store);
+		const navFn = this.getNavFn(routes);
 
-		this.go(this.store.routes.navigate, this.store.path, page, options).then((r) => r);
+		if (!this.isAccessRoute(role, page, routesRole)) return;
+
+		this.go(navFn, path, page, options).then((r) => r);
 	}
 
 	getRoute(): Interface.TRouter {
-		return this.store.routes;
+		return this.getCurrentRoutes(this.store);
+	}
+
+	getRole(): Interface.ERole {
+		return this.getCurrentRole(this.store);
 	}
 
 	setRouteRole(role: Interface.ERole): void {

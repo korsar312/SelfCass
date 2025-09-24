@@ -7,11 +7,11 @@ import type { typesUtils } from "../../../../Logic/Libs/Util/TypesUtils.ts";
 export type TComponent = {
 	children?: ReactNode;
 	extStyle?: TDeepCSSObject;
+	space?: number;
 } & typesUtils.XOR<TContainer, TItem>;
 
 type TContainer = {
 	container: true;
-	spacing?: 0 | 4 | 8 | 12 | 16 | 20 | 24 | 28 | 32;
 };
 
 type TItem = {

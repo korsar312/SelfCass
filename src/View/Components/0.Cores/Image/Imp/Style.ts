@@ -9,9 +9,11 @@ class Style extends Styles {
 	`;
 
 	public scale(size: TImagesSize = 20): CSSObject {
+		const newSize = typeof size === "number" ? `${size}px` : size;
+
 		return css`
-            width: ${size}
-            height: ${size}
+			width: ${newSize};
+			height: ${newSize};
 		`;
 	}
 
