@@ -7,7 +7,7 @@ import { RouterProvider } from "react-router/dom";
 const View: NFC<typeof Model> = (props) => {
 	const {} = props;
 
-	const router = Act.Router.getRoute();
+	const router = Act.Router.getRouteObj();
 
 	return (
 		<div css={Style.wrapper}>

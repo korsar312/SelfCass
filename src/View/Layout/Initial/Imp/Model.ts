@@ -1,5 +1,5 @@
 import type { IComponent } from "../index";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { Act } from "../../../../Logic/Core";
 
 function Model(props: IComponent) {
@@ -7,11 +7,11 @@ function Model(props: IComponent) {
 
 	const currentRole = Act.Router.getRole();
 
-	useEffect(() => {
-		init();
+	useLayoutEffect(() => {
+		initRole();
 	}, [currentRole]);
 
-	async function init() {
+	function initRole() {
 		Act.Setting.requestBusiness();
 	}
 

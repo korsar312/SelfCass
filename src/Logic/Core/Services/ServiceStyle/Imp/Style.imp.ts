@@ -34,10 +34,6 @@ class StyleImp extends ServiceBase<Interface.Store> implements Interface.IAdapte
 		return { ...this.store, font };
 	}
 
-	private getCurrentTheme(store: Interface.Store): Interface.ETheme {
-		return store.theme;
-	}
-
 	//==============================================================================================
 
 	constructor(props: IServiceProps, color: Interface.TColor, fontList: Interface.TFontList, weightList: Interface.TWeightList) {
@@ -55,9 +51,7 @@ class StyleImp extends ServiceBase<Interface.Store> implements Interface.IAdapte
 
 	getColor(color?: Interface.TColorChoice, opacity: number = 1): string {
 		if (color === undefined) return "null";
-
-		const theme = this.getCurrentTheme(this.store);
-		const hex = this.getHexColor(this.store, theme, color);
+		const hex = this.getHexColor(this.store, this.store.theme, color);
 
 		return this.hex2rgba(hex, opacity);
 	}
@@ -73,7 +67,7 @@ class StyleImp extends ServiceBase<Interface.Store> implements Interface.IAdapte
 	}
 
 	getTheme(): Interface.ETheme {
-		return this.getCurrentTheme(this.store);
+		return this.store.theme;
 	}
 }
 

@@ -7,7 +7,7 @@ function Model(props: IComponent) {
 	function enterCass(isEnter: Boolean) {
 		if (!isEnter) return;
 
-		Act.Router.setRouteRole("CASS");
+		Act.Router.setRole("CASS");
 		Act.Router.goTo("CASS_CHOICE_MENU");
 	}
 
