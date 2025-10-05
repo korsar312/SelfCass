@@ -7,7 +7,7 @@ export interface IComponent extends IParent {}
 const Index: FC<IComponent> = (props) => {
 	const { extStyle } = props;
 
-	const color = Act.Style.getColor("SECOND");
+	const color = Act.Style.getColor("BLACK");
 
 	const propsComponent: IParent = {
 		...props,

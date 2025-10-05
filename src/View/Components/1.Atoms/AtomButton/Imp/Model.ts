@@ -25,14 +25,20 @@ function Model(props: IComponent) {
 
 	function getColorText(): StyleInterface.EColor {
 		switch (color) {
-			case "PRIME":
-			case "MEDIUM":
-			case "SECOND":
-			case "SUCCESS":
-			case "ERROR":
-				return "PRIME";
+			case "PRIME_1":
+				return "PRIME_6";
+			case "PRIME_6":
+				return "GREY_1";
+			case "GREY_4":
+				return "TYPO_1";
+			case "GREY_1":
+				return "PRIME_6";
+			case "RED":
+				return "GREY_1";
+			case "WHITE":
+				return "TYPO_5";
 			default:
-				return "SECOND";
+				return "BLACK";
 		}
 	}
 

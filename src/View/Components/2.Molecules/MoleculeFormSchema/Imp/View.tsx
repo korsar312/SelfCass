@@ -8,7 +8,7 @@ import Text from "../../../0.Cores/Text";
 import Paper from "../../../0.Cores/Paper";
 import type { TDeepCSSObject } from "../../../../ViewUtils.tsx";
 import AtomInputForm from "../../../1.Atoms/AtomInput/Variables/AtomInputForm";
-import AtomButtonForm from "../../../1.Atoms/AtomButton/Variables/AtomButtonForm";
+import AtomButtonMajor from "../../../1.Atoms/AtomButton/Variables/AtomButtonMajor";
 
 const View: NFC<typeof Model> = (props) => {
 	const { schema, extStyle, color, form } = props;
@@ -27,7 +27,7 @@ const View: NFC<typeof Model> = (props) => {
 			case "input":
 				return <AtomInputForm {...field.options} />;
 			case "btn":
-				return <AtomButtonForm {...field.options} />;
+				return <AtomButtonMajor {...field.options} />;
 		}
 	}
 

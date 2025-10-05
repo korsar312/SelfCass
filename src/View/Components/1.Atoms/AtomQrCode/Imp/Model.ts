@@ -37,7 +37,7 @@ function Model(props: IComponent) {
 			type: "canvas",
 			data: code,
 			dotsOptions: {
-				color: Act.Style.getColor(qrColor || "MEDIUM"),
+				color: Act.Style.getColor(qrColor || "BLACK"),
 				type: "rounded",
 			},
 			backgroundOptions: {

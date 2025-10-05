@@ -2,7 +2,7 @@ import type Model from "./Model.ts";
 import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 import Grid from "../../../../Components/0.Cores/Grid";
-import AtomButtonForm from "../../../../Components/1.Atoms/AtomButton/Variables/AtomButtonForm";
+import AtomButtonSecond from "../../../../Components/1.Atoms/AtomButton/Variables/AtomButtonSecond";
 
 const View: NFC<typeof Model> = (props) => {
 	const { btnList } = props;
@@ -14,7 +14,7 @@ const View: NFC<typeof Model> = (props) => {
 					<Grid item xs={2} sm={2} md={3} xl={3} lg={3} />
 
 					<Grid item xs={8} sm={8} md={6} xl={6} lg={6}>
-						<AtomButtonForm text={el.name} click={el.click} />
+						<AtomButtonSecond text={el.name} click={el.click} />
 					</Grid>
 				</Grid>
 			))}

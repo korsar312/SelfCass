@@ -6,7 +6,7 @@ class Style extends Styles {
 	public wrapper(color?: StyleInterface.TColorChoice): CSSObject {
 		return css`
 			border-radius: ${this.variables.radiusStandard}px;
-			background: ${this.getColor(color || "PRIME")};
+			background: ${this.getColor(color || "GREY_1")};
 			transition: ${this.variables.fastTransition};
 	
 			& *::-webkit-scrollbar-track" { 

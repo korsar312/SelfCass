@@ -19,7 +19,7 @@ class Style extends Styles {
 
 	public rippleStyle: CSSObject = css`
 		position: absolute;
-		background: ${this.getColor("SECOND", 0.2)};
+		background: ${this.getColor("GREY_7", 0.2)};
 		border-radius: 50%;
 		transform: scale(0);
 		pointer-events: none;

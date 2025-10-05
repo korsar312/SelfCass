@@ -32,7 +32,7 @@ class Style extends Styles {
     	&[open]::backdrop { animation: ${this.openAnim} },
     	&::backdrop {
 			animation: ${this.closeAnim}
-			background: ${this.getColor("PRIME", 0.7)}
+			background: ${this.getColor("BLACK", 0.7)}
 		}	
 	`;
 }

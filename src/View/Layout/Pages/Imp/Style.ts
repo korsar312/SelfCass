@@ -8,8 +8,6 @@ class Style extends Styles {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		padding: ${this.size(5)};
-		box-sizing: border-box;
 	`;
 }
 

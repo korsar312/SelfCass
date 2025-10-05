@@ -21,7 +21,7 @@ export const Fonts: StyleInterface.TFontList = {
 	BodyDense: "R_11", // Плотные таблицы/мелкий текст
 
 	// Метки / кнопки
-	LabelLarge: "M_16", // Крупные кнопки/таб-лейблы
+	LabelLarge: "B_16", // Крупные кнопки/таб-лейблы
 	LabelMain: "M_14", // Кнопки/табы
 	LabelMedium: "M_12", // Инпуты/бейджи
 	LabelSmall: "M_11", // Самые мелкие подписи/иконки
