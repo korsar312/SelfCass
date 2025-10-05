@@ -19,8 +19,8 @@ const Index: FC<IComponent> = (props) => {
 		type: "submit",
 		textVars: { groupStyle: { flex: 1 }, value: [{ text, font: "LabelLarge" }] },
 		icons: {
-			left: leftIcon ? { value: [{ img: leftIcon }] } : undefined,
-			right: rightIcon ? { value: [{ img: rightIcon }] } : undefined,
+			left: leftIcon ? { value: [{ img: leftIcon, size: 20 }] } : undefined,
+			right: rightIcon ? { value: [{ img: rightIcon, size: 20 }] } : undefined,
 		},
 		extStyles: { padding: "10px 16px", borderRadius: 12 },
 	};
