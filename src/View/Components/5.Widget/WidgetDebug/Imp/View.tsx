@@ -11,6 +11,8 @@ import AtomButtonSecond from "../../../1.Atoms/AtomButton/Variables/AtomButtonSe
 import AtomButtonLabel from "../../../1.Atoms/AtomButton/Variables/AtomButtonLabel";
 import AtomButtonPill from "../../../1.Atoms/AtomButton/Variables/AtomButtonPill";
 import AtomPaperMajor from "../../../1.Atoms/AtomPaper/Variables/AtomPaperMajor";
+import AtomButtonCount from "../../../1.Atoms/AtomButton/Variables/AtomButtonCount";
+import AtomRadio from "../../../1.Atoms/AtomRadio";
 
 const View: NFC<typeof Model> = (props) => {
 	const { isShow, onClose } = props;
@@ -26,7 +28,7 @@ const View: NFC<typeof Model> = (props) => {
 
 	return (
 		<AtomModal css={Style.wrapper} isShow={isShow}>
-			<AtomPaperMajor color={"BLUE"}>
+			<AtomPaperMajor color={"WHITE"}>
 				{row("AtomButtonIcon", <AtomButtonIcon icon={"Add"} />)}
 
 				{row("AtomButtonLabel", <AtomButtonLabel isFill text={"PASSWORD"} />)}
@@ -38,6 +40,13 @@ const View: NFC<typeof Model> = (props) => {
 				{row("AtomButtonPill", <AtomButtonPill text={"PASSWORD"} />)}
 
 				{row("AtomButtonSecond", <AtomButtonSecond text={"PASSWORD"} />)}
+
+				{row("AtomButtonCount", <AtomButtonCount icon={"Add"} />)}
+
+				{row("AtomRadio", <AtomRadio />)}
+				{row("AtomRadio", <AtomRadio isFlag />)}
+				{row("AtomRadio", <AtomRadio disabled />)}
+				{row("AtomRadio", <AtomRadio disabled isFlag />)}
 
 				<AtomButtonSecond text={"CLOSE"} click={onClose} />
 			</AtomPaperMajor>

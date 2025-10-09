@@ -20,7 +20,7 @@ const Index: FC<IComponent> = (props) => {
 
 	const propsComponent: IParent = {
 		...props,
-		color: isFill ? "GREY_4" : "WHITE",
+		color: isFill ? "PRIME_1" : "WHITE",
 		type: "submit",
 		textVars: { groupStyle: Style.text, value: [textParam] },
 		extStyles: Style.wrapper,

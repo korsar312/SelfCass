@@ -3,12 +3,8 @@ import { css, type CSSObject } from "@emotion/react";
 
 class Style extends Styles {
 	public wrapper: CSSObject = css`
-		padding: 7px 20px;
-		border-radius: 100vmin;
-	`;
-
-	public text: CSSObject = css`
-		flex: 1;
+		padding: 10px;
+		border-radius: 50%;
 	`;
 }
 
