@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import Style from "./Style.ts";
 import Component, { type IComponent as IParent } from "../../index";
 import type { MessageInterface } from "../../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
 import type { TImageComponent } from "../../../../0.Cores/Image";
@@ -10,19 +11,19 @@ export interface IComponent extends Pick<IParent, "isDisable" | "click" | "color
 }
 
 const Index: FC<IComponent> = (props) => {
-	const { text, leftIcon, rightIcon } = props;
+	const { text, leftIcon, rightIcon, color } = props;
 
 	const propsComponent: IParent = {
 		...props,
-		color: "PRIME_6",
+		color: color || "PRIME_6",
 		isFullWidth: true,
 		type: "submit",
-		textVars: { groupStyle: { flex: 1 }, value: [{ text, font: "LabelLarge" }] },
+		textVars: { groupStyle: Style.text, value: [{ text, font: "LabelLarge" }] },
 		icons: {
 			left: leftIcon ? { value: [{ img: leftIcon, size: 20 }] } : undefined,
 			right: rightIcon ? { value: [{ img: rightIcon, size: 20 }] } : undefined,
 		},
-		extStyles: { padding: "10px 16px", borderRadius: 12 },
+		extStyles: Style.wrapper,
 	};
 
 	return <Component {...propsComponent} />;

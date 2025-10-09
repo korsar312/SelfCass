@@ -23,8 +23,8 @@ export const Fonts: StyleInterface.TFontList = {
 	// Метки / кнопки
 	LabelLarge: "B_16", // Крупные кнопки/таб-лейблы
 	LabelMain: "M_14", // Кнопки/табы
-	LabelMedium: "M_12", // Инпуты/бейджи
-	LabelSmall: "M_11", // Самые мелкие подписи/иконки
+	LabelMedium: "S_15", // Инпуты/бейджи
+	LabelSmall: "R_15", // Самые мелкие подписи/иконки
 
 	// Подсказки
 	Hint: "R_12", // Плейсхолдеры/подсказки в инпутах

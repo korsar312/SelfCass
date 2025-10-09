@@ -7,7 +7,7 @@ import type { StyleInterface } from "../../../../Logic/Core/Services/ServiceStyl
 
 export interface IComponent extends TTagPartial<HTMLButtonElement, "type"> {
 	textVars?: TAtomButtonText;
-	color?: TAtomButtonColor;
+	color?: EAtomButtonColor;
 	isDisable?: boolean;
 	extStyles?: TDeepCSSObject;
 	icons?: Partial<Record<EAtomButtonIcon, TAtomButtonIcon>>;
@@ -34,7 +34,7 @@ export const buttonColor = {
 	WHITE: "WHITE",
 } satisfies { [K in StyleInterface.EColor]?: K };
 
-export type TAtomButtonColor = keyof typeof buttonColor;
+export type EAtomButtonColor = keyof typeof buttonColor;
 
 const Index = (props: IComponent) => {
 	const model = Model(props);

@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import Style from "./Style.ts";
 import Component, { type IComponent as IParent } from "../../index";
 import type { TImageComponent } from "../../../../0.Cores/Image";
 
@@ -14,7 +15,7 @@ const Index: FC<IComponent> = (props) => {
 		color: "PRIME_6",
 		type: "submit",
 		icons: { left: { value: [{ img: icon, size: 20 }] } },
-		extStyles: { padding: 10, borderRadius: 12 },
+		extStyles: Style.wrapper,
 	};
 
 	return <Component {...propsComponent} />;

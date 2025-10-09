@@ -1,6 +1,6 @@
 import Styles from "../../../../../Styles/Styles.ts";
 import { css, type CSSObject } from "@emotion/react";
-import type { TAtomButtonColor } from "../index.tsx";
+import type { EAtomButtonColor } from "../index.tsx";
 
 class Style extends Styles {
 	public wrapper(isFullWidth?: boolean): CSSObject {
@@ -28,7 +28,7 @@ class Style extends Styles {
 		gap: 4px;
 	`;
 
-	public color(color?: TAtomButtonColor): CSSObject {
+	public color(color?: EAtomButtonColor): CSSObject {
 		const borderParam = color === "WHITE" ? `1px solid ${this.getColor("GREY_4")}` : "none";
 
 		return css`
