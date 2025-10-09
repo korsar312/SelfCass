@@ -12,7 +12,6 @@ class Style extends Styles {
 		width: 24px;
 		height: 24px;
 		border: 2px solid ${this.getColor(this.enableColor)};
-		border-radius: 50%;
 		${this.mixins.flexCenter};
 
 		&:checked::after {

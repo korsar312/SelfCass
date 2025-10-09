@@ -31,10 +31,8 @@ class Style extends Styles {
 	public color(color?: EAtomButtonColor): CSSObject {
 		const isOpacity = color === "WHITE";
 
-		const borderParam = isOpacity ? `1px solid ${this.getColor("GREY_4")}` : "none";
-
 		return css`
-			border: ${borderParam};
+			border: 1px solid ${this.getColor(isOpacity ? "GREY_4" : undefined)};
 			background: ${this.getColor(isOpacity ? undefined : color)};
 		`;
 	}

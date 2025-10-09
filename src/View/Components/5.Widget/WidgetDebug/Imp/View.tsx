@@ -12,10 +12,20 @@ import AtomButtonLabel from "../../../1.Atoms/AtomButton/Variables/AtomButtonLab
 import AtomButtonPill from "../../../1.Atoms/AtomButton/Variables/AtomButtonPill";
 import AtomPaperMajor from "../../../1.Atoms/AtomPaper/Variables/AtomPaperMajor";
 import AtomButtonCount from "../../../1.Atoms/AtomButton/Variables/AtomButtonCount";
-import AtomRadio from "../../../1.Atoms/AtomRadio";
+import AtomToggleRadio from "../../../1.Atoms/AtomToggle/Variables/AtomToggleRadio";
+import AtomToggleCheck from "../../../1.Atoms/AtomToggle/Variables/AtomToggleCheck";
 
 const View: NFC<typeof Model> = (props) => {
-	const { isShow, onClose } = props;
+	const { isShow, onClose, btnSwitch, comp, isFill } = props;
+
+	function content() {
+		switch (comp) {
+			case "btn":
+				return buttons();
+			case "tgl":
+				return toggles();
+		}
+	}
 
 	function row(name: MessageInterface.EWordAll, component: ReactNode) {
 		return (
@@ -26,9 +36,9 @@ const View: NFC<typeof Model> = (props) => {
 		);
 	}
 
-	return (
-		<AtomModal css={Style.wrapper} isShow={isShow}>
-			<AtomPaperMajor color={"WHITE"}>
+	function buttons() {
+		return (
+			<>
 				{row("AtomButtonIcon", <AtomButtonIcon icon={"Add"} />)}
 
 				{row("AtomButtonLabel", <AtomButtonLabel isFill text={"PASSWORD"} />)}
@@ -42,11 +52,36 @@ const View: NFC<typeof Model> = (props) => {
 				{row("AtomButtonSecond", <AtomButtonSecond text={"PASSWORD"} />)}
 
 				{row("AtomButtonCount", <AtomButtonCount icon={"Add"} />)}
+			</>
+		);
+	}
 
-				{row("AtomRadio", <AtomRadio />)}
-				{row("AtomRadio", <AtomRadio isFlag />)}
-				{row("AtomRadio", <AtomRadio disabled />)}
-				{row("AtomRadio", <AtomRadio disabled isFlag />)}
+	function toggles() {
+		return (
+			<>
+				{row("AtomToggleRadio", <AtomToggleRadio />)}
+				{row("AtomToggleRadio", <AtomToggleRadio checked />)}
+				{row("AtomToggleRadio", <AtomToggleRadio disabled />)}
+				{row("AtomToggleRadio", <AtomToggleRadio disabled checked />)}
+
+				{row("AtomToggleCheck", <AtomToggleCheck />)}
+				{row("AtomToggleCheck", <AtomToggleCheck checked />)}
+				{row("AtomToggleCheck", <AtomToggleCheck disabled />)}
+				{row("AtomToggleCheck", <AtomToggleCheck disabled checked />)}
+			</>
+		);
+	}
+
+	return (
+		<AtomModal css={Style.wrapper} isShow={isShow}>
+			<AtomPaperMajor color={"WHITE"}>
+				<div css={Style.titleBtn}>
+					{btnSwitch.map(({ title, comp, click }) => (
+						<AtomButtonPill isFullWidth key={title} isFill={isFill(comp)} text={title} click={click} />
+					))}
+				</div>
+
+				<div css={Style.content}>{content()}</div>
 
 				<AtomButtonSecond text={"CLOSE"} click={onClose} />
 			</AtomPaperMajor>

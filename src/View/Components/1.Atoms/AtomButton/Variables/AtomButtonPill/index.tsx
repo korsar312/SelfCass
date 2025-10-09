@@ -4,7 +4,7 @@ import Component, { type IComponent as IParent } from "../../index";
 import type { MessageInterface } from "../../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
 import type { IComponent as IText } from "../../../../0.Cores/Text";
 
-export interface IComponent extends Pick<IParent, "click"> {
+export interface IComponent extends Pick<IParent, "click" | "isFullWidth"> {
 	text: MessageInterface.EWord;
 	isFill?: boolean;
 }
