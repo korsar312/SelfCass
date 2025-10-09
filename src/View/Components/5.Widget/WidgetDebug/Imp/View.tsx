@@ -14,6 +14,7 @@ import AtomPaperMajor from "../../../1.Atoms/AtomPaper/Variables/AtomPaperMajor"
 import AtomButtonCount from "../../../1.Atoms/AtomButton/Variables/AtomButtonCount";
 import AtomToggleRadio from "../../../1.Atoms/AtomToggle/Variables/AtomToggleRadio";
 import AtomToggleCheck from "../../../1.Atoms/AtomToggle/Variables/AtomToggleCheck";
+import AtomToggleSwitch from "../../../1.Atoms/AtomToggle/Variables/AtomToggleSwitch";
 
 const View: NFC<typeof Model> = (props) => {
 	const { isShow, onClose, btnSwitch, comp, isFill } = props;
@@ -68,6 +69,11 @@ const View: NFC<typeof Model> = (props) => {
 				{row("AtomToggleCheck", <AtomToggleCheck checked />)}
 				{row("AtomToggleCheck", <AtomToggleCheck disabled />)}
 				{row("AtomToggleCheck", <AtomToggleCheck disabled checked />)}
+
+				{row("AtomToggleSwitch", <AtomToggleSwitch />)}
+				{row("AtomToggleSwitch", <AtomToggleSwitch checked />)}
+				{row("AtomToggleSwitch", <AtomToggleSwitch disabled />)}
+				{row("AtomToggleSwitch", <AtomToggleSwitch disabled checked />)}
 			</>
 		);
 	}
