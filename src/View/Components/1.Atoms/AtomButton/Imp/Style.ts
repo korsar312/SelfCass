@@ -29,11 +29,13 @@ class Style extends Styles {
 	`;
 
 	public color(color?: EAtomButtonColor): CSSObject {
-		const borderParam = color === "WHITE" ? `1px solid ${this.getColor("GREY_4")}` : "none";
+		const isOpacity = color === "WHITE";
+
+		const borderParam = isOpacity ? `1px solid ${this.getColor("GREY_4")}` : "none";
 
 		return css`
 			border: ${borderParam};
-			background: ${this.getColor(color)};
+			background: ${this.getColor(isOpacity ? undefined : color)};
 		`;
 	}
 }

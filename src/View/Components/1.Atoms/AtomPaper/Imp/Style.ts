@@ -8,12 +8,12 @@ class Style extends Styles {
 			border-radius: ${this.variables.radiusStandard}px;
 			background: ${this.getColor(color || "GREY_1")};
 			transition: ${this.variables.fastTransition};
-	
-			& *::-webkit-scrollbar-track" { 
-				marginBottom: ${this.variables.radiusStandard},
-				marginTop: ${this.variables.radiusStandard},
-				marginLeft: ${this.variables.radiusStandard - this.variables.scrollSize},
-				marginRight: ${this.variables.radiusStandard - this.variables.scrollSize * 2},		
+
+			& *::-webkit-scrollbar-track {
+				margin-bottom: ${this.variables.radiusStandard};
+				margin-top: ${this.variables.radiusStandard};
+				margin-left: ${this.variables.radiusStandard - this.variables.scrollSize};
+				margin-right: ${this.variables.radiusStandard - this.variables.scrollSize * 2};
 			}
 		`;
 	}

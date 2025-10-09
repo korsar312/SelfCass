@@ -5,10 +5,10 @@ import type { ReactElement } from "react";
 import type { TMoleculeFormSchemaField, TMoleculeFormSchemaRow } from "../index.tsx";
 import Form from "../../../0.Cores/Form";
 import Text from "../../../0.Cores/Text";
-import Paper from "../../../0.Cores/Paper";
 import type { TDeepCSSObject } from "../../../../ViewUtils.tsx";
 import AtomInputForm from "../../../1.Atoms/AtomInput/Variables/AtomInputForm";
 import AtomButtonMajor from "../../../1.Atoms/AtomButton/Variables/AtomButtonMajor";
+import AtomPaperMajor from "../../../1.Atoms/AtomPaper/Variables/AtomPaperMajor";
 
 const View: NFC<typeof Model> = (props) => {
 	const { schema, extStyle, color, form } = props;
@@ -41,9 +41,9 @@ const View: NFC<typeof Model> = (props) => {
 
 	return (
 		<Form {...form}>
-			<Paper extStyle={[Style.form, extStyle]} color={color}>
+			<AtomPaperMajor extStyle={[Style.form, extStyle]} color={color}>
 				{typeChoice(schema, 1)}
-			</Paper>
+			</AtomPaperMajor>
 		</Form>
 	);
 };

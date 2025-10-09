@@ -1,39 +1,52 @@
 import Styles from "../../../../../Styles/Styles.ts";
-import { css, type CSSObject, keyframes } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 
 class Style extends Styles {
-	private timeAnim = this.variables.timeFastTransition;
-
-	private open = keyframes`
-		from {opacity: 0}
-		to {opacity: 1}
+	private anim(isOpen: boolean) {
+		return keyframes`
+		from {opacity: ${+!isOpen}}
+		to {opacity: ${+isOpen}}
     `;
+	}
 
-	private close = keyframes`
-		from {opacity: 1}		
-		to {opacity: 0}
-    `;
+	private openAnim = css`
+		animation: ${this.anim(true)} ${this.variables.timeFastTransition} forwards;
+	`;
 
-	private openAnim = `${this.open} ${this.timeAnim} forwards`;
-	private closeAnim = `${this.close} ${this.timeAnim} forwards`;
+	private closeAnim = css`
+		animation: ${this.anim(false)} ${this.variables.timeFastTransition} forwards;
+	`;
 
-	public wrapper: CSSObject = css`
-        overflow: visible;
-        background: none;
-        border: none;
-        outline: none;
-        padding: 0;
+	public wrapper = css`
+		overflow: visible;
+		background: none;
+		border: none;
+		outline: none;
+		padding: 0;
+		transition:
+			display 1s,
+			overlay 1s;
+		transition-behavior: allow-discrete;
 
-        transition: display 1s, overlay 1s;
-        transition-behavior: allow-discrete;
-        animation: ${this.closeAnim};
-		
-        &[open] { animation: ${this.openAnim} }
-    	&[open]::backdrop { animation: ${this.openAnim} },
-    	&::backdrop {
-			animation: ${this.closeAnim}
-			background: ${this.getColor("BLACK", 0.7)}
-		}	
+		&[open] {
+			${this.openAnim}
+		}
+
+		&:not([open]) {
+			${this.closeAnim}
+		}
+
+		&[open]::backdrop {
+			${this.openAnim}
+		}
+
+		&:not([open])::backdrop {
+			${this.closeAnim}
+		}
+
+		&::backdrop {
+			background: ${this.getColor("BLACK", 0.7)};
+		}
 	`;
 }
 

@@ -40,6 +40,7 @@ const Word = {
 	TABLE_NUMBER: "TABLE_NUMBER",
 	TOKEN: "TOKEN",
 	QR_TO_SMALL: "QR_TO_SMALL",
+	CLOSE: "CLOSE",
 } as const;
 
 const Lang = {

@@ -24,7 +24,7 @@ function Model(props: IComponent) {
 		dialog.showModal();
 	}
 
-	return { children, refDialog, close, isShow };
+	return { children, refDialog };
 }
 
 export default Model;

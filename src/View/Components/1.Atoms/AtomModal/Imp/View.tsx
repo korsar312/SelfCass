@@ -3,9 +3,7 @@ import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 
 const View: NFC<typeof Model> = (props) => {
-	const { children, refDialog, close, isShow } = props;
-
-	[close, isShow];
+	const { children, refDialog } = props;
 
 	return (
 		<dialog ref={refDialog} css={Style.wrapper}>
