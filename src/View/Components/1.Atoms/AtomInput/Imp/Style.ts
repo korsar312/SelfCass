@@ -34,7 +34,23 @@ class Style extends Styles {
 		padding: 0;
 	`;
 
-	public place: CSSObject = css``;
+	public place(isTop: boolean): CSSObject {
+		const topSide = "translate(0, -70%) scale(0.7)";
+
+		return css`
+			display: inline-block;
+			transform: ${isTop ? topSide : "none"};
+			transform-origin: left;
+
+			&:has(+ input:focus) {
+				transform: ${topSide};
+			}
+		`;
+	}
+
+	public imageWrap: CSSObject = css`
+		display: flex;
+	`;
 
 	public text(textProp: TAtomInputText): CSSObject {
 		return {

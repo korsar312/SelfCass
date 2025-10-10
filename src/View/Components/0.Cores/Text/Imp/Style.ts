@@ -6,7 +6,7 @@ import type { TTextPos } from "../index.tsx";
 class Style extends Styles {
 	public wrapper: CSSObject = css`
 		text-align: center;
-		transition: color ${this.variables.fastTransition};
+		transition: ${this.variables.fastTransition};
 		white-space: pre-line;
 	`;
 

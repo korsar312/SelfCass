@@ -2,20 +2,31 @@ import type Model from "./Model.ts";
 import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 import Text from "../../../0.Cores/Text";
+import type { TAtomInputIcon } from "../index.tsx";
+import Image from "../../../0.Cores/Image";
 
 const View: NFC<typeof Model> = (props) => {
-	const { textObj, onClick, handleChange, text, name, type } = props;
+	const { textObj, onClick, handleChange, text, name, type, icons, isTextExist } = props;
 
-	function images() {
-		return <></>;
+	function images(icons?: TAtomInputIcon) {
+		return (
+			icons && (
+				<div css={[Style.imageWrap, icons.groupStyle]}>
+					{icons?.value.map((el) => (
+						<Image {...el} />
+					))}
+				</div>
+			)
+		);
 	}
 
 	return (
 		<div css={Style.wrapper}>
-			{images()}
+			{images(icons?.left)}
 
 			<div css={Style.inputWrap}>
-				<Text extStyle={Style.place} color={"TYPO_2"} font={textObj.font} text={"email address"} />
+				<Text extStyle={Style.place(isTextExist)} color={"TYPO_2"} font={textObj.font} text={"email address"} />
+
 				<input
 					type={type}
 					name={name}
@@ -26,7 +37,7 @@ const View: NFC<typeof Model> = (props) => {
 				/>
 			</div>
 
-			{images()}
+			{images(icons?.right)}
 		</div>
 	);
 };
