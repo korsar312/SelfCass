@@ -1,4 +1,4 @@
-import type Model from "./Model.ts";
+import Model, { type TWidgetDebugState } from "./Model.ts";
 import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 import AtomModal from "../../../1.Atoms/AtomModal";
@@ -15,30 +15,13 @@ import AtomButtonCount from "../../../1.Atoms/AtomButton/Variables/AtomButtonCou
 import AtomToggleRadio from "../../../1.Atoms/AtomToggle/Variables/AtomToggleRadio";
 import AtomToggleCheck from "../../../1.Atoms/AtomToggle/Variables/AtomToggleCheck";
 import AtomToggleSwitch from "../../../1.Atoms/AtomToggle/Variables/AtomToggleSwitch";
+import AtomInput from "../../../1.Atoms/AtomInput";
 
 const View: NFC<typeof Model> = (props) => {
 	const { isShow, onClose, btnSwitch, comp, isFill } = props;
 
-	function content() {
-		switch (comp) {
-			case "btn":
-				return buttons();
-			case "tgl":
-				return toggles();
-		}
-	}
-
-	function row(name: MessageInterface.EWordAll, component: ReactNode) {
-		return (
-			<>
-				<Text text={name} />
-				{component}
-			</>
-		);
-	}
-
-	function buttons() {
-		return (
+	const content: Record<TWidgetDebugState, ReactNode> = {
+		btn: (
 			<>
 				{row("AtomButtonIcon", <AtomButtonIcon icon={"Add"} />)}
 
@@ -54,26 +37,38 @@ const View: NFC<typeof Model> = (props) => {
 
 				{row("AtomButtonCount", <AtomButtonCount icon={"Add"} />)}
 			</>
-		);
-	}
-
-	function toggles() {
-		return (
+		),
+		tgl: (
 			<>
 				{row("AtomToggleRadio", <AtomToggleRadio />)}
-				{row("AtomToggleRadio", <AtomToggleRadio checked />)}
-				{row("AtomToggleRadio", <AtomToggleRadio disabled />)}
-				{row("AtomToggleRadio", <AtomToggleRadio disabled checked />)}
+				{row("AtomToggleRadio \n checked", <AtomToggleRadio checked />)}
+				{row("AtomToggleRadio \n disabled", <AtomToggleRadio disabled />)}
+				{row("AtomToggleRadio \n disabled checked", <AtomToggleRadio disabled checked />)}
 
 				{row("AtomToggleCheck", <AtomToggleCheck />)}
-				{row("AtomToggleCheck", <AtomToggleCheck checked />)}
-				{row("AtomToggleCheck", <AtomToggleCheck disabled />)}
-				{row("AtomToggleCheck", <AtomToggleCheck disabled checked />)}
+				{row("AtomToggleCheck \n checked", <AtomToggleCheck checked />)}
+				{row("AtomToggleCheck \n disabled", <AtomToggleCheck disabled />)}
+				{row("AtomToggleCheck \n disabled checked", <AtomToggleCheck disabled checked />)}
 
 				{row("AtomToggleSwitch", <AtomToggleSwitch />)}
-				{row("AtomToggleSwitch", <AtomToggleSwitch checked />)}
-				{row("AtomToggleSwitch", <AtomToggleSwitch disabled />)}
-				{row("AtomToggleSwitch", <AtomToggleSwitch disabled checked />)}
+				{row("AtomToggleSwitch \n checked", <AtomToggleSwitch checked />)}
+				{row("AtomToggleSwitch \n disabled", <AtomToggleSwitch disabled />)}
+				{row("AtomToggleSwitch \n disabled checked", <AtomToggleSwitch disabled checked />)}
+			</>
+		),
+		inp: (
+			<>
+				{row("AtomInput", <AtomInput initText={"CLOSE"} />)}
+				{row("AtomInput", <AtomInput initText={"CLOSE"} />)}
+			</>
+		),
+	};
+
+	function row(name: MessageInterface.EWordAll, component: ReactNode) {
+		return (
+			<>
+				<Text text={name} />
+				{component}
 			</>
 		);
 	}
@@ -87,7 +82,7 @@ const View: NFC<typeof Model> = (props) => {
 					))}
 				</div>
 
-				<div css={Style.content}>{content()}</div>
+				<div css={Style.content}>{content[comp]}</div>
 
 				<AtomButtonSecond text={"CLOSE"} click={onClose} />
 			</AtomPaperMajor>

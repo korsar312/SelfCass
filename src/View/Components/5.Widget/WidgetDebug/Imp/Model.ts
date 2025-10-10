@@ -2,18 +2,18 @@ import type { IComponent } from "../index";
 import { useState } from "react";
 import type { MessageInterface } from "../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
 
-type TComponent = "btn" | "tgl";
+export type TWidgetDebugState = "btn" | "tgl" | "inp";
 
 type TBtn = {
 	title: MessageInterface.EWord;
-	comp: TComponent;
+	comp: TWidgetDebugState;
 	click: () => void;
 };
 
 function Model(props: IComponent) {
 	const { isShow, onClose } = props;
 
-	const [comp, setComp] = useState<TComponent>("btn");
+	const [comp, setComp] = useState<TWidgetDebugState>("btn");
 
 	const btnParam: Omit<TBtn, "click">[] = [
 		{
@@ -24,11 +24,15 @@ function Model(props: IComponent) {
 			title: "CART",
 			comp: "tgl",
 		},
+		{
+			title: "CLOSE",
+			comp: "inp",
+		},
 	];
 
 	const btnSwitch: TBtn[] = btnParam.map((el) => ({ ...el, click: () => setComp(el.comp) }));
 
-	function isFill(curCat: TComponent) {
+	function isFill(curCat: TWidgetDebugState) {
 		return curCat === comp;
 	}
 
