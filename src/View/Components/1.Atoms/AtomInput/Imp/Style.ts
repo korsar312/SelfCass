@@ -18,8 +18,10 @@ class Style extends Styles {
 	`;
 
 	public inputWrap: CSSObject = css`
+		${this.mixins.flexVerCenter}
 		position: relative;
 		width: 100%;
+		height: 100%;
 	`;
 
 	public inputContent: CSSObject = css`
@@ -31,6 +33,7 @@ class Style extends Styles {
 		background: ${this.getColor()};
 		outline: none;
 		border: none;
+		height: calc(100% - 4px);
 		padding: 0;
 	`;
 
