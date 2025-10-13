@@ -8,7 +8,7 @@ class Style extends Styles {
 		position: relative;
 		box-sizing: border-box;
 		padding: 2px 16px;
-		gap: 16px;
+		gap: 12px;
 		height: 42px;
 		border: 2px solid ${this.getColor("GREY_4")};
 		border-radius: 12px;
@@ -78,6 +78,7 @@ class Style extends Styles {
 
 	public imageWrap: CSSObject = css`
 		display: flex;
+		gap: 4px;
 	`;
 
 	public text(textProp: TAtomInputText): CSSObject {

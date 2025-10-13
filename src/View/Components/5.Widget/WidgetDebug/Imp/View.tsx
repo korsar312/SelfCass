@@ -59,9 +59,16 @@ const View: NFC<typeof Model> = (props) => {
 		inp: (
 			<>
 				{row("AtomInput", <AtomInput initText={"CLOSE"} />)}
-				{row("AtomInput", <AtomInput placeholder={"Фырк Ырк"} initText={"CLOSE"} />)}
-				{row("AtomInput", <AtomInput disabled initText={""} />)}
-				{row("AtomInput", <AtomInput valid={[() => false]} initText={""} />)}
+				{row(
+					"AtomInput",
+					<AtomInput
+						iconsLeft={{ value: [{ img: "Message" }, { img: "Message" }] }}
+						placeholder={"Фырк Ырк"}
+						initText={"CLOSE"}
+					/>,
+				)}
+				{row("AtomInput", <AtomInput iconsLeft={{ value: [{ img: "Message" }, { img: "Message" }] }} disabled initText={""} />)}
+				{row("AtomInput", <AtomInput iconsLeft={"Message"} valid={[() => false]} initText={""} />)}
 			</>
 		),
 	};

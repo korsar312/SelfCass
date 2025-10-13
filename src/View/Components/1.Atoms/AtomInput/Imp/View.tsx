@@ -12,8 +12,8 @@ const View: NFC<typeof Model> = (props) => {
 		return (
 			icons && (
 				<div css={[Style.imageWrap, icons.groupStyle]}>
-					{icons?.value.map((el) => (
-						<Image {...el} />
+					{icons?.value.map((el, i) => (
+						<Image key={i} {...el} />
 					))}
 				</div>
 			)
