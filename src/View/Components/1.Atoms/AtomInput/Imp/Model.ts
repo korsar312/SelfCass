@@ -2,7 +2,6 @@ import type { IComponent, TAtomInputGeneralGroup, TAtomInputIcon, TAtomInputText
 import { type ChangeEvent, useState } from "react";
 import { Act } from "../../../../../Logic/Core";
 import type { MessageInterface } from "../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
-import type { StyleInterface } from "../../../../../Logic/Core/Services/ServiceStyle/Style.interface.ts";
 import type { IComponent as IImage } from "../../../0.Cores/Image";
 
 function Model(props: IComponent) {
@@ -10,8 +9,8 @@ function Model(props: IComponent) {
 
 	const [isValid, setIsValid] = useState<boolean>();
 
-	const textObj = changeText(initText, isValid === false ? "RED" : undefined);
-	const placeObj = changeText(placeholder, isValid === false ? "RED" : "TYPO_2");
+	const textObj = changeTitle(initText);
+	const placeObj = changePlace(placeholder);
 
 	const isTextExist = Boolean(textObj?.text?.length);
 	const text = Act.Message.getWord(textObj?.text);
@@ -19,10 +18,14 @@ function Model(props: IComponent) {
 	const imageLeft = changeImage(iconsLeft);
 	const imageRight = changeImage(iconsRight);
 
-	function changeText(text: TAtomInputText | MessageInterface.EWordAll, color?: StyleInterface.EColor): TAtomInputText {
-		const props: TAtomInputText = typeof text === "object" ? text : { text, font: "BodyMain" };
+	function changeTitle(text: TAtomInputText | MessageInterface.EWordAll): TAtomInputText {
+		const props: TAtomInputText = typeof text === "object" ? text : { text, font: "LabelMedium" };
+		return { ...props, color: props.color || isValid === false ? "RED" : "BLACK" };
+	}
 
-		return { ...props, color: props.color || color || "BLACK" };
+	function changePlace(text: TAtomInputText | MessageInterface.EWordAll): TAtomInputText {
+		const props: TAtomInputText = typeof text === "object" ? text : { text, font: "BodyMain" };
+		return { ...props, color: props.color || isValid === false ? "RED" : "TYPO_2" };
 	}
 
 	function changeImage(img: TAtomInputIcon): TAtomInputGeneralGroup | undefined {
