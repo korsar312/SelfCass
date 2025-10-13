@@ -3,12 +3,14 @@ import View from "./Imp/View.tsx";
 import type { TDeepCSSObject, TTagPartial } from "../../../ViewUtils.tsx";
 import type { MessageInterface } from "../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
 import type { StyleInterface } from "../../../../Logic/Core/Services/ServiceStyle/Style.interface.ts";
-import type { IComponent as IImage } from "../../0.Cores/Image";
+import type { IComponent as IImage, TImageComponent } from "../../0.Cores/Image";
 
-export interface IComponent extends TTagPartial<HTMLInputElement, "name" | "onClick" | "type" | "disabled" | "placeholder"> {
+export interface IComponent extends TTagPartial<HTMLInputElement, "name" | "onClick" | "type" | "disabled"> {
 	initText: TAtomInputText | MessageInterface.EWordAll;
+	placeholder?: TAtomInputText | MessageInterface.EWordAll;
 	onChange?: (val: MessageInterface.EWordAll) => void;
-	icons?: Partial<Record<EAtomInputIcon, TAtomInputIcon>>;
+	iconsLeft?: TAtomInputIcon;
+	iconsRight?: TAtomInputIcon;
 	valid?: Array<(val: MessageInterface.EWordAll) => boolean>;
 }
 
@@ -18,12 +20,11 @@ export type TAtomInputText = {
 	color?: StyleInterface.TColorChoice;
 };
 
-type EAtomInputIcon = "left" | "right";
-export type TAtomInputIcon = TAtomInputGeneralGroup<IImage>;
+export type TAtomInputIcon = TAtomInputGeneralGroup | TImageComponent;
 
-export type TAtomInputGeneralGroup<T> = {
+export type TAtomInputGeneralGroup = {
 	groupStyle?: TDeepCSSObject;
-	value: T[];
+	value: IImage[];
 };
 
 const Index = (props: IComponent) => {

@@ -55,17 +55,22 @@ class Style extends Styles {
 		height: calc(100% - 4px);
 		padding: 0;
 		width: 100%;
+
+		&::placeholder {
+			color: ${this.getColor(undefined)};
+		}
 	`;
 
-	public place(isTop: boolean): CSSObject {
-		const topSide = "translate(0, -70%) scale(0.7)";
+	public place(): CSSObject {
+		const topSide = "translate(0, -66%) scale(0.65)";
 
 		return css`
 			display: inline-block;
-			transform: ${isTop ? topSide : "none"};
+			transform: ${!1 ? topSide : "none"};
 			transform-origin: left;
 
-			&:has(+ input:focus) {
+			&:has(+ input:focus),
+			&:has(+ input:not(:placeholder-shown)) {
 				transform: ${topSide};
 			}
 		`;

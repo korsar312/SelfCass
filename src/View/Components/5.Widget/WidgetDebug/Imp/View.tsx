@@ -59,8 +59,9 @@ const View: NFC<typeof Model> = (props) => {
 		inp: (
 			<>
 				{row("AtomInput", <AtomInput initText={"CLOSE"} />)}
-				{row("AtomInput", <AtomInput initText={"CLOSE"} />)}
+				{row("AtomInput", <AtomInput placeholder={"Фырк Ырк"} initText={"CLOSE"} />)}
 				{row("AtomInput", <AtomInput disabled initText={""} />)}
+				{row("AtomInput", <AtomInput valid={[() => false]} initText={""} />)}
 			</>
 		),
 	};

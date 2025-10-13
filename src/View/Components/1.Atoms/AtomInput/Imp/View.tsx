@@ -2,13 +2,13 @@ import type Model from "./Model.ts";
 import Style from "./Style.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 import Text from "../../../0.Cores/Text";
-import type { TAtomInputIcon } from "../index.tsx";
+import type { TAtomInputGeneralGroup } from "../index.tsx";
 import Image from "../../../0.Cores/Image";
 
 const View: NFC<typeof Model> = (props) => {
-	const { textObj, onClick, handleChange, text, name, type, icons, isTextExist, disabled, placeholder, isValid, onValid } = props;
+	const { textObj, onClick, handleChange, text, name, type, imageLeft, imageRight, disabled, placeObj, isValid, onValid } = props;
 
-	function images(icons?: TAtomInputIcon) {
+	function images(icons?: TAtomInputGeneralGroup) {
 		return (
 			icons && (
 				<div css={[Style.imageWrap, icons.groupStyle]}>
@@ -22,10 +22,10 @@ const View: NFC<typeof Model> = (props) => {
 
 	return (
 		<div css={[Style.wrapper, Style.valid(isValid)]}>
-			{images(icons?.left)}
+			{images(imageLeft)}
 
 			<div css={Style.inputWrap}>
-				<Text extStyle={Style.place(isTextExist)} color={"TYPO_2"} font={textObj.font} text={placeholder} />
+				<Text extStyle={Style.place()} color={placeObj.color} font={placeObj.font} text={placeObj.text} />
 
 				<input
 					type={type}
@@ -36,10 +36,11 @@ const View: NFC<typeof Model> = (props) => {
 					onInput={handleChange}
 					disabled={disabled}
 					onChange={onValid}
+					placeholder={""}
 				/>
 			</div>
 
-			{images(icons?.right)}
+			{images(imageRight)}
 		</div>
 	);
 };
