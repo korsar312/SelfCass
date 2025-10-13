@@ -20,7 +20,7 @@ function Model(props: IComponent) {
 
 	function changeTitle(text: TAtomInputText | MessageInterface.EWordAll): TAtomInputText {
 		const props: TAtomInputText = typeof text === "object" ? text : { text, font: "LabelMedium" };
-		return { ...props, color: props.color || isValid === false ? "RED" : "BLACK" };
+		return { ...props, color: props.color || isValid === false ? "RED" : "TYPO_5" };
 	}
 
 	function changePlace(text: TAtomInputText | MessageInterface.EWordAll): TAtomInputText {
@@ -32,7 +32,10 @@ function Model(props: IComponent) {
 		if (typeof img === "undefined") return undefined;
 
 		const props: TAtomInputGeneralGroup = typeof img === "object" ? img : { value: [{ img }] };
-		const imgArr: IImage[] = props.value.map((el) => ({ ...el, color: el.color || isValid === false ? "RED" : "TYPO_2" }));
+		const imgArr: IImage[] = props.value.map((el) => ({
+			...el,
+			color: el.color || isValid === false ? "RED" : isValid ? "GREY_7" : "TYPO_2",
+		}));
 
 		return { ...props, value: [...imgArr] };
 	}
