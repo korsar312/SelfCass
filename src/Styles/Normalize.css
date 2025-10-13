@@ -203,6 +203,13 @@ template {
     touch-action: manipulation;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    transition: background-color 9999s ease-out;
+}
+
+
 input,
 textarea,
 button,

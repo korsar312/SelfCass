@@ -22,7 +22,7 @@ class StyleImp extends ServiceBase<Interface.Store> implements Interface.IAdapte
 		const [w, size] = token.split("_") as [Interface.EWeight, `${number}`];
 
 		return {
-			fontFamily: "Roboto",
+			fontFamily: "Cascadia",
 			fontWeight: weightObj[w],
 			fontSize: Number(size),
 		};

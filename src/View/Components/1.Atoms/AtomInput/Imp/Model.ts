@@ -4,8 +4,9 @@ import { Act } from "../../../../../Logic/Core";
 import type { MessageInterface } from "../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
 
 function Model(props: IComponent) {
-	const { initText, onClick, onChange, name, type, icons } = props;
+	const { initText, onClick, onChange, name, type, icons, disabled, placeholder, valid } = props;
 
+	const [isValid, setIsValid] = useState<boolean>();
 	const [value, setValue] = useState<MessageInterface.EWordAll>(getText);
 
 	const textObj = changeText(initText);
@@ -28,7 +29,16 @@ function Model(props: IComponent) {
 		setValue(newValue);
 	}
 
-	return { textObj, onClick, handleChange, text, name, type, icons, isTextExist };
+	function onValid(e: React.ChangeEvent<HTMLInputElement>) {
+		const value = e.target.value;
+
+		const isValidDef = Boolean(value?.length);
+		const isValidUsr = valid?.some((el) => el(value));
+
+		setIsValid(valid?.length ? isValidUsr : isValidDef);
+	}
+
+	return { textObj, onClick, handleChange, text, name, type, icons, isTextExist, disabled, placeholder, isValid, onValid };
 }
 
 export default Model;

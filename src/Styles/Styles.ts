@@ -4,6 +4,7 @@ import StyleP from "./StyleP/StyleP";
 import type { StyleInterface } from "../Logic/Core/Services/ServiceStyle/Style.interface.ts";
 import { Act } from "../Logic/Core";
 import "./Normalize.css";
+import "../Assets/Fonts/Fonts.css";
 
 export class Styles {
 	public pub = StyleP;

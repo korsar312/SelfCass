@@ -5,17 +5,36 @@ import type { TAtomInputText } from "../index.tsx";
 class Style extends Styles {
 	public wrapper: CSSObject = css`
 		${this.mixins.flexCenter};
+		position: relative;
 		box-sizing: border-box;
 		padding: 2px 16px;
 		gap: 16px;
 		height: 42px;
 		border: 2px solid ${this.getColor("GREY_4")};
 		border-radius: 12px;
+		transition: ${this.variables.fastTransition};
+
+		&:has(input[disabled]) {
+			background: ${this.getColor("GREY_4")};
+		}
 	`;
 
-	public valid: CSSObject = css`
-		border: 2px solid ${this.getColor("PRIME_6")};
-	`;
+	public valid(valid?: boolean): CSSObject {
+		const isError = valid === false;
+		const isValid = valid === true;
+
+		const borderColor = this.getColor(isError ? "PORCELAIN" : isValid ? "PRIME_6" : "GREY_4");
+		const bgColor = this.getColor(isError ? "PORCELAIN" : undefined);
+
+		return css`
+			border-color: ${borderColor};
+			background: ${bgColor};
+
+			&:has(input[disabled]) {
+				border-color: ${this.getColor("GREY_4")};
+			}
+		`;
+	}
 
 	public inputWrap: CSSObject = css`
 		${this.mixins.flexVerCenter}
@@ -35,6 +54,7 @@ class Style extends Styles {
 		border: none;
 		height: calc(100% - 4px);
 		padding: 0;
+		width: 100%;
 	`;
 
 	public place(isTop: boolean): CSSObject {

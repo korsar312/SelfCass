@@ -25,6 +25,7 @@ export const Colors: StyleInterface.TColor = {
 		GREY_7: "#60635E",
 
 		RED: "#E25839",
+		PORCELAIN: "#FEF5F3",
 		YELLOW: "#F5AE42",
 		BLUE: "#24B5D4",
 		GREEN: "#45B733",
@@ -57,6 +58,7 @@ export const Colors: StyleInterface.TColor = {
 		GREY_7: "#D5D6D3",
 
 		RED: "#FB6A57",
+		PORCELAIN: "#FEF5F3",
 		YELLOW: "#FBB650",
 		BLUE: "#6FBDCE",
 		GREEN: "#8CEC7D",

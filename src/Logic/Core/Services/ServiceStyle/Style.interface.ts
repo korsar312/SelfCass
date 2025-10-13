@@ -93,6 +93,7 @@ const Grey = {
 
 const Other = {
 	RED: "RED",
+	PORCELAIN: "PORCELAIN",
 	YELLOW: "YELLOW",
 	BLUE: "BLUE",
 	GREEN: "GREEN",

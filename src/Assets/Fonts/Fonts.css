@@ -1,14 +1,14 @@
 @font-face {
-    font-family: 'Roboto';
-    src: url('Roboto/Roboto.woff2') format('woff2');
+    font-family: 'Cascadia';
+    src: url('RobotoMono/RobotoMono.ttf') format('truetype');
     font-weight: 100 900;
     font-stretch: 75% 100%;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('Roboto/Roboto-Italic.woff2') format('woff2');
+    font-family: 'Cascadia';
+    src: url('RobotoMono/RobotoMono-Italic.ttf') format('truetype');
     font-weight: 100 900;
     font-stretch: 75% 100%;
     font-style: italic;
