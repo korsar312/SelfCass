@@ -33,6 +33,37 @@ async function prompt(question: string): Promise<string> {
 	return answer.trim();
 }
 
+function ensureDirExists(dirPath: string, humanName: string) {
+	if (!fs.existsSync(dirPath) || !fs.statSync(dirPath).isDirectory()) {
+		console.error(`Ошибка: каталог "${humanName}" не найден рядом со скриптом: ${dirPath}`);
+		process.exit(1);
+	}
+}
+
+function copyDirRecursiveSync(src: string, dest: string) {
+	// Node 16.7+ имеет fs.cpSync
+	if ((fs as any).cpSync) {
+		(fs as any).cpSync(src, dest, { recursive: true, force: false, errorOnExist: false });
+		return;
+	}
+	// Фолбэк
+	const stat = fs.statSync(src);
+	if (stat.isDirectory()) {
+		fs.mkdirSync(dest, { recursive: true });
+		for (const entry of fs.readdirSync(src)) {
+			const s = path.join(src, entry);
+			const d = path.join(dest, entry);
+			const st = fs.statSync(s);
+			if (st.isDirectory()) copyDirRecursiveSync(s, d);
+			else fs.copyFileSync(s, d);
+		}
+	} else {
+		const parent = path.dirname(dest);
+		fs.mkdirSync(parent, { recursive: true });
+		fs.copyFileSync(src, dest);
+	}
+}
+
 async function main() {
 	// 1) Выбор каталога
 	const dirAnswer = await prompt("Выберите каталог:\n0 → 0.Cores\n1 → 1.Atoms\n2 → 2.Molecules\n3 → 3.Substances\n> ");
@@ -51,29 +82,23 @@ async function main() {
 	}
 	const finalName = withPrefix(dirKey, baseName[0].toUpperCase() + baseName.slice(1));
 
-	// 3) Проверка наличия целевого каталога
-	const targetCatalogPath = path.join(__dirname, targetCatalogName);
-	if (!fs.existsSync(targetCatalogPath) || !fs.statSync(targetCatalogPath).isDirectory()) {
-		console.error(`Ошибка: каталог "${targetCatalogName}" не найден рядом со скриптом: ${targetCatalogPath}`);
-		process.exit(1);
-	}
+	// 3) Пути
+	const targetCatalogPath = path.join(__dirname, `../${targetCatalogName}`);
+	const examplePath = path.join(__dirname, "Example");
 
-	// 4) Папка компонента
+	ensureDirExists(targetCatalogPath, targetCatalogName);
+	ensureDirExists(examplePath, "Example");
+
+	// 4) Папка назначения
 	const componentRoot = path.join(targetCatalogPath, finalName);
 	if (fs.existsSync(componentRoot)) {
 		console.error(`Ошибка: папка уже существует: ${componentRoot}`);
 		process.exit(1);
 	}
-	fs.mkdirSync(componentRoot, { recursive: true });
 
-	// 5) Разворачиваем структуру
-	const archiveTree = getArchiveTree(finalName);
-	for (const entry of archiveTree) {
-		const abs = path.join(targetCatalogPath, entry.relPath);
-		const dir = path.dirname(abs);
-		fs.mkdirSync(dir, { recursive: true });
-		fs.writeFileSync(abs, entry.content, { encoding: "utf8" });
-	}
+	// 5) Копирование Example -> <Каталог>/<FinalName>
+	fs.mkdirSync(componentRoot, { recursive: true });
+	copyDirRecursiveSync(examplePath, componentRoot);
 
 	console.log("Готово.");
 	console.log(`Каталог: ${targetCatalogName}`);
@@ -81,83 +106,7 @@ async function main() {
 	console.log(`Путь: ${componentRoot}`);
 }
 
-function getArchiveTree(finalName: string): Array<{ relPath: string; content: string }> {
-	return [
-		{
-			relPath: `${finalName}/index.tsx`,
-			content: TemplateIndex(),
-		},
-		{
-			relPath: `${finalName}/Imp/Model.ts`,
-			content: TemplateModel(),
-		},
-		{
-			relPath: `${finalName}/Imp/Style.ts`,
-			content: TemplateStyle(),
-		},
-		{
-			relPath: `${finalName}/Imp/View.tsx`,
-			content: TemplateView(),
-		},
-	];
-}
-
 main().catch((e) => {
 	console.error("Неожиданная ошибка:", e?.message ?? e);
 	process.exit(1);
 });
-
-function TemplateIndex() {
-	return `import Model from "./Imp/Model.ts";
-import View from "./Imp/View.tsx";
-
-export interface IComponent {}
-
-const Index = (props: IComponent) => {
-  const model = Model(props);
-  return <View {...model} />;
-};
-
-export default Index;
-`;
-}
-
-function TemplateModel() {
-	return `import type { IComponent } from "../index";
-
-function Model(props: IComponent) {
-  const {} = props;
-
-  return {};
-}
-
-export default Model;
-`;
-}
-
-function TemplateStyle() {
-	return `import Styles from "../../../../../Styles/Styles.ts";
-import { css, type CSSObject } from "@emotion/react";
-
-class Style extends Styles {
-  public wrapper: CSSObject = css\`\`;
-}
-
-export default new Style();
-`;
-}
-
-function TemplateView() {
-	return `import type Model from "./Model.ts";
-import Style from "./Style.ts";
-import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
-
-const View: NFC<typeof Model> = (props) => {
-  const {} = props;
-
-  return <div css={Style.wrapper}></div>;
-};
-
-export default View;
-`;
-}
