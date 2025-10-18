@@ -12,6 +12,7 @@ export interface IComponent extends TTagPartial<HTMLButtonElement, "type"> {
 	extStyles?: TDeepCSSObject;
 	icons?: Partial<Record<EAtomButtonIcon, TAtomButtonIcon>>;
 	isFullWidth?: boolean;
+	isFullHeight?: boolean;
 	click?: () => void;
 }
 

@@ -16,9 +16,15 @@ import AtomToggleRadio from "../../../1.Atoms/AtomToggle/Variables/AtomToggleRad
 import AtomToggleCheck from "../../../1.Atoms/AtomToggle/Variables/AtomToggleCheck";
 import AtomToggleSwitch from "../../../1.Atoms/AtomToggle/Variables/AtomToggleSwitch";
 import AtomInput from "../../../1.Atoms/AtomInput";
+import SubstanceItemCard from "../../../3.Substances/SubstanceItemCard";
+import { Act } from "../../../../../Logic/Core";
+import util from "../../../../../Logic/Libs/Util";
 
 const View: NFC<typeof Model> = (props) => {
 	const { isShow, onClose, btnSwitch, comp, isFill } = props;
+
+	const imagePath = Act.Setting.getLogo();
+	const price = util.toMoney(42124.67);
 
 	const content: Record<TWidgetDebugState, ReactNode> = {
 		btn: (
@@ -71,6 +77,7 @@ const View: NFC<typeof Model> = (props) => {
 				{row("AtomInput", <AtomInput iconsLeft={"Message"} valid={[() => false]} initText={""} />)}
 			</>
 		),
+		card: <>{row("MoleculeItemCard", <SubstanceItemCard image={imagePath} name={"Cheese Burst Pizza"} price={price} />)}</>,
 	};
 
 	function row(name: MessageInterface.EWordAll, component: ReactNode) {

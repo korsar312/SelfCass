@@ -9,7 +9,7 @@ class MessageImp extends ServiceBase<Interface.Store> implements Interface.IAdap
 	private getStoreWord(store: Interface.Store, word: Interface.EWordAll, lang: Interface.ELang): string {
 		if (word && word in store.dictionary) return store.dictionary[word as keyof typeof store.dictionary][lang];
 
-		return word || "";
+		return String(word) || "";
 	}
 
 	private textReplace(text: string, arrReplace: Interface.EWordAll[]): string {

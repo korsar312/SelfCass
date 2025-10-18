@@ -1,15 +1,17 @@
 import type { FC } from "react";
 import Style from "./Style.ts";
 import Component, { type IComponent as IParent } from "../../index";
+import type { typesUtils } from "../../../../../../Logic/Libs/Util/TypesUtils.ts";
 
-export interface IComponent extends IParent {}
+export type IComponent = typesUtils.PartialRequired<IParent, "children"> & {};
 
 const Index: FC<IComponent> = (props) => {
-	const {} = props;
+	const { color, extStyle } = props;
 
 	const propsComponent: IParent = {
 		...props,
-		extStyle: [Style.wrapper, props.extStyle],
+		color: color || "WHITE",
+		extStyle: [Style.wrapper, extStyle],
 	};
 
 	return <Component {...propsComponent} />;

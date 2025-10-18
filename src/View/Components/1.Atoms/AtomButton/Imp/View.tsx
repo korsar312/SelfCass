@@ -7,7 +7,7 @@ import Text from "../../../0.Cores/Text";
 import Ripple from "../../../0.Cores/Ripple";
 
 const View: NFC<typeof Model> = (props) => {
-	const { textChanged, color, extStyles, rightIcon, leftIcon, isFullWidth, handleClick, type, isDisable } = props;
+	const { textChanged, color, extStyles, rightIcon, leftIcon, isFullWidth, isFullHeight, handleClick, type, isDisable } = props;
 
 	function iconRender(icon: TAtomButtonIcon) {
 		return (
@@ -20,11 +20,15 @@ const View: NFC<typeof Model> = (props) => {
 	}
 
 	return (
-		<button disabled={isDisable} type={type} onClick={handleClick} css={[Style.wrapper(isFullWidth), Style.color(color), extStyles]}>
+		<button
+			disabled={isDisable}
+			type={type}
+			onClick={handleClick}
+			css={[Style.wrapper(isFullWidth, isFullHeight), Style.color(color), extStyles]}>
 			{leftIcon && iconRender(leftIcon)}
 
 			{textChanged && (
-				<div css={[textChanged.groupStyle]}>
+				<div css={[Style.textCont, textChanged.groupStyle]}>
 					{textChanged.value.map((el) => (
 						<Text key={el.text} {...el} />
 					))}

@@ -4,7 +4,7 @@ import type { IComponent as IImage } from "../../../0.Cores/Image";
 import type { IComponent as IText } from "../../../0.Cores//Text";
 
 function Model(props: IComponent) {
-	const { textVars, color, extStyles, icons, isFullWidth, click, type = "button", isDisable } = props;
+	const { textVars, color, extStyles, icons, isFullWidth, isFullHeight, click, type = "button", isDisable } = props;
 
 	const leftIcon = spread(icons?.["left"], changeImage);
 	const rightIcon = spread(icons?.["right"], changeImage);
@@ -46,7 +46,7 @@ function Model(props: IComponent) {
 		click?.();
 	}
 
-	return { textChanged, color, extStyles, leftIcon, rightIcon, isFullWidth, handleClick, type, isDisable };
+	return { textChanged, color, extStyles, leftIcon, rightIcon, isFullWidth, isFullHeight, handleClick, type, isDisable };
 }
 
 export default Model;

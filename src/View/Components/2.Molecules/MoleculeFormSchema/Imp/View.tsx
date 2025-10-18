@@ -6,9 +6,9 @@ import type { TMoleculeFormSchemaField, TMoleculeFormSchemaRow } from "../index.
 import Form from "../../../0.Cores/Form";
 import Text from "../../../0.Cores/Text";
 import type { TDeepCSSObject } from "../../../../ViewUtils.tsx";
-import AtomInputForm from "../../../1.Atoms/AtomInput/Variables/AtomInputForm";
 import AtomButtonMajor from "../../../1.Atoms/AtomButton/Variables/AtomButtonMajor";
 import AtomPaperMajor from "../../../1.Atoms/AtomPaper/Variables/AtomPaperMajor";
+import AtomInput from "../../../1.Atoms/AtomInput";
 
 const View: NFC<typeof Model> = (props) => {
 	const { schema, extStyle, color, form } = props;
@@ -25,7 +25,7 @@ const View: NFC<typeof Model> = (props) => {
 			case "text":
 				return <Text {...field.options} />;
 			case "input":
-				return <AtomInputForm {...field.options} />;
+				return <AtomInput {...field.options} />;
 			case "btn":
 				return <AtomButtonMajor {...field.options} />;
 		}

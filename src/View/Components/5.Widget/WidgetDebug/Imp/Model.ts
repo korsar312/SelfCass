@@ -2,7 +2,7 @@ import type { IComponent } from "../index";
 import { useState } from "react";
 import type { MessageInterface } from "../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
 
-export type TWidgetDebugState = "btn" | "tgl" | "inp";
+export type TWidgetDebugState = "btn" | "tgl" | "inp" | "card";
 
 type TBtn = {
 	title: MessageInterface.EWord;
@@ -27,6 +27,10 @@ function Model(props: IComponent) {
 		{
 			title: "CLOSE",
 			comp: "inp",
+		},
+		{
+			title: "GAMES",
+			comp: "card",
 		},
 	];
 

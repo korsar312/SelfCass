@@ -15,7 +15,7 @@ export namespace MessageInterface {
 	type TMapWord = Record<ELang, string>;
 
 	export type TDictionary = Record<EWord, TMapWord>;
-	export type EWordAll = EWord | string | undefined;
+	export type EWordAll = EWord | string | number | undefined;
 
 	export type TWordParam = {
 		arrReplace?: EWordAll[];

@@ -3,7 +3,7 @@ import Style from "./Style.ts";
 import Component, { type IComponent as IParent } from "../../index";
 import type { TImageComponent } from "../../../../0.Cores/Image";
 
-export interface IComponent extends Pick<IParent, "isDisable" | "click" | "color"> {
+export interface IComponent extends Pick<IParent, "isDisable" | "click" | "color" | "isFullWidth" | "isFullHeight"> {
 	icon: TImageComponent;
 }
 

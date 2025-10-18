@@ -3,10 +3,9 @@ import { css, type CSSObject } from "@emotion/react";
 
 class Style extends Styles {
 	public wrapper: CSSObject = css`
-		${this.mixins.flexCenter};
-		width: 34px;
-		height: 34px;
-		border-radius: 50%;
+		padding: ${this.size(2)};
+		box-shadow: 0 0 14px -8px ${this.getColor("BLACK")};
+		border-radius: ${this.size(4)};
 	`;
 }
 

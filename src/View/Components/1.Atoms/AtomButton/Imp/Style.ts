@@ -3,13 +3,13 @@ import { css, type CSSObject } from "@emotion/react";
 import type { EAtomButtonColor } from "../index.tsx";
 
 class Style extends Styles {
-	public wrapper(isFullWidth?: boolean): CSSObject {
+	public wrapper(isFullWidth?: boolean, isFullHeight?: boolean): CSSObject {
 		return css`
 			${this.mixins.flexCenter};
 			position: relative;
-			justify-content: space-between;
 			transition: ${this.variables.fastTransition};
 			width: ${isFullWidth ? "100%" : "auto"};
+			height: ${isFullHeight ? "100% !important" : "auto"};
 			gap: 4px;
 			cursor: pointer;
 
@@ -26,6 +26,10 @@ class Style extends Styles {
 	public icon: CSSObject = css`
 		${this.mixins.flexCenter};
 		gap: 4px;
+	`;
+
+	public textCont: CSSObject = css`
+		flex: 1;
 	`;
 
 	public color(color?: EAtomButtonColor): CSSObject {

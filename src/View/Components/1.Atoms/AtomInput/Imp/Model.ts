@@ -12,7 +12,7 @@ function Model(props: IComponent) {
 	const textObj = changeTitle(initText);
 	const placeObj = changePlace(placeholder);
 
-	const isTextExist = Boolean(textObj?.text?.length);
+	const isTextExist = Boolean(textObj?.text?.toString().length);
 	const text = Act.Message.getWord(textObj?.text);
 
 	const imageLeft = changeImage(iconsLeft);

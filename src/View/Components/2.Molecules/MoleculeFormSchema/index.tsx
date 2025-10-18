@@ -1,7 +1,7 @@
 import Model from "./Imp/Model.ts";
 import View from "./Imp/View.tsx";
 import type { IComponent as IButton } from "../../1.Atoms/AtomButton/Variables/AtomButtonMajor";
-import type { IComponent as IInput } from "../../1.Atoms/AtomInput/Variables/AtomInputForm";
+import type { IComponent as IInput } from "../../1.Atoms/AtomInput/";
 import type { IComponent as IText } from "../../0.Cores/Text";
 import type { IComponent as IForm } from "../../0.Cores/Form";
 import type { TDeepCSSObject } from "../../../ViewUtils.tsx";

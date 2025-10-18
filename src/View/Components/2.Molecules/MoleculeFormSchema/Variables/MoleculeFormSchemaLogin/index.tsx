@@ -3,7 +3,7 @@ import Styles from "./Style.ts";
 import type { FC } from "react";
 import type { MessageInterface } from "../../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
 import type { TAtomInputText } from "../../../../1.Atoms/AtomInput";
-import type { IComponent as IInput } from "../../../../1.Atoms/AtomInput/Variables/AtomInputForm";
+import type { IComponent as IInput } from "../../../../1.Atoms/AtomInput/";
 
 export interface IComponent {
 	title: MessageInterface.EWord;

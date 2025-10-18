@@ -41,6 +41,20 @@ export namespace typesUtils {
 	};
 
 	/**
+	 * PartialRequired делает все поля опциональными,
+	 * кроме указанных ключей K — они остаются обязательными.
+	 *
+	 * Пример:
+	 * type A = { a: string; b: number; c?: boolean };
+	 * type B = PartialWithRequired<A, 'a'>;
+	 *
+	 * { a: "x" } ✅
+	 * { a: "x", b: 1 } ✅
+	 * { b: 1 } ❌ ошибка — a обязателен
+	 */
+	export type PartialRequired<T, K extends keyof T> = Partial<Omit<T, K>> & Required<Pick<T, K>>;
+
+	/**
 	 * ExclusiveKeys гарантирует, что в объекте будет указан
 	 * ровно один ключ из набора.
 	 *
