@@ -1,29 +1,29 @@
 import type { IComponent } from "../index";
-import { useState } from "react";
-import { useDidUpdate } from "../../../../../Logic/Libs/Hooks/useDidUpdate/useDidUpdate.ts";
-import type { EImages } from "../../../0.Cores/Image/Images.tsx";
+import type { IComponent as IText } from "../../../0.Cores/Text";
+import type { IComponent as IBtnImg } from "../../../1.Atoms/AtomButton/Variables/AtomButtonIcon";
+import type { IComponent as IBtn } from "../../../1.Atoms/AtomButton/Variables/AtomButtonSecond";
 
 function Model(props: IComponent) {
-	const { defaultValue, onChange } = props;
+	const { textVars, leftBtn, rightBtn, fullBtn, isFullBtn, extStyles } = props;
 
-	const [count, setCount] = useState(defaultValue);
+	const textObj = changeText(textVars);
+	const leftBtnObj = changeBtnImg(leftBtn);
+	const rightBtnObj = changeBtnImg(rightBtn);
+	const fullBtnObj = changeBtn(fullBtn);
 
-	useDidUpdate(() => {
-		onChange(count);
-	}, [count]);
-
-	const leftImage: EImages = count <= 1 ? "Block" : "Add";
-	const isNullValue = !count;
-
-	function increment() {
-		setCount((old) => old + 1);
+	function changeText(text: IText): IText {
+		return { ...text, font: text.font || "LabelLarge", color: text.color || "TYPO_4" };
 	}
 
-	function decrement() {
-		setCount((old) => old - 1);
+	function changeBtnImg(btn: IBtnImg): IBtnImg {
+		return { ...btn };
 	}
 
-	return { count, increment, decrement, leftImage, isNullValue };
+	function changeBtn(btn: IBtn): IBtn {
+		return { ...btn };
+	}
+
+	return { textObj, leftBtnObj, rightBtnObj, fullBtnObj, isFullBtn, extStyles };
 }
 
 export default Model;

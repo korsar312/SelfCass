@@ -4,7 +4,7 @@ import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 import AtomPaperCard from "../../../1.Atoms/AtomPaper/Variables/AtomPaperCard";
 import Image from "../../../0.Cores/Image";
 import Text from "../../../0.Cores/Text";
-import MoleculeCount from "../../../2.Molecules/MoleculeCount";
+import MoleculeCountNum from "../../../2.Molecules/MoleculeCount/Variables/MoleculeCountNum";
 
 const View: NFC<typeof Model> = (props) => {
 	const { image, name, price } = props;
@@ -24,7 +24,7 @@ const View: NFC<typeof Model> = (props) => {
 			</div>
 
 			<div css={Style.count}>
-				<MoleculeCount defaultValue={1} onChange={() => ""} />
+				<MoleculeCountNum defaultValue={1} onChange={() => ""} />
 			</div>
 		</AtomPaperCard>
 	);

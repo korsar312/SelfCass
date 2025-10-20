@@ -12,7 +12,7 @@ class Style extends Styles {
 		overflow: hidden;
 	`;
 
-	public addCont(isBotContent: boolean): CSSObject {
+	public addCont(isBotContent?: boolean): CSSObject {
 		return css`
 			${this.mixins.absolute};
 			transition: ${this.variables.fastTransition};

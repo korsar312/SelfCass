@@ -4,7 +4,7 @@ import Component, { type IComponent as IParent } from "../../index";
 import type { MessageInterface } from "../../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
 import type { TImageComponent } from "../../../../0.Cores/Image";
 
-export interface IComponent extends Pick<IParent, "isDisable" | "click" | "color"> {
+export interface IComponent extends Pick<IParent, "isDisable" | "click" | "color" | "isFullWidth" | "isFullHeight"> {
 	leftIcon?: TImageComponent;
 	text: MessageInterface.EWord;
 	rightIcon?: TImageComponent;
