@@ -19,6 +19,7 @@ import AtomInput from "../../../1.Atoms/AtomInput";
 import SubstanceItemCard from "../../../3.Substances/SubstanceItemCard";
 import { Act } from "../../../../../Logic/Core";
 import util from "../../../../../Logic/Libs/Util";
+import MoleculeRowInformDouble from "../../../2.Molecules/MoleculeRowInform/Variables/MoleculeRowInformDouble";
 
 const View: NFC<typeof Model> = (props) => {
 	const { isShow, onClose, btnSwitch, comp, isFill } = props;
@@ -77,7 +78,18 @@ const View: NFC<typeof Model> = (props) => {
 				{row("AtomInput", <AtomInput iconsLeft={"Message"} valid={[() => false]} initText={""} />)}
 			</>
 		),
-		card: <>{row("MoleculeItemCard", <SubstanceItemCard image={imagePath} name={"Cheese Burst Pizza"} price={price} />)}</>,
+		card: (
+			<>
+				{row("MoleculeItemCard", <SubstanceItemCard image={imagePath} name={"Cheese Burst Pizza"} price={price} />)}
+				{row(
+					"MoleculeRowInformDouble",
+					<MoleculeRowInformDouble
+						left={{ text: "LOGIN", icon: "Bug", iconColor: "RED" }}
+						right={{ text: "CLOSE", icon: "Add", iconColor: "BLUE" }}
+					/>,
+				)}
+			</>
+		),
 	};
 
 	function row(name: MessageInterface.EWordAll, component: ReactNode) {
