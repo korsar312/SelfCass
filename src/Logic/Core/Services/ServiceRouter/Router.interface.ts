@@ -4,6 +4,7 @@ export namespace RouterInterface {
 	export interface IAdapter {
 		goTo(page: EPath, state?: Record<string, string>): void;
 		getRouteObj(): TRouter;
+		getCurPathName(): EPath;
 		getRole(): ERole;
 		setRole(role: ERole): void;
 	}
@@ -13,6 +14,7 @@ export namespace RouterInterface {
 		routesRole: TRouterListRole;
 		role: ERole;
 		path: TPath;
+		currentPathName: EPath;
 	}
 
 	export type EPath = keyof typeof Router;

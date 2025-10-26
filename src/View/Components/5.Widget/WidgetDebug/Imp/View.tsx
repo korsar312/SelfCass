@@ -20,6 +20,7 @@ import SubstanceItemCard from "../../../3.Substances/SubstanceItemCard";
 import { Act } from "../../../../../Logic/Core";
 import util from "../../../../../Logic/Libs/Util";
 import MoleculeRowInformDouble from "../../../2.Molecules/MoleculeRowInform/Variables/MoleculeRowInformDouble";
+import TemplateHead from "../../../4.Templates/TemplateHead";
 
 const View: NFC<typeof Model> = (props) => {
 	const { isShow, onClose, btnSwitch, comp, isFill } = props;
@@ -88,6 +89,7 @@ const View: NFC<typeof Model> = (props) => {
 						right={{ text: "CLOSE", icon: "Add", iconColor: "BLUE" }}
 					/>,
 				)}
+				{row("SubstanceHeadNav", <TemplateHead />)}
 			</>
 		),
 	};

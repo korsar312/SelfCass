@@ -28,8 +28,8 @@ class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapt
 		);
 	}
 
-	private setRoute(store: Interface.Store, routes: Interface.TRouter): Interface.Store {
-		return { ...store, routes };
+	private setCurPath(store: Interface.Store, currentPathName: Interface.EPath): Interface.Store {
+		return { ...store, currentPathName };
 	}
 
 	private isAccessRoute(currentRole: Interface.ERole, page: Interface.EPath, routeRole: Interface.TRouterListRole): boolean {
@@ -60,6 +60,7 @@ class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapt
 			role,
 			routesRole,
 			path,
+			currentPathName: "OTHER",
 		};
 
 		super(props, store);
@@ -74,7 +75,11 @@ class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapt
 			return el;
 		});
 
-		this.setRoute(store, createBrowserRouter(route));
+		const browserRouter = createBrowserRouter(route);
+		const curPath = browserRouter.state.location.pathname;
+		const currentPathName = this.getPage(curPath, path);
+
+		this.store = { ...this.store, routes: browserRouter, currentPathName };
 	}
 
 	//==============================================================================================
@@ -86,10 +91,11 @@ class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapt
 		}
 
 		this.go(this.store.routes.navigate, this.store.path, page, param);
+		this.store = this.setCurPath(this.store, page);
 	}
 
-	createGuard(): Interface.TRouter {
-		return this.store.routes;
+	getCurPathName(): Interface.EPath {
+		return this.store.currentPathName;
 	}
 
 	getRouteObj(): Interface.TRouter {

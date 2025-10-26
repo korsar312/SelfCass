@@ -1,3 +1,5 @@
+import type { RouterInterface } from "../ServiceRouter/Router.interface.ts";
+
 export namespace MessageInterface {
 	export interface IAdapter {
 		getWord(text: EWordAll, param?: TWordParam): string;
@@ -14,7 +16,10 @@ export namespace MessageInterface {
 
 	type TMapWord = Record<ELang, string>;
 
-	export type TDictionary = Record<EWord, TMapWord>;
+	type EOtherIntWord = RouterInterface.EPath;
+	type EAllWord = EWord | EOtherIntWord;
+
+	export type TDictionary = Record<EAllWord, TMapWord>;
 	export type EWordAll = EWord | string | number | undefined;
 
 	export type TWordParam = {
