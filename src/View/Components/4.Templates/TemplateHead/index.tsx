@@ -7,7 +7,7 @@ export interface IComponent {}
 const Index: FC<IComponent> = (props) => {
 	const {} = props;
 
-	const namePage = Act.Router.getCurPathName();
+	const namePage = Act.Router.getCurPage();
 
 	const propsComponent: IProp = {
 		btn: { leftIcon: "Block", text: "CART", color: "GREY_1" },

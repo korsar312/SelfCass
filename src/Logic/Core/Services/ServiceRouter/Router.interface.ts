@@ -4,9 +4,11 @@ export namespace RouterInterface {
 	export interface IAdapter {
 		goTo(page: EPath, state?: Record<string, string>): void;
 		getRouteObj(): TRouter;
-		getCurPathName(): EPath;
 		getRole(): ERole;
 		setRole(role: ERole): void;
+		isAccessPage(page: EPath): boolean;
+		getCurPage(): EPath;
+		redirect(): void;
 	}
 
 	export interface Store {

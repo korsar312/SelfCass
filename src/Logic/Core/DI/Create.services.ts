@@ -29,7 +29,7 @@ const message = new ServiceMessage(messageImp);
 const styleImp = new StyleImp(inf, Colors, Fonts, Weights);
 const style = new ServiceStyle(styleImp);
 
-const routerImp = new RouterImp(inf, Routes, RoutesRole, Path);
+const routerImp = new RouterImp(inf, Routes, RoutesRole, Path, "PUB");
 const router = new ServiceRouter(routerImp);
 
 const basketImp = new BasketImp(inf);
