@@ -1,11 +1,13 @@
 import Model from "./Imp/Model.ts";
 import View from "./Imp/View.tsx";
-import type { IComponent as IBtn } from "../../1.Atoms/AtomButton/Variables/AtomButtonSecond";
+import type { IComponent as IBtnM } from "../../1.Atoms/AtomButton/Variables/AtomButtonMajor";
+import type { IComponent as IBtnI } from "../../1.Atoms/AtomButton/Variables/AtomButtonIcon";
 import type { IComponent as IText } from "../../0.Cores/Text";
 
 export interface IComponent {
-	btn: IBtn;
-	title: IText;
+	btnLeft?: IBtnM;
+	btnRight?: IBtnI;
+	title?: IText;
 }
 
 const Index = (props: IComponent) => {

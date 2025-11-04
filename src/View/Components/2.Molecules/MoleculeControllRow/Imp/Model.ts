@@ -1,9 +1,9 @@
 import type { IComponent } from "../index";
 
 function Model(props: IComponent) {
-	const { btn, title } = props;
+	const { btnLeft, btnRight, title } = props;
 
-	return { btn, title };
+	return { btnLeft, btnRight, title };
 }
 
 export default Model;

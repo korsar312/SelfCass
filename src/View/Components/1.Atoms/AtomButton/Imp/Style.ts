@@ -12,6 +12,7 @@ class Style extends Styles {
 			height: ${isFullHeight ? "100% !important" : "auto"};
 			gap: 4px;
 			cursor: pointer;
+			overflow: hidden;
 
 			&:active {
 				opacity: 0.8;

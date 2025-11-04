@@ -3,6 +3,7 @@ import { createBrowserRouter, type RouteObject } from "react-router";
 export namespace RouterInterface {
 	export interface IAdapter {
 		goTo(page: EPath, state?: Record<string, string>): void;
+		goBack(): void;
 		getRouteObj(): TRouter;
 		getRole(): ERole;
 		setRole(role: ERole): void;

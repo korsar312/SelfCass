@@ -8,6 +8,8 @@ class LinksImp implements Interface.IAdapter {
 		param;
 		this.links;
 
+		await new Promise((resolve) => setTimeout(() => resolve(""), 1000));
+
 		return returnTest;
 	}
 

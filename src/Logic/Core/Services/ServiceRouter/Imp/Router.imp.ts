@@ -59,6 +59,10 @@ class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapt
 		this.go(this.store.routes.navigate, this.store.path, page, param);
 	}
 
+	goBack(): void {
+		window.history.back();
+	}
+
 	setInCurPage(path: string): void {
 		const pageName = getPage(path, this.store.path);
 

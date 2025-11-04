@@ -38,6 +38,7 @@ export namespace StyleInterface {
 }
 
 const Font = {
+	fullSize: "fullSize",
 	PageTitle: "PageTitle",
 	SectionTitle: "SectionTitle",
 	BlockTitle: "BlockTitle",

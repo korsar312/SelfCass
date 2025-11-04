@@ -32,7 +32,7 @@ class MessageImp extends ServiceBase<Interface.Store> implements Interface.IAdap
 	private changeCase(text: string, arrReplace: Interface.ECase): string {
 		switch (arrReplace) {
 			case "CAPITAL":
-				return text.toLowerCase();
+				return text.toUpperCase();
 			case "SMALL":
 				return text.toLowerCase();
 			default:

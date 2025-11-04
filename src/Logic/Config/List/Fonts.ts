@@ -2,12 +2,13 @@ import type { StyleInterface } from "../../Core/Services/ServiceStyle/Style.inte
 
 export const Fonts: StyleInterface.TFontList = {
 	// Заголовки
-	PageTitle: "R_32", // H1
+	fullSize: "B_42",
+	PageTitle: "B_32", // H1
 	SectionTitle: "R_28", // H2
 	BlockTitle: "R_24", // H3
 
 	// Подзаголовки / лиды
-	SectionDesc: "R_20", // Пояснение под разделом
+	SectionDesc: "B_20", // Пояснение под разделом
 	BlockLead: "R_18", // Лид в карточках/блоках
 
 	// Внутренние заголовки
