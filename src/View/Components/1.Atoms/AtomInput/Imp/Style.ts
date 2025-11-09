@@ -82,10 +82,10 @@ class Style extends Styles {
 	`;
 
 	public text(textProp: TAtomInputText): CSSObject {
-		return {
-			...this.getFont(textProp.font),
-			color: this.getColor(textProp.color),
-		};
+		return css`
+			${this.getFont(textProp.font)};
+			color: ${this.getColor(textProp.color)};
+		`;
 	}
 }
 

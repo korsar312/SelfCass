@@ -1,8 +1,7 @@
 import Styles from "../../../../../Styles/Styles.ts";
 import { css, type CSSObject } from "@emotion/react";
-import type { TGridBPCont, TGridBPItem, TGridBPList } from "../index.tsx";
-
-const BP: Record<TGridBPItem, number> = { xs: 0, sm: 600, md: 900, xl: 1200, lg: 1536 };
+import type { TGridBPCont, TGridBPList } from "../index.tsx";
+import { BP, type TBPItem } from "../../../../../Logic/Config/List/Consts.ts";
 
 class Style extends Styles {
 	public wrapper(gap: number = 0): CSSObject {
@@ -22,7 +21,7 @@ class Style extends Styles {
 
 		const css: CSSObject = { ...this.spanCss(xs ?? "auto") };
 
-		Object.entries(rest).forEach(([key, val]) => (css[`@media (min-width:${BP[key as TGridBPItem]}px)`] = this.spanCss(val)));
+		Object.entries(rest).forEach(([key, val]) => (css[`@media (min-width:${BP[key as TBPItem]}px)`] = this.spanCss(val)));
 
 		css[`@media (min-width:${BP.sm}px)`] = this.spanCss(bps.sm);
 		css[`@media (min-width:${BP.md}px)`] = this.spanCss(bps.md);

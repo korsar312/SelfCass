@@ -11,11 +11,11 @@ class Style extends Styles {
 	`;
 
 	public param(pos?: TTextPos, font?: StyleInterface.EFont, color?: StyleInterface.TColorChoice, opacity?: number): CSSObject {
-		return {
-			...this.getFont(font || "BodyMain"),
-			color: this.getColor(color || "BLACK", opacity),
-			textAlign: pos,
-		};
+		return css`
+			${this.getFont(font || "BodyMain")};
+			color: ${this.getColor(color || "BLACK", opacity)};
+			text-align: ${pos};
+		`;
 	}
 }
 
