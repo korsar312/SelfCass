@@ -70,6 +70,9 @@ const Dictionary: MessageInterface.TDictionary = {
 	CLOSE: {
 		RU: "Закрыть",
 	},
+	SEARCHING: {
+		RU: "Поиск...",
+	},
 };
 
 export default Dictionary;

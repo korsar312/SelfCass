@@ -9,7 +9,7 @@ export const Fonts: StyleInterface.TFontList = {
 
 	// Подзаголовки / лиды
 	SectionDesc: "B_20", // Пояснение под разделом
-	BlockLead: "R_18", // Лид в карточках/блоках
+	BlockLead: "R_20", // Лид в карточках/блоках
 
 	// Внутренние заголовки
 	BlockHeading: "S_14", // Заголовок внутри блока/формы/модалки

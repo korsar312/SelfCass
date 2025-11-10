@@ -13,6 +13,7 @@ import Add from "@material-icons/svg/svg/add/outline.svg?react";
 import Play from "@material-icons/svg/svg/play_arrow/outline.svg?react";
 import Pending from "@material-icons/svg/svg/pending/outline.svg?react";
 import Send from "@material-icons/svg/svg/send/outline.svg?react";
+import Search from "@material-icons/svg/svg/search/outline.svg?react";
 
 type TIcons = Record<string, FunctionComponent<SVGProps<SVGSVGElement>>>;
 
@@ -30,6 +31,7 @@ const icons = {
 	Play,
 	Pending,
 	Send,
+	Search,
 } satisfies TIcons;
 
 const Images = {

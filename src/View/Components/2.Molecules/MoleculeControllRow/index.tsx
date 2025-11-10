@@ -1,11 +1,10 @@
 import Model from "./Imp/Model.ts";
 import View from "./Imp/View.tsx";
-import type { IComponent as IBtnM } from "../../1.Atoms/AtomButton/Variables/AtomButtonMajor";
 import type { IComponent as IBtnI } from "../../1.Atoms/AtomButton/Variables/AtomButtonIcon";
 import type { IComponent as IText } from "../../0.Cores/Text";
 
 export interface IComponent {
-	btnLeft?: IBtnM;
+	btnLeft?: IBtnI;
 	btnRight?: IBtnI;
 	title?: IText;
 }

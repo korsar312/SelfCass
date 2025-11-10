@@ -1,16 +1,17 @@
-import type { IComponent, TAtomInputGeneralGroup, TAtomInputIcon, TAtomInputText } from "../index";
+import type { IComponent, TAtomInputGeneralGroup, TAtomInputIcon, TAtomInputText, TAtomInputTextPick } from "../index";
 import { type ChangeEvent, useState } from "react";
 import { Act } from "../../../../../Logic/Core";
 import type { MessageInterface } from "../../../../../Logic/Core/Services/ServiceMessage/Message.interface.ts";
+import type { StyleInterface } from "../../../../../Logic/Core/Services/ServiceStyle/Style.interface.ts";
 import type { IComponent as IImage } from "../../../0.Cores/Image";
 
 function Model(props: IComponent) {
 	const { initText, onClick, onChange, name, type, iconsLeft, iconsRight, disabled, placeholder, valid } = props;
 
-	const [isValid, setIsValid] = useState<boolean>();
+	const [isValid, setIsValid] = useState<boolean | undefined>();
 
-	const textObj = changeTitle(initText);
-	const placeObj = changePlace(placeholder);
+	const textObj = changePlace(initText, "TYPO_5");
+	const placeObj = changePlace(placeholder, "TYPO_2");
 
 	const isTextExist = Boolean(textObj?.text?.toString().length);
 	const text = Act.Message.getWord(textObj?.text);
@@ -18,14 +19,9 @@ function Model(props: IComponent) {
 	const imageLeft = changeImage(iconsLeft);
 	const imageRight = changeImage(iconsRight);
 
-	function changeTitle(text: TAtomInputText | MessageInterface.EWordAll): TAtomInputText {
-		const props: TAtomInputText = typeof text === "object" ? text : { text, font: "LabelMedium" };
-		return { ...props, color: props.color || isValid === false ? "RED" : "TYPO_5" };
-	}
-
-	function changePlace(text: TAtomInputText | MessageInterface.EWordAll): TAtomInputText {
-		const props: TAtomInputText = typeof text === "object" ? text : { text, font: "BodyMain" };
-		return { ...props, color: props.color || isValid === false ? "RED" : "TYPO_2" };
+	function changePlace(text: TAtomInputTextPick | MessageInterface.EWordAll, colorValid: StyleInterface.EColor): TAtomInputText {
+		const props: TAtomInputTextPick = typeof text === "object" ? text : { text };
+		return { ...props, color: props.color || isValid === false ? "RED" : colorValid, font: props.font || "BlockLead" };
 	}
 
 	function changeImage(img: TAtomInputIcon): TAtomInputGeneralGroup | undefined {
@@ -35,6 +31,7 @@ function Model(props: IComponent) {
 		const imgArr: IImage[] = props.value.map((el) => ({
 			...el,
 			color: el.color || isValid === false ? "RED" : isValid ? "GREY_7" : "TYPO_2",
+			size: el.size || 24,
 		}));
 
 		return { ...props, value: [...imgArr] };
@@ -48,10 +45,10 @@ function Model(props: IComponent) {
 	function onValid(e: React.ChangeEvent<HTMLInputElement>) {
 		const value = e.target.value;
 
-		const isValidDef = Boolean(value?.length);
-		const isValidUsr = valid?.some((el) => el(value));
+		const isValidEx = Boolean(value?.length);
 
-		setIsValid(valid?.length ? isValidUsr : isValidDef);
+		if (isValidEx) return setIsValid(valid?.some((el) => el(value)));
+		setIsValid(undefined);
 	}
 
 	return { textObj, onClick, handleChange, text, name, type, imageLeft, imageRight, isTextExist, disabled, placeObj, isValid, onValid };

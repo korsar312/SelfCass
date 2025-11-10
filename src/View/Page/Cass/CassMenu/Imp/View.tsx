@@ -1,15 +1,15 @@
 import type Model from "./Model.ts";
 import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
-import { Act } from "../../../../../Logic/Core";
+import AtomInput from "../../../../Components/1.Atoms/AtomInput";
 
 const View: NFC<typeof Model> = (props) => {
 	const {} = props;
 
-	function as() {
-		Act.Router.goTo("CASS_LOGIN");
-	}
-
-	return <div onClick={as}>{Act.Message.getWord("DAY_US_USDT", { arrReplace: ["1", "4", "6"] })}</div>;
+	return (
+		<div>
+			<AtomInput iconsLeft={"Search"} placeholder={"SEARCHING"} initText={{ text: "" }} />
+		</div>
+	);
 };
 
 export default View;

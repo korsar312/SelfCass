@@ -46,6 +46,7 @@ const Word = {
 	TOKEN: "TOKEN",
 	QR_TO_SMALL: "QR_TO_SMALL",
 	CLOSE: "CLOSE",
+	SEARCHING: "SEARCHING",
 } as const;
 
 const Lang = {

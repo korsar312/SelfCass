@@ -16,7 +16,7 @@ const Index: FC<IComponent> = (props) => {
 	const goBack = Act.Router.goBack;
 
 	const propsComponent: IProp = {
-		btnLeft: { leftIcon: "Block", text: "CART", color: "GREY_1", click: goBack, isDisable: isNoBack },
+		btnLeft: { icon: "Block", color: "GREY_1", click: goBack, isDisable: isNoBack },
 		title: { text: namePage, font: "SectionDesc", color: "TYPO_4" },
 	};
 
