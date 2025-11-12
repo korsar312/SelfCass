@@ -1,4 +1,5 @@
 import type { SettingInterface } from "../../Services/ServiceSetting/Setting.interface.ts";
+import type { CatalogueInterface } from "../../Services/ServiceCatalogue/Catalogue.interface.ts";
 
 export namespace LinksInterface {
 	export interface IAdapter {
@@ -13,6 +14,8 @@ export namespace LinksInterface {
 		LOGOFF(): Promise<string>;
 		GET_BUSINESS_INFO(): Promise<SettingInterface.TBusinessInfo>;
 		SEND_ORDER(): Promise<string>;
+		GET_CATEGORY_LIST(): Promise<CatalogueInterface.TCategory[]>;
+		GET_ALL_GOODS(): Promise<CatalogueInterface.TItem[]>;
 	}
 
 	export type EMethod = keyof typeof Method;
@@ -56,9 +59,15 @@ const Order = {
 	SEND_ORDER: "SEND_ORDER",
 } as const;
 
+const Catalogue = {
+	GET_CATEGORY_LIST: "GET_CATEGORY_LIST",
+	GET_ALL_GOODS: "GET_ALL_GOODS",
+} as const;
+
 const Names = {
 	...Payment,
 	...Service,
 	...Setting,
 	...Order,
+	...Catalogue,
 } as const;

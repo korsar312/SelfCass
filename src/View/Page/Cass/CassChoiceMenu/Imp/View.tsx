@@ -4,8 +4,8 @@ import type { NFC } from "./../../../../../Logic/Libs/Util/TypesUtils";
 import Grid from "../../../../Components/0.Cores/Grid";
 import AtomButtonMajor from "../../../../Components/1.Atoms/AtomButton/Variables/AtomButtonMajor";
 import AtomButtonImage from "../../../../Components/1.Atoms/AtomButton/Variables/AtomButtonImage";
-import SubstanceItemCard from "../../../../Components/3.Substances/SubstanceItemCard";
 import AtomPaperCard from "../../../../Components/1.Atoms/AtomPaper/Variables/AtomPaperCard";
+import TemplateCardItem from "../../../../Components/4.Templates/TemplateCardItem";
 
 const View: NFC<typeof Model> = (props) => {
 	const { imagePath, goMenu, goBasket, goPay, goGame, callWaiter } = props;
@@ -52,7 +52,7 @@ const View: NFC<typeof Model> = (props) => {
 
 			<div css={Style.bot}>
 				{[1, 2].map(() => (
-					<SubstanceItemCard image={imagePath} name={"CART"} price={"56"} />
+					<TemplateCardItem />
 				))}
 			</div>
 		</div>

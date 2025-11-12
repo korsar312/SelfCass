@@ -6,6 +6,7 @@ import type { ServiceBasket } from "../Services/ServiceBasket";
 import type { ServiceSetting } from "../Services/ServiceSetting";
 import type { ServicePayment } from "../Services/ServicePayment";
 import type { ServiceOrder } from "../Services/ServiceOrder";
+import { ServiceCatalogue } from "../Services/ServiceCatalogue";
 
 export namespace ProjectInterface {
 	export type TModuleInf = {
@@ -13,12 +14,13 @@ export namespace ProjectInterface {
 	};
 
 	export type TModuleService = {
+		Catalogue: ServiceCatalogue;
 		Message: ServiceMessage;
-		Style: ServiceStyle;
-		Router: ServiceRouter;
-		Basket: ServiceBasket;
 		Setting: ServiceSetting;
 		Payment: ServicePayment;
+		Router: ServiceRouter;
+		Basket: ServiceBasket;
+		Style: ServiceStyle;
 		Order: ServiceOrder;
 	};
 

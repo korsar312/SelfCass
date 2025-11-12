@@ -21,7 +21,7 @@ export class Styles {
 	}
 
 	protected size(num: number) {
-		return `${num ** 2}px`;
+		return Act.Style.getSize(num);
 	}
 }
 

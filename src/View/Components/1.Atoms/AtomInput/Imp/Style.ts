@@ -7,12 +7,12 @@ class Style extends Styles {
 		${this.mixins.flexCenter};
 		position: relative;
 		box-sizing: border-box;
-		padding: 2px 16px;
+		padding: 8px 16px;
 		gap: 12px;
-		height: 42px;
 		border: 2px solid ${this.getColor("GREY_4")};
 		border-radius: 12px;
 		transition: ${this.variables.fastTransition};
+		width: 100%;
 
 		&:has(input[disabled]) {
 			background: ${this.getColor("GREY_4")};

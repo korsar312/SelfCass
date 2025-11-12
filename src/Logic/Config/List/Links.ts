@@ -12,4 +12,6 @@ export const Links: LinksInterface.TLinksList = {
 	LOGOFF: "",
 	GET_BUSINESS_INFO: "",
 	SEND_ORDER: "",
+	GET_CATEGORY_LIST: "",
+	GET_ALL_GOODS: "",
 };

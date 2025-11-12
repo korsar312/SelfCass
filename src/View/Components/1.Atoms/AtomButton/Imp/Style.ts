@@ -13,6 +13,7 @@ class Style extends Styles {
 			gap: 4px;
 			cursor: pointer;
 			overflow: hidden;
+			flex-shrink: 0;
 
 			&:active {
 				opacity: 0.8;

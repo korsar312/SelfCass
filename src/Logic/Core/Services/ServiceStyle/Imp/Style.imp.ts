@@ -90,6 +90,10 @@ class StyleImp extends ServiceBase<Interface.Store> implements Interface.IAdapte
 		return newFont;
 	}
 
+	getSize(size: number): string {
+		return `${size ** 2}px`;
+	}
+
 	getTheme(): Interface.ETheme {
 		return this.store.theme;
 	}

@@ -1,5 +1,6 @@
 import type { LinksInterface as Interface } from "../Links.interface";
 import type { SettingInterface } from "../../../Services/ServiceSetting/Setting.interface.ts";
+import type { CatalogueInterface } from "../../../Services/ServiceCatalogue/Catalogue.interface.ts";
 
 class LinksImp implements Interface.IAdapter {
 	private readonly links: Interface.TLinksList;
@@ -56,6 +57,14 @@ class LinksImp implements Interface.IAdapter {
 	}
 	public SEND_ORDER() {
 		return this.request<string>({ link: "SEND_ORDER", method: "GET" }, "ссылка");
+	}
+	public GET_CATEGORY_LIST() {
+		const res: CatalogueInterface.TCategory[] = [{ id: 1, name: "Булки" }];
+		return this.request<CatalogueInterface.TCategory[]>({ link: "GET_CATEGORY_LIST", method: "GET" }, res);
+	}
+	public GET_ALL_GOODS() {
+		const res: CatalogueInterface.TItem[] = [];
+		return this.request<CatalogueInterface.TItem[]>({ link: "GET_ALL_GOODS", method: "GET" }, res);
 	}
 }
 

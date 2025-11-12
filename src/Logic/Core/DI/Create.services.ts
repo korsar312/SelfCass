@@ -20,6 +20,8 @@ import { ServiceOrder } from "../Services/ServiceOrder";
 import OrderImp from "../Services/ServiceOrder/Imp/Order.imp.ts";
 import type { IServiceProps } from "../Services/Service.base.ts";
 import { ServiceSetting } from "../Services/ServiceSetting";
+import CatalogueImp from "../Services/ServiceCatalogue/Imp/Catalogue.imp.ts";
+import { ServiceCatalogue } from "../Services/ServiceCatalogue";
 
 const inf: IServiceProps = { infrastructure: Infrastructure };
 
@@ -44,6 +46,9 @@ const payment = new ServicePayment(paymentImp);
 const orderImp = new OrderImp(inf);
 const order = new ServiceOrder(orderImp);
 
+const catalogueImp = new CatalogueImp(inf);
+const catalogue = new ServiceCatalogue(catalogueImp);
+
 const service = new DI<ProjectInterface.TModuleService>();
 
 service.use("Message", message);
@@ -53,5 +58,6 @@ service.use("Basket", basket);
 service.use("Setting", setting);
 service.use("Payment", payment);
 service.use("Order", order);
+service.use("Catalogue", catalogue);
 
 export default service.get;
