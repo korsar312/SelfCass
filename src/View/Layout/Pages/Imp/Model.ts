@@ -10,13 +10,11 @@ function Model(props: IComponent) {
 	const name = Act.Router.getCurPage();
 	const nameWord = Act.Message.getWord(name);
 
-	const isAccessPage = Act.Router.isAccessPage(name);
-
 	useEffect(() => {
 		document.title = nameWord;
 	}, [name]);
 
-	return { router, isAccessPage };
+	return { router };
 }
 
 export default Model;

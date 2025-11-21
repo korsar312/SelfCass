@@ -90,9 +90,7 @@ class RouterImp extends ServiceBase<Interface.Store> implements Interface.IAdapt
 	}
 
 	redirect(): void {
-		const name = this.store.currentPathName;
-		const isAccessPage = isAccessRoute(this.getRole(), name, this.store.routesRole);
-
+		const isAccessPage = isAccessRoute(this.getRole(), this.store.currentPathName, this.store.routesRole);
 		if (!isAccessPage) this.goTo(redirectRole(this.store.role));
 	}
 }
