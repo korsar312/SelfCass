@@ -52,7 +52,7 @@ const View: NFC<typeof Model> = (props) => {
 
 			<div css={Style.bot}>
 				{products.map((id) => (
-					<TemplateCardItem itemId={id} />
+					<TemplateCardItem key={id} itemId={id} />
 				))}
 			</div>
 		</div>

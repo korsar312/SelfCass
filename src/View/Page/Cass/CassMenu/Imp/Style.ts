@@ -21,8 +21,10 @@ class Style extends Styles {
 	`;
 
 	public cards: CSSObject = css`
+		padding-top: ${this.size(2)};
+		margin-bottom: -${this.size(5)};
+		padding-bottom: ${this.size(5)};
 		${this.mixins.marPadGor(5)};
-		${this.mixins.marPadVert(2)};
 		${this.mixins.noScrollBar};
 		${this.mixins.flexCenter};
 		justify-content: space-between;

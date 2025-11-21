@@ -22,42 +22,48 @@ import type { IServiceProps } from "../Services/Service.base.ts";
 import { ServiceSetting } from "../Services/ServiceSetting";
 import CatalogueImp from "../Services/ServiceCatalogue/Imp/Catalogue.imp.ts";
 import { ServiceCatalogue } from "../Services/ServiceCatalogue";
+import { createHmrSingleton } from "./CreateHmrSingleton.ts";
 
-const inf: IServiceProps = { infrastructure: Infrastructure };
+function createServices() {
+	const inf: IServiceProps = { infrastructure: Infrastructure };
 
-const messageImp = new MessageImp(inf, Dictionary);
-const message = new ServiceMessage(messageImp);
+	const messageImp = new MessageImp(inf, Dictionary);
+	const message = new ServiceMessage(messageImp);
 
-const styleImp = new StyleImp(inf, Colors, Fonts, Weights);
-const style = new ServiceStyle(styleImp);
+	const styleImp = new StyleImp(inf, Colors, Fonts, Weights);
+	const style = new ServiceStyle(styleImp);
 
-const routerImp = new RouterImp(inf, Routes, RoutesRole, Path, "CASS");
-const router = new ServiceRouter(routerImp);
+	const routerImp = new RouterImp(inf, Routes, RoutesRole, Path, "CASS");
+	const router = new ServiceRouter(routerImp);
 
-const basketImp = new BasketImp(inf);
-const basket = new ServiceBasket(basketImp);
+	const basketImp = new BasketImp(inf);
+	const basket = new ServiceBasket(basketImp);
 
-const settingImp = new SettingImp(inf);
-const setting = new ServiceSetting(settingImp);
+	const settingImp = new SettingImp(inf);
+	const setting = new ServiceSetting(settingImp);
 
-const paymentImp = new PaymentImp(inf);
-const payment = new ServicePayment(paymentImp);
+	const paymentImp = new PaymentImp(inf);
+	const payment = new ServicePayment(paymentImp);
 
-const orderImp = new OrderImp(inf);
-const order = new ServiceOrder(orderImp);
+	const orderImp = new OrderImp(inf);
+	const order = new ServiceOrder(orderImp);
 
-const catalogueImp = new CatalogueImp(inf);
-const catalogue = new ServiceCatalogue(catalogueImp);
+	const catalogueImp = new CatalogueImp(inf);
+	const catalogue = new ServiceCatalogue(catalogueImp);
 
-const service = new DI<ProjectInterface.TModuleService>();
+	const service = new DI<ProjectInterface.TModuleService>();
 
-service.use("Message", message);
-service.use("Style", style);
-service.use("Router", router);
-service.use("Basket", basket);
-service.use("Setting", setting);
-service.use("Payment", payment);
-service.use("Order", order);
-service.use("Catalogue", catalogue);
+	service.use("Message", message);
+	service.use("Style", style);
+	service.use("Router", router);
+	service.use("Basket", basket);
+	service.use("Setting", setting);
+	service.use("Payment", payment);
+	service.use("Order", order);
+	service.use("Catalogue", catalogue);
 
-export default service.get;
+	return service.get;
+}
+
+const services = createHmrSingleton("services", createServices);
+export default services;
