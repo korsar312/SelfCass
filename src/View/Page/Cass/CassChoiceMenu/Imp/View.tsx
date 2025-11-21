@@ -8,7 +8,7 @@ import AtomPaperCard from "../../../../Components/1.Atoms/AtomPaper/Variables/At
 import TemplateCardItem from "../../../../Components/4.Templates/TemplateCardItem";
 
 const View: NFC<typeof Model> = (props) => {
-	const { imagePath, goMenu, goBasket, goPay, goGame, callWaiter } = props;
+	const { imagePath, goMenu, goBasket, goPay, goGame, callWaiter, products } = props;
 
 	const btnTopRn = (
 		<Grid extStyle={Style.top} item xs={12} sm={12} md={12} xl={12} lg={12}>
@@ -51,8 +51,8 @@ const View: NFC<typeof Model> = (props) => {
 			</AtomPaperCard>
 
 			<div css={Style.bot}>
-				{[1, 2].map(() => (
-					<TemplateCardItem />
+				{products.map((id) => (
+					<TemplateCardItem itemId={id} />
 				))}
 			</div>
 		</div>

@@ -12,7 +12,13 @@ class Style extends Styles {
 	`;
 
 	public bot: CSSObject = css`
-		display: flex;
+		${this.mixins.noScrollBar};
+		${this.mixins.flexCenter};
+		justify-content: space-between;
+		gap: ${this.size(4)};
+		flex-wrap: wrap;
+		overflow: auto;
+		flex: 1;
 	`;
 }
 

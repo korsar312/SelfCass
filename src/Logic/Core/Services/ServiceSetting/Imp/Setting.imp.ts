@@ -32,7 +32,7 @@ class SettingImp extends ServiceBase<Interface.Store> implements Interface.IAdap
 
 	//==============================================================================================
 
-	async requestBusiness(): Promise<boolean> {
+	async initBusiness(): Promise<boolean> {
 		try {
 			const res = await this.API.Links.GET_BUSINESS_INFO();
 			this.store = this.setBusinessInfo(this.store, res);

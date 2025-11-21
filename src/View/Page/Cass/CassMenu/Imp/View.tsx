@@ -6,21 +6,21 @@ import TemplateCardItem from "../../../../Components/4.Templates/TemplateCardIte
 import AtomButtonLabel from "../../../../Components/1.Atoms/AtomButton/Variables/AtomButtonLabel";
 
 const View: NFC<typeof Model> = (props) => {
-	const {} = props;
+	const { products } = props;
 
 	return (
 		<div css={Style.wrapper}>
 			<AtomInput iconsLeft={"Search"} placeholder={"SEARCHING"} initText={{ text: "" }} />
 
 			<div css={Style.category}>
-				{[1, 3, 3, 3, 3].map(() => (
-					<AtomButtonLabel text={"CART"} />
+				{[1, 2, 3, 4, 5].map((id) => (
+					<AtomButtonLabel key={id} text={"CART"} />
 				))}
 			</div>
 
 			<div css={Style.cards}>
-				{[1, 3, 1, 3, 1, 3, 4].map(() => (
-					<TemplateCardItem />
+				{products.map((id) => (
+					<TemplateCardItem key={id} itemId={id} />
 				))}
 			</div>
 		</div>

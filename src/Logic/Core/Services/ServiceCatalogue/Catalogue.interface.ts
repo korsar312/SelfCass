@@ -1,19 +1,16 @@
 export namespace CatalogueInterface {
 	export interface IAdapter {
-		initCategory: () => Promise<void>;
-		initGoods: () => Promise<void>;
+		initCategory(): Promise<void>;
+		initGoods(): Promise<void>;
+		getCategoryIdList(): string[];
+		getGoodsIdList(): string[];
+		getPrice(itemId: string): number;
+		getImage(itemId: string): string;
 	}
 
-	export type TCategory = {
-		id: number;
-		name: string;
-	};
-
-	export type TWords = {};
+	export type TCategory = {};
 
 	export type TItem = {
-		id: string;
-		name: string;
 		image: string;
 		price: number;
 		categoryInclude: number;
@@ -21,11 +18,13 @@ export namespace CatalogueInterface {
 		kKal?: number;
 		weight?: number;
 		craftTime?: number;
-		description?: string;
 	};
 
+	export type TCategoryMap = Record<string, TCategory>;
+	export type TItemMap = Record<string, TItem>;
+
 	export interface Store {
-		category: TCategory[];
-		goods: TItem[];
+		category: TCategoryMap;
+		goods: TItemMap;
 	}
 }

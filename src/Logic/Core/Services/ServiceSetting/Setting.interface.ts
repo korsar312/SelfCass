@@ -1,6 +1,6 @@
 export namespace SettingInterface {
 	export interface IAdapter {
-		requestBusiness(): Promise<boolean>;
+		initBusiness(): Promise<boolean>;
 		getLogo(): string | undefined;
 		getName(): string | undefined;
 		loginQr(token: string): Promise<boolean>;

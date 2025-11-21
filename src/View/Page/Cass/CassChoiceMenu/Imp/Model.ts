@@ -6,6 +6,7 @@ function Model(props: IComponent) {
 
 	const title = Act.Setting.getName();
 	const imagePath = Act.Setting.getLogo();
+	const products = Act.Catalogue.getGoodsIdList();
 
 	function goMenu() {
 		Act.Router.goTo("CASS_MENU");
@@ -27,7 +28,7 @@ function Model(props: IComponent) {
 		Act.Order.callWaiter();
 	}
 
-	return { title, imagePath, goMenu, goBasket, goPay, goGame, callWaiter };
+	return { title, imagePath, goMenu, goBasket, goPay, goGame, callWaiter, products };
 }
 
 export default Model;

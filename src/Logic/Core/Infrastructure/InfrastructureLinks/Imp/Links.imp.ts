@@ -1,6 +1,7 @@
 import type { LinksInterface as Interface } from "../Links.interface";
 import type { SettingInterface } from "../../../Services/ServiceSetting/Setting.interface.ts";
 import type { CatalogueInterface } from "../../../Services/ServiceCatalogue/Catalogue.interface.ts";
+import type { MessageInterface } from "../../../Services/ServiceMessage/Message.interface.ts";
 
 class LinksImp implements Interface.IAdapter {
 	private readonly links: Interface.TLinksList;
@@ -59,12 +60,44 @@ class LinksImp implements Interface.IAdapter {
 		return this.request<string>({ link: "SEND_ORDER", method: "GET" }, "ссылка");
 	}
 	public GET_CATEGORY_LIST() {
-		const res: CatalogueInterface.TCategory[] = [{ id: 1, name: "Булки" }];
-		return this.request<CatalogueInterface.TCategory[]>({ link: "GET_CATEGORY_LIST", method: "GET" }, res);
+		const res: CatalogueInterface.TCategoryMap = {
+			catalog_1: {},
+			catalog_2: {},
+			catalog_3: {},
+			catalog_4: {},
+		};
+		return this.request<CatalogueInterface.TCategoryMap>({ link: "GET_CATEGORY_LIST", method: "GET" }, res);
 	}
 	public GET_ALL_GOODS() {
-		const res: CatalogueInterface.TItem[] = [];
-		return this.request<CatalogueInterface.TItem[]>({ link: "GET_ALL_GOODS", method: "GET" }, res);
+		const res: CatalogueInterface.TItemMap = {
+			goods_1: { image: "/Test/img_1.png", price: 4666, categoryInclude: 1, tags: [] },
+			goods_2: { image: "/Test/img_2.png", price: 4521, categoryInclude: 1, tags: [] },
+			goods_3: { image: "/Test/img_3.png", price: 4234, categoryInclude: 1, tags: [] },
+			goods_4: { image: "/Test/img_4.png", price: 43436, categoryInclude: 1, tags: [] },
+			goods_5: { image: "/Test/img_5.png", price: 5354, categoryInclude: 1, tags: [] },
+			goods_6: { image: "/Test/img_1.png", price: 4534, categoryInclude: 1, tags: [] },
+			goods_7: { image: "/Test/img_2.png", price: 1244, categoryInclude: 1, tags: [] },
+			goods_8: { image: "/Test/img_3.png", price: 5434, categoryInclude: 1, tags: [] },
+		};
+		return this.request<CatalogueInterface.TItemMap>({ link: "GET_ALL_GOODS", method: "GET" }, res);
+	}
+	public GET_PRODUCT_TEXT() {
+		const res: MessageInterface.TGoodsInfo = {
+			goods_1: { dict: { RU: "SD" }, name: { RU: "SD" } },
+			goods_2: { dict: { RU: "SD" }, name: { RU: "SD" } },
+			goods_3: { dict: { RU: "SD" }, name: { RU: "SD" } },
+			goods_4: { dict: { RU: "SD" }, name: { RU: "SD" } },
+			goods_5: { dict: { RU: "SD" }, name: { RU: "SD" } },
+			goods_6: { dict: { RU: "SD" }, name: { RU: "SD" } },
+			goods_7: { dict: { RU: "SD" }, name: { RU: "SD" } },
+			goods_8: { dict: { RU: "SD" }, name: { RU: "SD" } },
+			catalog_1: { name: { RU: "SD" } },
+			catalog_2: { name: { RU: "SD" } },
+			catalog_3: { name: { RU: "SD" } },
+			catalog_4: { name: { RU: "SD" } },
+		};
+
+		return this.request<MessageInterface.TGoodsInfo>({ link: "GET_ALL_GOODS", method: "GET" }, res);
 	}
 }
 

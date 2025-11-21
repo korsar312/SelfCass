@@ -14,7 +14,10 @@ function Model(props: IComponent) {
 	}, [currentRole]);
 
 	function initRole() {
-		Act.Setting.requestBusiness();
+		Act.Setting.initBusiness();
+		Act.Message.initGoodsWord();
+		Act.Catalogue.initCategory();
+		Act.Catalogue.initGoods();
 	}
 
 	return {};
